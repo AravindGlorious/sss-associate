@@ -102,12 +102,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Why is an independent land survey necessary before buying agricultural or residential land?',
-        answer: 'Physical boundaries frequently differ from registered deeds due to encroachments or incorrect past subdivisions. Our survey guarantees you pay only for the exact ground acreage available.'
-      },
-      {
-        question: 'Do you assist with government Taluk survey and patta subdivision in Tamil Nadu?',
-        answer: 'Yes, we assist landowners in preparing application documents, boundary demarcation sketches, and liaising with revenue surveyors for official patta sub-divisions.'
+        question:
+      'Why is land survey and boundary verification important before buying property?',
+    answer:
+      'A land survey helps compare the physical property boundaries and measurements with available title documents, FMB sketches, and survey records. This can help identify potential boundary discrepancies before purchasing agricultural, residential, or commercial property.'
+  },
+  {
+    question:
+      'Do you provide land survey and boundary verification services across Tamil Nadu?',
+    answer:
+      'Yes. SSS Associate provides land survey and boundary verification support across Tamil Nadu for property owners, buyers, sellers, businesses, builders, and developers, subject to the availability of the required survey and site-related services.'
+  },
+  {
+    question:
+      'What documents are required for land survey and FMB verification?',
+    answer:
+      'Commonly required documents include the registered sale deed or title deed, Patta or Computer Patta, Chitta, FMB sketch if available, Encumbrance Certificate, and previous survey or property records. The exact documents may vary depending on the property and type of survey.'
+  },
+  {
+    question:
+      'Can you help identify boundary discrepancies between the FMB sketch and the actual property?',
+    answer:
+      'Yes. Available FMB sketches, survey records, and property documents can be compared with on-ground measurements to identify apparent differences in dimensions, boundaries, survey numbers, or subdivision details. Further official confirmation may be required from the concerned revenue or survey authorities.'
+  },
+  {
+    question:
+      'Do you assist with patta subdivision and revenue survey-related applications?',
+    answer:
+      'Yes. SSS Associate can assist with document preparation and guidance for survey-related applications, boundary demarcation, patta subdivision, and related revenue processes in Tamil Nadu. Official measurements, approvals, and revenue decisions remain subject to the concerned government authorities.'
       }
     ]
   },
