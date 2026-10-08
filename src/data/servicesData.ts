@@ -434,7 +434,6 @@ export const SERVICES_DATA: ServiceItem[] = [
       answer:
         'Yes. We can assist with coordinating the collection and review of foreclosure statements, repayment requirements, NOC-related documentation and collateral document release procedures. The actual closure and release of documents remain subject to the existing lender’s procedures.'
     }
-      }
     ]
   },
   {
