@@ -706,7 +706,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     },
     {
       question:
-        'What is the difference between physical possession and symbolic possession in a bank auction?',
+        'What is the difference between physical possession and symbolic possession in a bank auctio?',
       answer:
         'Physical possession generally means the secured creditor has taken actual possession of the property, while symbolic possession refers to possession being taken through the applicable legal process without the property necessarily being physically vacated. Buyers should carefully review the possession status and applicable auction conditions before bidding.'
     },
