@@ -433,12 +433,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Do you help verify if a property has pending bank mortgages or litigations in Thanjavur district?',
-        answer: 'Yes, we conduct comprehensive litigation search in relevant courts and sub-registrar books across Papanasam, Kumbakonam, Thanjavur, and all Tamil Nadu districts to guarantee zero hidden encumbrances.'
-      },
-      {
-        question: 'What regions do you cover for real estate and builder services?',
-        answer: 'We cover prime commercial, residential, and agricultural corridors throughout Papanasam, Thanjavur, and Tamil Nadu.'
+         question:
+      'Can SSS Associate help review property documents before a sale or purchase in Tamil Nadu?',
+    answer:
+      'Yes. SSS Associate provides property documentation and transaction support across Tamil Nadu. Depending on the engagement, the review may include title documents, parent documents, Encumbrance Certificate, Patta and Chitta records, survey documents, approved plans and other relevant property records.'
+  },
+  {
+    question:
+      'Can you help identify mortgages, encumbrances or other issues affecting a property?',
+    answer:
+      'Yes. Available property and registration records can be reviewed to identify disclosed mortgages, encumbrances, documentation discrepancies and other matters that may require further legal verification. The scope of verification depends on the property and records available for review.'
+  },
+  {
+    question:
+      'Do you assist with property sales, builder transactions and development-related documentation?',
+    answer:
+      'Yes. We assist property owners, buyers, businesses, builders and developers with transaction documentation, property due diligence, sale-related agreements, builder coordination and registration-related guidance, depending on the requirements of the engagement.'
+  },
+  {
+    question:
+      'What documents are generally required for property due diligence?',
+    answer:
+      'Common documents include the current sale deed, parent or previous title documents, Encumbrance Certificate, Patta or Chitta records, survey or FMB documents, property tax records, approved plans and other relevant property documents. The exact requirements vary according to the property and transaction.'
+  },
+  {
+    question:
+      'Does SSS Associate provide real estate and asset transaction support across Tamil Nadu?',
+    answer:
+      'Yes. SSS Associate provides real estate, property documentation and asset transaction advisory support across Tamil Nadu, subject to the nature of the property, transaction and professional services required.'
       }
     ]
   },
@@ -481,12 +503,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Is private finance documentation legally binding?',
-        answer: 'Yes. All private financing facilitated through SSS Associate is documented via formal legal agreements, demand promissory notes, and registered security deeds under prevailing Indian contract laws.'
-      },
-      {
-        question: 'Can private finance be converted into a regular bank loan later?',
-        answer: 'Yes. We specialize in loan takeover solutions, allowing you to pay off short-term private funds once regular bank credit or mortgage loans are sanctioned.'
+         question:
+      'What is private finance and structured funding for a business?',
+    answer:
+      'Private finance generally refers to funding arranged outside conventional bank lending, while structured funding involves designing a financing arrangement around the borrower’s requirements, repayment capacity, available security and applicable legal and financial considerations.'
+  },
+  {
+    question:
+      'Can SSS Associate assist businesses with private funding requirements?',
+    answer:
+      'SSS Associate can provide advisory and coordination support for eligible business funding requirements, including assessment of funding needs, financial information, documentation, security-related records and repayment considerations. Any funding arrangement remains subject to the applicable legal, regulatory and commercial requirements.'
+  },
+  {
+    question:
+      'What documents are generally required for structured or private funding?',
+    answer:
+      'Depending on the proposed arrangement, documents may include promoter KYC, business registration records, bank statements, financial statements, cash-flow projections, details of the proposed security or collateral, and other documents required to assess the transaction.'
+  },
+  {
+    question:
+      'Can private funding be used as temporary business or bridge finance?',
+    answer:
+      'Subject to the applicable legal and commercial terms, structured funding may be considered for specific short-term business requirements or temporary funding gaps. The suitability of such funding depends on the business’s cash flow, repayment capacity, security and overall financial position.'
+  },
+  {
+    question:
+      'Can structured private funding later be refinanced through a bank or institutional lender?',
+    answer:
+      'In some circumstances, an existing funding arrangement may be refinanced or replaced through bank or institutional finance, subject to the borrower’s eligibility, credit profile, documentation, security, lender policies and applicable repayment or settlement terms.'
       }
     ]
   },
