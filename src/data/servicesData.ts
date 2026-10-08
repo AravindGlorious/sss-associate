@@ -194,13 +194,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'How do you ensure our financial data remains confidential?',
-        answer: 'We maintain strict non-disclosure policies. All financial statements and vouchers are processed through secure, encrypted protocols with zero third-party leakage.'
-      },
-      {
-        question: 'Can you bring past unfiled or delayed accounts up to date?',
-        answer: 'Yes, our team specializes in backlog accounting, updating pending multi-year ledgers, and regularizing overdue tax filings.'
-      }
+        question:
+        'What accounting and bookkeeping services does SSS Associate provide?',
+      answer:
+        'SSS Associate provides bookkeeping and accounts management support including daybook and ledger maintenance, bank reconciliation, accounts receivable and payable tracking, GST and TDS compliance support, trial balance preparation, Profit & Loss statements, balance sheet preparation and periodic financial reporting.'
+    },
+    {
+      question:
+        'Can SSS Associate handle pending or incomplete business accounts?',
+      answer:
+        'Yes. We can review available financial records and assist with bringing incomplete or pending bookkeeping records up to date. The scope and time required depend on the volume of transactions, period involved and availability of supporting documents.'
+    },
+    {
+      question:
+        'Do you provide GST and TDS filing support?',
+      answer:
+        'Yes. We provide GST and TDS compliance support, including preparation and filing assistance for applicable returns and related records. The specific filing requirements depend on the business, registration status and applicable tax rules.'
+    },
+    {
+      question:
+        'Can you maintain accounts for MSMEs on a monthly basis?',
+      answer:
+        'Yes. SSS Associate provides ongoing accounting and bookkeeping support for eligible MSMEs and businesses based on their transaction volume, accounting requirements and agreed service scope.'
+    },
+    {
+      question:
+        'Can properly maintained accounts help with business loan applications?',
+      answer:
+        'Yes. Up-to-date financial records, financial statements, bank records and tax compliance documents can help businesses prepare documentation commonly requested by lenders. Loan eligibility and approval remain subject to the lender’s assessment and applicable requirements.'
     ]
   },
   {
@@ -384,12 +405,35 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Can a loan with delayed EMIs be taken over by another bank?',
-        answer: 'It depends on the severity of the delay. We review your credit history and present restructured financial plans to specialized lenders where feasible.'
-      },
-      {
-        question: 'How much interest can I save through a balance transfer?',
-        answer: 'Depending on the current lender (often NBFCs at 14%-18%), moving to institutional banks can lower rates by 2% to 6%, saving lakhs over the loan tenure.'
+        question:
+        'Can an existing loan be transferred to another bank or financial institution?',
+      answer:
+        'In eligible cases, an existing loan may be considered for balance transfer or takeover by another lender. Eligibility depends on factors such as credit history, repayment track record, income or business performance, collateral, outstanding liability and the prospective lender’s policies.'
+    },
+    {
+      question:
+        'Can a borrower with delayed EMI payments apply for a loan takeover?',
+      answer:
+        'A history of delayed payments can affect eligibility for a takeover or refinancing facility. SSS Associate can review the available loan and financial information and explain potential options, but final eligibility and approval are determined by the prospective lender.'
+    },
+    {
+      question:
+        'Can loan restructuring reduce the monthly EMI?',
+      answer:
+        'Depending on the lender and borrower’s circumstances, restructuring may involve changes to repayment tenure, instalment structure or other applicable terms. Any change in EMI or total repayment cost depends on the revised terms approved by the lender.'
+    },
+    {
+      question:
+        'What documents are required for a loan takeover?',
+      answer:
+        'Common documents include the existing loan sanction letter, outstanding or foreclosure statement, repayment history, bank statements, financial statements, ITR and GST records where applicable, KYC documents and collateral or property documents. The exact requirements vary by lender and loan type.'
+    },
+    {
+      question:
+        'Can SSS Associate assist with foreclosure and NOC documentation?',
+      answer:
+        'Yes. We can assist with coordinating the collection and review of foreclosure statements, repayment requirements, NOC-related documentation and collateral document release procedures. The actual closure and release of documents remain subject to the existing lender’s procedures.'
+    }
       }
     ]
   },
@@ -573,12 +617,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Can SSS Associate negotiate an OTS if the bank has already issued a Section 13(2) notice?',
-        answer: 'Yes. In fact, receiving a SARFAESI Section 13(2) or 13(4) notice is the ideal window to submit a structured OTS representation before the property goes for auction.'
-      },
-      {
-        question: 'Does an OTS guarantee release of our original property deeds?',
-        answer: 'Yes. Once the agreed settlement sum is remitted according to the bank’s OTS sanction letter, the bank is legally obligated to return all original mortgaged documents and issue a No Dues Certificate.'
+        question:
+        'Can SSS Associate assist with an OTS after a bank has issued a Section 13(2) notice?',
+      answer:
+        'Yes. Subject to the circumstances of the loan account, SSS Associate can assist with reviewing the available notices and financial records and preparing an appropriate settlement or OTS representation. Acceptance of any settlement proposal remains at the discretion of the concerned lender and is subject to applicable legal and regulatory requirements.'
+    },
+    {
+      question:
+        'Does receiving a SARFAESI notice automatically mean that an OTS will be accepted?',
+      answer:
+        'No. A SARFAESI notice does not create an automatic right to an OTS. A borrower may submit a settlement proposal where appropriate, but the lender will independently evaluate the proposal, outstanding dues, security, repayment circumstances and applicable policies before deciding.'
+    },
+    {
+      question:
+        'Can an OTS reduce the total amount payable on a loan?',
+      answer:
+        'An approved OTS may provide revised settlement terms compared with the outstanding claim, depending on the lender’s assessment and applicable policy. The actual settlement amount, waiver and payment conditions are determined by the concerned lender and must be documented in the approved settlement terms.'
+    },
+    {
+      question:
+        'What documents are required to prepare an OTS proposal?',
+      answer:
+        'The documents generally include the loan account statement, sanction documents, demand or recovery notices where applicable, borrower KYC, financial statements, bank statements and documents supporting the borrower’s financial circumstances. Additional documents may be requested depending on the lender and account.'
+    },
+    {
+      question:
+        'What happens after an OTS proposal is approved?',
+      answer:
+        'After approval, the borrower must comply with the payment schedule and other conditions specified in the lender’s settlement letter. Once the agreed obligations are completed, the borrower can request the applicable No-Dues Certificate, closure documentation and release of securities or documents, subject to the lender’s procedures and terms.'
       }
     ]
   },
