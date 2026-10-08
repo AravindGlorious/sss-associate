@@ -54,12 +54,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Does SSS Associate provide legal opinion for property registration in Papanasam and Thanjavur?',
-        answer: 'Yes, we conduct comprehensive 30+ year parent document title verification, encumbrance certificate (EC) scrutiny, patta/chitta check, and revenue record verification across Papanasam, Thanjavur, Kumbakonam, and all Tamil Nadu sub-registrar offices.'
-      },
-      {
-        question: 'Can you draft custom vendor and commercial contracts for MSMEs?',
-        answer: 'Absolutely. We specialize in drafting risk-shielded vendor contracts, partnership agreements, non-compete clauses, and service level agreements (SLAs).'
+        question:
+      'Does SSS Associate provide legal opinions for property registration in Tamil Nadu?',
+    answer:
+      'Yes. SSS Associate provides professional legal opinion and property document review services across Tamil Nadu. The review may include title documents, parent documents, Encumbrance Certificate (EC), Patta and Chitta records, survey records, and other relevant property documentation, depending on the nature of the transaction.'
+  },
+  {
+    question:
+      'Can SSS Associate review property documents before a purchase or registration?',
+    answer:
+      'Yes. We assist property owners, buyers, and businesses with the review of available title and property records to identify documentation discrepancies, potential encumbrances, ownership-related concerns, and other matters that may require further legal attention before proceeding with a transaction.'
+  },
+  {
+    question:
+      'Does SSS Associate provide commercial contract drafting services for businesses and MSMEs?',
+    answer:
+      'Yes. We assist businesses and MSMEs with the preparation and review of commercial documentation, including vendor agreements, service agreements, partnership-related documents, confidentiality provisions, and other business contracts based on the specific requirements of the engagement.'
+  },
+  {
+    question:
+      'What documents are generally required for a property legal opinion?',
+    answer:
+      'Depending on the property and transaction, the review may require the current title deed, parent documents, Encumbrance Certificate, Patta or Chitta records, survey or FMB documents where applicable, and other supporting property records. The specific documentation required will depend on the scope of the legal review.'
+  },
+  {
+    question:
+      'Why is legal review important before purchasing or registering a property?',
+    answer:
+      'A legal review can help assess the available title and property documentation and identify matters relating to ownership history, encumbrances, survey details, revenue records, or documentation inconsistencies. Conducting this review before a transaction enables the parties to make informed decisions and address identified issues where appropriate.'
       }
     ]
   },
@@ -511,12 +533,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Are bank auction properties 100% safe to purchase?',
-        answer: 'They are exceptionally profitable, but only if thorough due diligence is done prior to bidding. Banks sell properties on an "As is where is and Whatever there is" basis, meaning unverified dues become the buyer’s responsibility. SSS Associate ensures you bid only on clean, risk-free assets.'
-      },
-      {
-        question: 'What happens if the borrower obtains a stay order from DRT after we win the bid?',
-        answer: 'We verify pending DRT (Debts Recovery Tribunal) filings before you bid. If an unforeseen dispute arises, we guide you on refund recovery procedures under SARFAESI rules.'
+        question:
+        'Are SARFAESI bank auction properties safe to purchase?',
+      answer:
+        'The suitability and risks of a bank auction property depend on its individual title, possession status, encumbrances, litigation, outstanding dues, auction terms and other circumstances. A detailed review of the available records and auction conditions before bidding can help buyers make a more informed decision.'
+    },
+    {
+      question:
+        'What should I check before bidding for a bank auction property?',
+      answer:
+        'Before bidding, buyers should review the auction notice, reserve price, title and encumbrance information, possession status, available court or tribunal information, outstanding dues, property access, applicable auction terms and the bank’s stated conditions. Physical verification and professional due diligence may also be appropriate depending on the property.'
+    },
+    {
+      question:
+        'Does SSS Associate provide SARFAESI bank auction support across Tamil Nadu?',
+      answer:
+        'Yes. SSS Associate provides bank auction advisory and due diligence support across Tamil Nadu, subject to the availability of the relevant auction documents, property records and required professional services.'
+    },
+    {
+      question:
+        'What is the difference between physical possession and symbolic possession in a bank auction?',
+      answer:
+        'Physical possession generally means the secured creditor has taken actual possession of the property, while symbolic possession refers to possession being taken through the applicable legal process without the property necessarily being physically vacated. Buyers should carefully review the possession status and applicable auction conditions before bidding.'
+    },
+    {
+      question:
+        'Can you assist with EMD, e-auction registration and post-auction registration?',
+      answer:
+        'Yes. SSS Associate can provide guidance on the documentation and procedural aspects of EMD submission, e-auction registration, bidding requirements, Sale Certificate-related procedures and subsequent property registration. Specific requirements, timelines and statutory payments are determined by the concerned bank, auction platform and applicable authorities.'
       }
     ]
   }
