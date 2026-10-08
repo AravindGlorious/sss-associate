@@ -23,7 +23,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: '⚖️',
     category: 'Legal',
     detailedOverview:
-      'SSS Associate provides comprehensive legal opinion and advisory services tailored for MSMEs, commercial enterprises, and property owners in Papanasam, Thanjavur, and across Tamil Nadu. We guide you through title scrutiny, parent document search reports, commercial contract drafting, legal notices, and compliance checks under Indian civil and revenue laws.',
+      'SSS Associate provides professional legal opinion and advisory services for MSMEs, businesses, property owners, and individuals across Tamil Nadu. We assist with title scrutiny, parent document verification, property-related legal review, commercial agreements, legal notices, documentation, and compliance matters, helping clients understand legal risks and make informed decisions.',
     problemSolved:
       'Prevents legal vulnerabilities in property transactions and business contracts, protects commercial assets, ensures regulatory compliance, and provides strategic legal defense during contractual or financial disputes.',
     scopeOfWork: [
