@@ -1,10 +1,13 @@
 export interface ServiceItem {
   id: string;
+  slug: string;
   title: string;
   shortDesc: string;
   badge: string;
   icon: string;
   category: 'Legal' | 'Finance' | 'Banking' | 'Assets';
+  metaTitle: string;
+  metaDescription: string;
   detailedOverview: string;
   problemSolved: string;
   scopeOfWork: string[];
@@ -16,14 +19,18 @@ export interface ServiceItem {
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'legal-advisory',
+    id: 'legal-opinion',
+    slug: 'legal-opinion',
     title: 'Legal Opinion & Advisory Services',
+    metaTitle: 'Legal Opinion & Advisory Services in Papanasam, Tamil Nadu | SSS Associate',
+    metaDescription:
+      'Expert legal opinion, 30+ year parent document scrutiny, property title verification & contract drafting by SSS Associate in Papanasam, Thanjavur & Tamil Nadu. Call 9385954338.',
     shortDesc: 'Expert legal opinion, documentation review, corporate compliance, and dispute resolution.',
     badge: 'Legal & Compliance',
     icon: '⚖️',
     category: 'Legal',
     detailedOverview:
-      'SSS Associate provides professional legal opinion and advisory services for MSMEs, businesses, property owners, and individuals across Tamil Nadu. We assist with title scrutiny, parent document verification, property-related legal review, commercial agreements, legal notices, documentation, and compliance matters, helping clients understand legal risks and make informed decisions.',
+      'SSS Associate provides comprehensive legal opinion and advisory services tailored for MSMEs, commercial enterprises, and property owners in Papanasam, Thanjavur, and across Tamil Nadu. We guide you through title scrutiny, parent document search reports, commercial contract drafting, legal notices, and compliance checks under Indian civil and revenue laws.',
     problemSolved:
       'Prevents legal vulnerabilities in property transactions and business contracts, protects commercial assets, ensures regulatory compliance, and provides strategic legal defense during contractual or financial disputes.',
     scopeOfWork: [
@@ -54,46 +61,28 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-      'Does SSS Associate provide legal opinions for property registration in Tamil Nadu?',
-    answer:
-      'Yes. SSS Associate provides professional legal opinion and property document review services across Tamil Nadu. The review may include title documents, parent documents, Encumbrance Certificate (EC), Patta and Chitta records, survey records, and other relevant property documentation, depending on the nature of the transaction.'
-  },
-  {
-    question:
-      'Can SSS Associate review property documents before a purchase or registration?',
-    answer:
-      'Yes. We assist property owners, buyers, and businesses with the review of available title and property records to identify documentation discrepancies, potential encumbrances, ownership-related concerns, and other matters that may require further legal attention before proceeding with a transaction.'
-  },
-  {
-    question:
-      'Does SSS Associate provide commercial contract drafting services for businesses and MSMEs?',
-    answer:
-      'Yes. We assist businesses and MSMEs with the preparation and review of commercial documentation, including vendor agreements, service agreements, partnership-related documents, confidentiality provisions, and other business contracts based on the specific requirements of the engagement.'
-  },
-  {
-    question:
-      'What documents are generally required for a property legal opinion?',
-    answer:
-      'Depending on the property and transaction, the review may require the current title deed, parent documents, Encumbrance Certificate, Patta or Chitta records, survey or FMB documents where applicable, and other supporting property records. The specific documentation required will depend on the scope of the legal review.'
-  },
-  {
-    question:
-      'Why is legal review important before purchasing or registering a property?',
-    answer:
-      'A legal review can help assess the available title and property documentation and identify matters relating to ownership history, encumbrances, survey details, revenue records, or documentation inconsistencies. Conducting this review before a transaction enables the parties to make informed decisions and address identified issues where appropriate.'
+        question: 'Does SSS Associate provide legal opinion for property registration in Papanasam and Thanjavur?',
+        answer: 'Yes, we conduct comprehensive 30+ year parent document title verification, encumbrance certificate (EC) scrutiny, patta/chitta check, and revenue record verification across Papanasam, Thanjavur, Kumbakonam, and all Tamil Nadu sub-registrar offices.'
+      },
+      {
+        question: 'Can you draft custom vendor and commercial contracts for MSMEs?',
+        answer: 'Absolutely. We specialize in drafting risk-shielded vendor contracts, partnership agreements, non-compete clauses, and service level agreements (SLAs).'
       }
     ]
   },
   {
     id: 'land-survey',
+    slug: 'land-survey',
     title: 'Land Survey & Boundary Verification',
+    metaTitle: 'Land Survey & Boundary Verification in Papanasam, Thanjavur | SSS Associate',
+    metaDescription:
+      'DGPS & Total Station digital land survey, FMB sketch verification, patta boundary demarcation & sub-division in Papanasam, Thanjavur, Tamil Nadu. Call 9385954338.',
     shortDesc: 'Digital DGPS/Total Station land survey, FMB sketch verification, patta boundary demarcation.',
     badge: 'Survey & Revenue',
     icon: '📐',
     category: 'Assets',
     detailedOverview:
-      'SSS Associate provides professional land survey and boundary verification support for property owners, buyers, sellers, developers, and businesses across Tamil Nadu. We assist with land measurement, boundary identification, FMB sketch and survey record verification, revenue document review, property demarcation, and subdivision-related advisory to help clients understand property boundaries and documentation before purchase, development, or sale.',
+      'Accurate land surveying is vital before purchasing, developing, or selling real estate. SSS Associate offers precision land survey, digital demarcation, FMB sketch matching, revenue record verification, and sub-division advisory across Papanasam, Thanjavur, and Tamil Nadu.',
     problemSolved:
       'Resolves boundary disputes, rectifies discrepancies between on-ground physical measurements and registered deed extents, and validates revenue Patta and FMB records before construction or property registration.',
     scopeOfWork: [
@@ -124,40 +113,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-      'Why is land survey and boundary verification important before buying property?',
-    answer:
-      'A land survey helps compare the physical property boundaries and measurements with available title documents, FMB sketches, and survey records. This can help identify potential boundary discrepancies before purchasing agricultural, residential, or commercial property.'
-  },
-  {
-    question:
-      'Do you provide land survey and boundary verification services across Tamil Nadu?',
-    answer:
-      'Yes. SSS Associate provides land survey and boundary verification support across Tamil Nadu for property owners, buyers, sellers, businesses, builders, and developers, subject to the availability of the required survey and site-related services.'
-  },
-  {
-    question:
-      'What documents are required for land survey and FMB verification?',
-    answer:
-      'Commonly required documents include the registered sale deed or title deed, Patta or Computer Patta, Chitta, FMB sketch if available, Encumbrance Certificate, and previous survey or property records. The exact documents may vary depending on the property and type of survey.'
-  },
-  {
-    question:
-      'Can you help identify boundary discrepancies between the FMB sketch and the actual property?',
-    answer:
-      'Yes. Available FMB sketches, survey records, and property documents can be compared with on-ground measurements to identify apparent differences in dimensions, boundaries, survey numbers, or subdivision details. Further official confirmation may be required from the concerned revenue or survey authorities.'
-  },
-  {
-    question:
-      'Do you assist with patta subdivision and revenue survey-related applications?',
-    answer:
-      'Yes. SSS Associate can assist with document preparation and guidance for survey-related applications, boundary demarcation, patta subdivision, and related revenue processes in Tamil Nadu. Official measurements, approvals, and revenue decisions remain subject to the concerned government authorities.'
+        question: 'Why is an independent land survey necessary before buying agricultural or residential land?',
+        answer: 'Physical boundaries frequently differ from registered deeds due to encroachments or incorrect past subdivisions. Our survey guarantees you pay only for the exact ground acreage available.'
+      },
+      {
+        question: 'Do you assist with government Taluk survey and patta subdivision in Tamil Nadu?',
+        answer: 'Yes, we assist landowners in preparing application documents, boundary demarcation sketches, and liaising with revenue surveyors for official patta sub-divisions.'
       }
     ]
   },
   {
     id: 'accounts-management',
+    slug: 'accounts-management',
     title: 'Accounts Management & Bookkeeping',
+    metaTitle: 'Accounts Management & Bookkeeping Services | SSS Associate Tamil Nadu',
+    metaDescription:
+      'Professional bookkeeping, monthly GST return filing, TDS compliance, balance sheet finalization & financial statements in Papanasam, Tamil Nadu. Call 9385954338.',
     shortDesc: 'Meticulous bookkeeping, financial statements, taxation filing, and ledger maintenance.',
     badge: 'Accounting & Tax',
     icon: '📊',
@@ -194,39 +165,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-        'What accounting and bookkeeping services does SSS Associate provide?',
-      answer:
-        'SSS Associate provides bookkeeping and accounts management support including daybook and ledger maintenance, bank reconciliation, accounts receivable and payable tracking, GST and TDS compliance support, trial balance preparation, Profit & Loss statements, balance sheet preparation and periodic financial reporting.'
-    },
-    {
-      question:
-        'Can SSS Associate handle pending or incomplete business accounts?',
-      answer:
-        'Yes. We can review available financial records and assist with bringing incomplete or pending bookkeeping records up to date. The scope and time required depend on the volume of transactions, period involved and availability of supporting documents.'
-    },
-    {
-      question:
-        'Do you provide GST and TDS filing support?',
-      answer:
-        'Yes. We provide GST and TDS compliance support, including preparation and filing assistance for applicable returns and related records. The specific filing requirements depend on the business, registration status and applicable tax rules.'
-    },
-    {
-      question:
-        'Can you maintain accounts for MSMEs on a monthly basis?',
-      answer:
-        'Yes. SSS Associate provides ongoing accounting and bookkeeping support for eligible MSMEs and businesses based on their transaction volume, accounting requirements and agreed service scope.'
-    },
-    {
-      question:
-        'Can properly maintained accounts help with business loan applications?',
-      answer:
-        'Yes. Up-to-date financial records, financial statements, bank records and tax compliance documents can help businesses prepare documentation commonly requested by lenders. Loan eligibility and approval remain subject to the lender’s assessment and applicable requirements.'
+        question: 'How do you ensure our financial data remains confidential?',
+        answer: 'We maintain strict non-disclosure policies. All financial statements and vouchers are processed through secure, encrypted protocols with zero third-party leakage.'
+      },
+      {
+        question: 'Can you bring past unfiled or delayed accounts up to date?',
+        answer: 'Yes, our team specializes in backlog accounting, updating pending multi-year ledgers, and regularizing overdue tax filings.'
+      }
     ]
   },
   {
     id: 'auditing-services',
+    slug: 'auditing-services',
     title: 'Auditing Services & Assurance',
+    metaTitle: 'Auditing Services & Financial Assurance | SSS Associate Papanasam',
+    metaDescription:
+      'Internal audits, statutory compliance audits, stock verification & financial control testing for businesses in Papanasam, Thanjavur, Tamil Nadu. Call 9385954338.',
     shortDesc: 'Internal & external audits ensuring regulatory compliance and complete transparency.',
     badge: 'Audit & Compliance',
     icon: '🔍',
@@ -263,40 +217,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-         question:
-      'What types of auditing services does SSS Associate provide?',
-    answer:
-      'SSS Associate provides audit and assurance support for businesses, MSMEs and organisations, including internal audits, statutory audit preparation and verification, stock and inventory audits, fixed asset verification, compliance reviews, bank-related audit support, and financial discrepancy analysis, depending on the requirements of the engagement.'
-  },
-  {
-    question:
-      'When does a business need a statutory or tax audit?',
-    answer:
-      'The requirement for a statutory or tax audit depends on the applicable law, business structure, turnover or gross receipts, nature of transactions, and other prescribed conditions. SSS Associate can assist businesses in understanding the applicable audit requirements and preparing the relevant financial and accounting records.'
-  },
-  {
-    question:
-      'Can SSS Associate help prepare a business for a bank stock audit?',
-    answer:
-      'Yes. We can assist with pre-audit review of inventory records, stock statements, purchase and sales records, ledger balances, bank statements, and related documentation to help businesses identify discrepancies and improve audit readiness before a bank-conducted stock or concurrent audit.'
-  },
-  {
-    question:
-      'What documents are generally required for an audit?',
-    answer:
-      'Depending on the type and scope of the audit, documents may include financial statements, trial balance, general ledgers, cash and bank records, purchase and sales records, GST and TDS records, inventory registers, fixed asset registers, statutory payment records, and other supporting documents relevant to the engagement.'
-  },
-  {
-    question:
-      'How can an internal audit help improve business financial controls?',
-    answer:
-      'An internal audit can help identify gaps in accounting processes, transaction controls, inventory management, expense approvals, documentation, and financial reporting. The findings can help management strengthen internal controls, reduce operational risks, improve accountability, and support better financial decision-making.'
+        question: 'When is a statutory tax audit mandatory for businesses?',
+        answer: 'Under Section 44AB of the Income Tax Act, businesses with turnover exceeding the statutory threshold (₹1 crore to ₹10 crores depending on digital transaction percentage) require mandatory audit.'
+      },
+      {
+        question: 'Can SSS Associate help prepare our company before a bank stock audit?',
+        answer: 'Yes, we perform pre-audit stock checks and ledger reconciliations to ensure smooth passing of bank-mandated audits.'
       }
     ]
   },
   {
-    id: 'loan-assistance',
-    title: 'Loan Assistance & Funding Facilitation',
+    id: 'loan-facilitation',
+    slug: 'loan-facilitation',
+    title: 'Loan Facilitation & Bank Loans',
+    metaTitle: 'Bank Loan Facilitation & MSME Funding in Tamil Nadu | SSS Associate',
+    metaDescription:
+      'MSME business loans, mortgage loans (LAP), CGTMSE funding, working capital CC/OD limits & CMA project reports in Tamil Nadu. Call 9385954338.',
     shortDesc: 'MSME loans, business funding, mortgage loans, and working capital advisory.',
     badge: 'Funding & Banking',
     icon: '💳',
@@ -334,40 +270,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-      'What types of business and MSME loans does SSS Associate assist with?',
-    answer:
-      'SSS Associate assists eligible businesses and MSMEs with various funding requirements, including business loans, working capital facilities, Cash Credit (CC), Overdraft (OD), Term Loans, Machinery Loans, Loan Against Property (LAP), and other suitable funding options based on the applicant’s financial profile and lender requirements.'
-  },
-  {
-    question:
-      'Can SSS Associate help new businesses and startups apply for business funding?',
-    answer:
-      'Yes. We can assist eligible new businesses and startups with funding documentation, project reports, financial projections, and guidance on applicable government-backed or institutional financing schemes. Final eligibility, sanction and funding decisions are subject to the concerned lender and applicable scheme conditions.'
-  },
-  {
-    question:
-      'What documents are generally required for a business or MSME loan?',
-    answer:
-      'Common documents may include promoter KYC, business registration documents, GST and Udyam registration where applicable, income tax returns, financial statements, bank statements, business or project reports, and property documents for secured funding. The exact requirements vary by lender, loan type and applicant profile.'
-  },
-  {
-    question:
-      'Can SSS Associate prepare CMA data and project reports for loan applications?',
-    answer:
-      'Yes. We assist eligible businesses with the preparation and presentation of CMA data, project reports, financial projections and supporting documentation required for certain business and working capital loan applications. The final format and requirements depend on the concerned lender.'
-  },
-  {
-    question:
-      'Can you assist if my previous loan application was rejected by a bank?',
-    answer:
-      'Yes. We can review the available application information, financial records, credit profile and documentation to identify possible gaps or concerns. Based on the assessment, we can guide you on improving the loan proposal and documentation before approaching a suitable lender. Loan approval remains subject to the lender’s independent credit assessment.'
+        question: 'Can new MSME startups apply for funding through SSS Associate?',
+        answer: 'Yes, we assist eligible new startups with project reports under government schemes like CGTMSE and PMEGP subject to bank eligibility guidelines.'
+      },
+      {
+        question: 'What is the standard turnaround time for loan processing?',
+        answer: 'With complete and verified documentation, initial sanction approvals typically take 7 to 14 business days.'
       }
     ]
   },
   {
     id: 'takeover-solutions',
+    slug: 'takeover-solutions',
     title: 'Loan Takeover & Debt Restructuring',
+    metaTitle: 'Loan Takeover & Debt Restructuring Solutions | SSS Associate Tamil Nadu',
+    metaDescription:
+      'Strategic bank balance transfer, debt takeover, interest rate reduction & loan restructuring for commercial borrowers in Tamil Nadu. Call 9385954338.',
     shortDesc: 'Strategic debt takeover, balance transfer management, and loan restructuring.',
     badge: 'Restructuring',
     icon: '🏢',
@@ -405,40 +323,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-        'Can an existing loan be transferred to another bank or financial institution?',
-      answer:
-        'In eligible cases, an existing loan may be considered for balance transfer or takeover by another lender. Eligibility depends on factors such as credit history, repayment track record, income or business performance, collateral, outstanding liability and the prospective lender’s policies.'
-    },
-    {
-      question:
-        'Can a borrower with delayed EMI payments apply for a loan takeover?',
-      answer:
-        'A history of delayed payments can affect eligibility for a takeover or refinancing facility. SSS Associate can review the available loan and financial information and explain potential options, but final eligibility and approval are determined by the prospective lender.'
-    },
-    {
-      question:
-        'Can loan restructuring reduce the monthly EMI?',
-      answer:
-        'Depending on the lender and borrower’s circumstances, restructuring may involve changes to repayment tenure, instalment structure or other applicable terms. Any change in EMI or total repayment cost depends on the revised terms approved by the lender.'
-    },
-    {
-      question:
-        'What documents are required for a loan takeover?',
-      answer:
-        'Common documents include the existing loan sanction letter, outstanding or foreclosure statement, repayment history, bank statements, financial statements, ITR and GST records where applicable, KYC documents and collateral or property documents. The exact requirements vary by lender and loan type.'
-    },
-    {
-      question:
-        'Can SSS Associate assist with foreclosure and NOC documentation?',
-      answer:
-        'Yes. We can assist with coordinating the collection and review of foreclosure statements, repayment requirements, NOC-related documentation and collateral document release procedures. The actual closure and release of documents remain subject to the existing lender’s procedures.'
-    }
+        question: 'Can a loan with delayed EMIs be taken over by another bank?',
+        answer: 'It depends on the severity of the delay. We review your credit history and present restructured financial plans to specialized lenders where feasible.'
+      },
+      {
+        question: 'How much interest can I save through a balance transfer?',
+        answer: 'Depending on the current lender (often NBFCs at 14%-18%), moving to institutional banks can lower rates by 2% to 6%, saving lakhs over the loan tenure.'
+      }
     ]
   },
   {
-    id: 'sales-and-assets',
+    id: 'real-estate-builders',
+    slug: 'real-estate-builders',
     title: 'Real Estate, Builders & Asset Sales',
+    metaTitle: 'Real Estate, Builders & Asset Sales in Tamil Nadu | SSS Associate',
+    metaDescription:
+      'DTCP/RERA layout advisory, property due diligence, builder joint venture structuring & safe asset disposition in Papanasam & Thanjavur. Call 9385954338.',
     shortDesc: 'Property transactions, layout promoter liaising, commercial asset disposal, and builder advisory.',
     badge: 'Real Estate & Builders',
     icon: '🏢',
@@ -476,40 +376,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-         question:
-      'Can SSS Associate help review property documents before a sale or purchase in Tamil Nadu?',
-    answer:
-      'Yes. SSS Associate provides property documentation and transaction support across Tamil Nadu. Depending on the engagement, the review may include title documents, parent documents, Encumbrance Certificate, Patta and Chitta records, survey documents, approved plans and other relevant property records.'
-  },
-  {
-    question:
-      'Can you help identify mortgages, encumbrances or other issues affecting a property?',
-    answer:
-      'Yes. Available property and registration records can be reviewed to identify disclosed mortgages, encumbrances, documentation discrepancies and other matters that may require further legal verification. The scope of verification depends on the property and records available for review.'
-  },
-  {
-    question:
-      'Do you assist with property sales, builder transactions and development-related documentation?',
-    answer:
-      'Yes. We assist property owners, buyers, businesses, builders and developers with transaction documentation, property due diligence, sale-related agreements, builder coordination and registration-related guidance, depending on the requirements of the engagement.'
-  },
-  {
-    question:
-      'What documents are generally required for property due diligence?',
-    answer:
-      'Common documents include the current sale deed, parent or previous title documents, Encumbrance Certificate, Patta or Chitta records, survey or FMB documents, property tax records, approved plans and other relevant property documents. The exact requirements vary according to the property and transaction.'
-  },
-  {
-    question:
-      'Does SSS Associate provide real estate and asset transaction support across Tamil Nadu?',
-    answer:
-      'Yes. SSS Associate provides real estate, property documentation and asset transaction advisory support across Tamil Nadu, subject to the nature of the property, transaction and professional services required.'
+        question: 'Do you help verify if a property has pending bank mortgages or litigations in Thanjavur district?',
+        answer: 'Yes, we conduct comprehensive litigation search in relevant courts and sub-registrar books across Papanasam, Kumbakonam, Thanjavur, and all Tamil Nadu districts to guarantee zero hidden encumbrances.'
+      },
+      {
+        question: 'What regions do you cover for real estate and builder services?',
+        answer: 'We cover prime commercial, residential, and agricultural corridors throughout Papanasam, Thanjavur, and Tamil Nadu.'
       }
     ]
   },
   {
     id: 'private-finance',
+    slug: 'private-finance',
     title: 'Private Finance & Structured Funding',
+    metaTitle: 'Private Finance & Structured Funding Solutions | SSS Associate',
+    metaDescription:
+      'Short-term business liquidity, legally documented bridge financing & collateral-backed private funding for enterprises in Tamil Nadu. Call 9385954338.',
     shortDesc: 'Short-term business liquidity, bridging finance, and private funding coordination.',
     badge: 'Private Finance',
     icon: '💵',
@@ -546,40 +428,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-         question:
-      'What is private finance and structured funding for a business?',
-    answer:
-      'Private finance generally refers to funding arranged outside conventional bank lending, while structured funding involves designing a financing arrangement around the borrower’s requirements, repayment capacity, available security and applicable legal and financial considerations.'
-  },
-  {
-    question:
-      'Can SSS Associate assist businesses with private funding requirements?',
-    answer:
-      'SSS Associate can provide advisory and coordination support for eligible business funding requirements, including assessment of funding needs, financial information, documentation, security-related records and repayment considerations. Any funding arrangement remains subject to the applicable legal, regulatory and commercial requirements.'
-  },
-  {
-    question:
-      'What documents are generally required for structured or private funding?',
-    answer:
-      'Depending on the proposed arrangement, documents may include promoter KYC, business registration records, bank statements, financial statements, cash-flow projections, details of the proposed security or collateral, and other documents required to assess the transaction.'
-  },
-  {
-    question:
-      'Can private funding be used as temporary business or bridge finance?',
-    answer:
-      'Subject to the applicable legal and commercial terms, structured funding may be considered for specific short-term business requirements or temporary funding gaps. The suitability of such funding depends on the business’s cash flow, repayment capacity, security and overall financial position.'
-  },
-  {
-    question:
-      'Can structured private funding later be refinanced through a bank or institutional lender?',
-    answer:
-      'In some circumstances, an existing funding arrangement may be refinanced or replaced through bank or institutional finance, subject to the borrower’s eligibility, credit profile, documentation, security, lender policies and applicable repayment or settlement terms.'
+        question: 'Is private finance documentation legally binding?',
+        answer: 'Yes. All private financing facilitated through SSS Associate is documented via formal legal agreements, demand promissory notes, and registered security deeds under prevailing Indian contract laws.'
+      },
+      {
+        question: 'Can private finance be converted into a regular bank loan later?',
+        answer: 'Yes. We specialize in loan takeover solutions, allowing you to pay off short-term private funds once regular bank credit or mortgage loans are sanctioned.'
       }
     ]
   },
   {
     id: 'debt-settlement',
+    slug: 'debt-settlement',
     title: 'Debt Settlement & OTS Advisory',
+    metaTitle: 'Debt Settlement & OTS Advisory in Tamil Nadu | SSS Associate',
+    metaDescription:
+      'RBI-compliant One-Time Settlement (OTS) negotiation, NPA debt resolution, penal interest waiver & SARFAESI relief advisory in Tamil Nadu. Call 9385954338.',
     shortDesc: 'One-time settlements (OTS), dispute resolution, and negotiation with institutions.',
     badge: 'Settlement & OTS',
     icon: '📑',
@@ -616,40 +480,22 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-        'Can SSS Associate assist with an OTS after a bank has issued a Section 13(2) notice?',
-      answer:
-        'Yes. Subject to the circumstances of the loan account, SSS Associate can assist with reviewing the available notices and financial records and preparing an appropriate settlement or OTS representation. Acceptance of any settlement proposal remains at the discretion of the concerned lender and is subject to applicable legal and regulatory requirements.'
-    },
-    {
-      question:
-        'Does receiving a SARFAESI notice automatically mean that an OTS will be accepted?',
-      answer:
-        'No. A SARFAESI notice does not create an automatic right to an OTS. A borrower may submit a settlement proposal where appropriate, but the lender will independently evaluate the proposal, outstanding dues, security, repayment circumstances and applicable policies before deciding.'
-    },
-    {
-      question:
-        'Can an OTS reduce the total amount payable on a loan?',
-      answer:
-        'An approved OTS may provide revised settlement terms compared with the outstanding claim, depending on the lender’s assessment and applicable policy. The actual settlement amount, waiver and payment conditions are determined by the concerned lender and must be documented in the approved settlement terms.'
-    },
-    {
-      question:
-        'What documents are required to prepare an OTS proposal?',
-      answer:
-        'The documents generally include the loan account statement, sanction documents, demand or recovery notices where applicable, borrower KYC, financial statements, bank statements and documents supporting the borrower’s financial circumstances. Additional documents may be requested depending on the lender and account.'
-    },
-    {
-      question:
-        'What happens after an OTS proposal is approved?',
-      answer:
-        'After approval, the borrower must comply with the payment schedule and other conditions specified in the lender’s settlement letter. Once the agreed obligations are completed, the borrower can request the applicable No-Dues Certificate, closure documentation and release of securities or documents, subject to the lender’s procedures and terms.'
+        question: 'Can SSS Associate negotiate an OTS if the bank has already issued a Section 13(2) notice?',
+        answer: 'Yes. In fact, receiving a SARFAESI Section 13(2) or 13(4) notice is the ideal window to submit a structured OTS representation before the property goes for auction.'
+      },
+      {
+        question: 'Does an OTS guarantee release of our original property deeds?',
+        answer: 'Yes. Once the agreed settlement sum is remitted according to the bank’s OTS sanction letter, the bank is legally obligated to return all original mortgaged documents and issue a No Dues Certificate.'
       }
     ]
   },
   {
     id: 'bank-auction',
+    slug: 'bank-auction',
     title: 'SARFAESI Bank Auction Support',
+    metaTitle: 'SARFAESI Bank Auction Support & Advisory | SSS Associate Tamil Nadu',
+    metaDescription:
+      'Pre-bid title scrutiny, DRT litigation checks, e-auction bidding assistance & physical possession guidance for bank auctions in Tamil Nadu. Call 9385954338.',
     shortDesc: 'End-to-end guidance in acquiring SARFAESI bank auction properties securely.',
     badge: 'Auction & SARFAESI',
     icon: '🏛️',
@@ -686,35 +532,101 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question:
-        'Are SARFAESI bank auction properties safe to purchase?',
-      answer:
-        'The suitability and risks of a bank auction property depend on its individual title, possession status, encumbrances, litigation, outstanding dues, auction terms and other circumstances. A detailed review of the available records and auction conditions before bidding can help buyers make a more informed decision.'
-    },
-    {
-      question:
-        'What should I check before bidding for a bank auction property?',
-      answer:
-        'Before bidding, buyers should review the auction notice, reserve price, title and encumbrance information, possession status, available court or tribunal information, outstanding dues, property access, applicable auction terms and the bank’s stated conditions. Physical verification and professional due diligence may also be appropriate depending on the property.'
-    },
-    {
-      question:
-        'Does SSS Associate provide SARFAESI bank auction support across Tamil Nadu?',
-      answer:
-        'Yes. SSS Associate provides bank auction advisory and due diligence support across Tamil Nadu, subject to the availability of the relevant auction documents, property records and required professional services.'
-    },
-    {
-      question:
-        'What is the difference between physical possession and symbolic possession in a bank auction?',
-      answer:
-        'Physical possession generally means the secured creditor has taken actual possession of the property, while symbolic possession refers to possession being taken through the applicable legal process without the property necessarily being physically vacated. Buyers should carefully review the possession status and applicable auction conditions before bidding.'
-    },
-    {
-      question:
-        'Can you assist with EMD, e-auction registration and post-auction registration?',
-      answer:
-        'Yes. SSS Associate can provide guidance on the documentation and procedural aspects of EMD submission, e-auction registration, bidding requirements, Sale Certificate-related procedures and subsequent property registration. Specific requirements, timelines and statutory payments are determined by the concerned bank, auction platform and applicable authorities.'
+        question: 'Are bank auction properties 100% safe to purchase?',
+        answer: 'They are exceptionally profitable, but only if thorough due diligence is done prior to bidding. Banks sell properties on an "As is where is and Whatever there is" basis, meaning unverified dues become the buyer’s responsibility. SSS Associate ensures you bid only on clean, risk-free assets.'
+      },
+      {
+        question: 'What happens if the borrower obtains a stay order from DRT after we win the bid?',
+        answer: 'We verify pending DRT (Debts Recovery Tribunal) filings before you bid. If an unforeseen dispute arises, we guide you on refund recovery procedures under SARFAESI rules.'
       }
     ]
   }
 ];
+
+export function slugify(text: string): string {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/--+/g, '-') // Replace multiple - with single -
+    .replace(/^-+/, '') // Trim - from start of text
+    .replace(/-+$/, ''); // Trim - from end of text
+}
+
+// Aliases map for legacy, alternative, or messy URL slugs
+export const SLUG_ALIASES: Record<string, string> = {
+  'legal-opinion-advisory': 'legal-opinion',
+  'legal-advisory': 'legal-opinion',
+  'legal-opinion-advisory-services': 'legal-opinion',
+  'legal': 'legal-opinion',
+  'land-survey-boundary-verification': 'land-survey',
+  'survey': 'land-survey',
+  'land': 'land-survey',
+  'accounts': 'accounts-management',
+  'accounts-management-bookkeeping': 'accounts-management',
+  'bookkeeping': 'accounts-management',
+  'auditing': 'auditing-services',
+  'auditing-services-assurance': 'auditing-services',
+  'audits': 'auditing-services',
+  'bank-loans': 'loan-facilitation',
+  'loans': 'loan-facilitation',
+  'loan-facilitation-bank-loans': 'loan-facilitation',
+  'takeovers': 'takeover-solutions',
+  'loan-takeover': 'takeover-solutions',
+  'loan-takeover-debt-restructuring': 'takeover-solutions',
+  'debt-restructuring': 'takeover-solutions',
+  'real-estate': 'real-estate-builders',
+  'builders': 'real-estate-builders',
+  'real-estate-builders-asset-sales': 'real-estate-builders',
+  'private-finance-structured-funding': 'private-finance',
+  'private-funding': 'private-finance',
+  'settlements': 'debt-settlement',
+  'ots': 'debt-settlement',
+  'debt-settlement-ots-advisory': 'debt-settlement',
+  'one-time-settlement': 'debt-settlement',
+  'bank-auctions': 'bank-auction',
+  'sarfaesi-bank-auction-support': 'bank-auction',
+  'sarfaesi-auction': 'bank-auction',
+  'auction': 'bank-auction',
+  'auctions': 'bank-auction',
+};
+
+export function getServiceBySlug(rawSlug: string | undefined | null): ServiceItem | undefined {
+  if (!rawSlug) return undefined;
+
+  let decoded = rawSlug;
+  try {
+    decoded = decodeURIComponent(rawSlug);
+  } catch {
+    decoded = rawSlug;
+  }
+
+  // 1. Exact match with id or slug
+  const exact = SERVICES_DATA.find((s) => s.id === rawSlug || s.slug === rawSlug || s.id === decoded || s.slug === decoded);
+  if (exact) return exact;
+
+  // 2. Normalized kebab-case
+  const normalized = slugify(decoded);
+  const byNormalized = SERVICES_DATA.find((s) => s.id === normalized || s.slug === normalized);
+  if (byNormalized) return byNormalized;
+
+  // 3. Known aliases map
+  if (SLUG_ALIASES[normalized]) {
+    const aliasedId = SLUG_ALIASES[normalized];
+    const match = SERVICES_DATA.find((s) => s.id === aliasedId);
+    if (match) return match;
+  }
+
+  // 4. Match against slugified titles
+  const byTitle = SERVICES_DATA.find((s) => slugify(s.title) === normalized);
+  if (byTitle) return byTitle;
+
+  // 5. Partial / substring match
+  return SERVICES_DATA.find((s) => normalized.includes(s.id) || s.id.includes(normalized));
+}
+
+export function getAllServiceSlugs(): string[] {
+  return SERVICES_DATA.map((s) => s.id);
+}
