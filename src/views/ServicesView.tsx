@@ -17,190 +17,349 @@ export const ServicesView: React.FC<ServicesViewProps> = ({
 
   const filteredServices = SERVICES_DATA.filter((service: ServiceItem) => {
     const matchesCategory =
-      selectedCategory === 'All' || service.category === selectedCategory;
+      selectedCategory === 'All' ||
+      service.category === selectedCategory;
+
     const matchesSearch =
       service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       service.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.scopeOfWork.some((s) => s.toLowerCase().includes(searchQuery.toLowerCase()));
+      service.scopeOfWork.some((s) =>
+        s.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
     return matchesCategory && matchesSearch;
   });
 
   return (
-    <div className="bg-slate-50 min-h-screen py-12 pb-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header Banner */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
-            Complete Practice Catalog
+    <div className="min-h-screen bg-slate-50 py-12 pb-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* =========================================================
+            PAGE HEADER
+        ========================================================= */}
+        <header className="mx-auto mb-12 max-w-4xl text-center">
+          <span className="inline-flex rounded-full bg-red-100 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-red-600 sm:text-sm">
+            Professional Advisory Services
           </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Our 8 Professional Legal & Financial Services
+
+          <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+            Legal, Financial &amp; Business Services in Tamil Nadu
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Click any service below to open its dedicated individual page featuring in-depth scope of work, document preparation checklists, workflow timelines, and direct consultation booking.
+
+          <p className="mx-auto mt-5 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
+            Explore SSS Associate&apos;s professional advisory services covering
+            legal matters, land and property support, accounts and auditing,
+            bank loan assistance, loan takeover and restructuring, debt
+            settlement, real estate solutions, and SARFAESI bank auction
+            support across Tamil Nadu.
           </p>
-        </div>
 
-        {/* Filter and Search Bar */}
-        <div className="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/80 mb-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  selectedCategory === cat
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
+          <p className="mt-4 text-xs font-semibold text-slate-500 sm:text-sm">
+            Select a service to view its dedicated scope, key deliverables,
+            and consultation options.
+          </p>
+        </header>
+
+        {/* =========================================================
+            FILTER + SEARCH
+        ========================================================= */}
+        <section
+          aria-label="Service search and category filters"
+          className="mb-10 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm sm:p-5"
+        >
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+
+            {/* Category Tabs */}
+            <div className="w-full md:w-auto">
+              <div
+                className="flex flex-wrap items-center gap-2"
+                role="tablist"
+                aria-label="Filter services by category"
               >
-                {cat === 'All' ? 'All 8 Services' : cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Search Input */}
-          <div className="relative w-full md:w-72">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search services or topics..."
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500"
-            />
-            <span className="absolute left-3 top-2.5 text-slate-400 text-xs">🔍</span>
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-2.5 text-slate-400 hover:text-slate-600 text-xs cursor-pointer"
-              >
-                ✕
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((srv) => (
-            <div
-              key={srv.id}
-              className="bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:shadow-xl hover:border-red-100 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-2xl group-hover:bg-red-600 group-hover:text-white transition-colors shadow-2xs">
-                    {srv.icon}
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-700 px-3 py-1 rounded-full">
-                    {srv.badge}
-                  </span>
-                </div>
-
-                <h2 className="text-xl font-bold text-slate-900 mb-2.5 leading-snug group-hover:text-red-600 transition-colors">
-                  {srv.title}
-                </h2>
-
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                  {srv.shortDesc}
-                </p>
-
-                {/* Scope Preview Highlights */}
-                <div className="space-y-2 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
-                    Key Deliverables:
-                  </span>
-                  {srv.scopeOfWork.slice(0, 3).map((sc, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                      <span className="text-red-500 font-bold shrink-0">✓</span>
-                      <span className="truncate">{sc}</span>
-                    </div>
-                  ))}
-                  {srv.scopeOfWork.length > 3 && (
-                    <span className="text-[10px] text-red-600 font-semibold block pt-1">
-                      + {srv.scopeOfWork.length - 3} more specialized items
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-4 border-t border-slate-100 space-y-2">
-                <button
-                  onClick={() => onSelectService(srv.id)}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
-                >
-                  <span>Open Individual Service Page</span>
-                  <span>→</span>
-                </button>
-
-                <div className="flex items-center justify-between text-xs pt-1">
-                  <a
-                    href="tel:9385954338"
-                    className="text-slate-600 hover:text-emerald-700 font-semibold flex items-center gap-1"
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setSelectedCategory(cat)}
+                    role="tab"
+                    aria-selected={selectedCategory === cat}
+                    className={`cursor-pointer rounded-xl px-4 py-2 text-xs font-bold transition-all sm:text-sm ${
+                      selectedCategory === cat
+                        ? 'bg-red-600 text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    }`}
                   >
-                    <span>📞 9385954338</span>
-                  </a>
-                  <a
-                    href={`https://wa.me/919385954338?text=${encodeURIComponent(
-                      `Hello SSS Associate, I would like to inquire about ${srv.title}.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-600 hover:text-emerald-700 font-bold flex items-center gap-1"
-                  >
-                    <span>💬 WhatsApp</span>
-                  </a>
-                </div>
+                    {cat === 'All' ? 'All Services' : cat}
+                  </button>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
 
+            {/* Search Input */}
+            <div className="relative w-full md:w-72">
+              <label htmlFor="service-search" className="sr-only">
+                Search services or topics
+              </label>
+
+              <input
+                id="service-search"
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search services or topics..."
+                autoComplete="off"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-2 pl-9 pr-10 text-xs text-slate-800 outline-none placeholder:text-slate-400 focus:border-red-500 focus:ring-2 focus:ring-red-100 sm:text-sm"
+              />
+
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-3 top-2.5 text-xs text-slate-400"
+              >
+                🔍
+              </span>
+
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-2.5 cursor-pointer text-xs text-slate-400 hover:text-slate-600"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Filter Status */}
+          {(selectedCategory !== 'All' || searchQuery) && (
+            <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4">
+              <p className="text-xs text-slate-500">
+                Showing{' '}
+                <span className="font-bold text-slate-800">
+                  {filteredServices.length}
+                </span>{' '}
+                matching services
+              </p>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedCategory('All');
+                  setSearchQuery('');
+                }}
+                className="cursor-pointer text-xs font-bold text-red-600 hover:text-red-700"
+              >
+                Clear Filters
+              </button>
+            </div>
+          )}
+        </section>
+
+        {/* =========================================================
+            SERVICES GRID
+        ========================================================= */}
+        {filteredServices.length > 0 && (
+          <section
+            aria-label="SSS Associate services"
+            className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {filteredServices.map((srv) => (
+              <article
+                key={srv.id}
+                className="group flex flex-col justify-between rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-red-100 hover:shadow-xl"
+              >
+                <div>
+
+                  {/* Icon + Badge */}
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-red-50 text-2xl text-red-600 shadow-sm transition-colors group-hover:bg-red-600 group-hover:text-white">
+                      {srv.icon}
+                    </div>
+
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-700">
+                      {srv.badge}
+                    </span>
+                  </div>
+
+                  {/* Category */}
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-red-600">
+                    {srv.category}
+                  </p>
+
+                  {/* Service Title */}
+                  <h2 className="mb-2.5 text-xl font-bold leading-snug text-slate-900 transition-colors group-hover:text-red-600">
+                    {srv.title}
+                  </h2>
+
+                  {/* Service Description */}
+                  <p className="mb-6 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    {srv.shortDesc}
+                  </p>
+
+                  {/* Scope Preview */}
+                  <div className="mb-6 space-y-2 rounded-2xl border border-slate-100 bg-slate-50 p-4">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      Key Deliverables:
+                    </span>
+
+                    {srv.scopeOfWork.slice(0, 3).map((sc, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-slate-700"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 font-bold text-red-500"
+                        >
+                          ✓
+                        </span>
+
+                        <span>{sc}</span>
+                      </div>
+                    ))}
+
+                    {srv.scopeOfWork.length > 3 && (
+                      <span className="block pt-1 text-[10px] font-semibold text-red-600">
+                        + {srv.scopeOfWork.length - 3} more specialized items
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* =====================================================
+                    SERVICE ACTION AREA
+                ===================================================== */}
+                <div className="space-y-2 border-t border-slate-100 pt-4">
+
+                  {/* Main Service CTA */}
+                  <button
+                    type="button"
+                    onClick={() => onSelectService(srv.id)}
+                    aria-label={`View details for ${srv.title}`}
+                    className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-xs font-bold text-white shadow-md transition-all hover:bg-red-700 sm:text-sm"
+                  >
+                    <span>View Service Details</span>
+
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </button>
+
+                  {/* Phone + WhatsApp */}
+                  <div className="flex items-center justify-between gap-3 pt-1 text-xs">
+
+                    <a
+                      href="tel:+919385954338"
+                      aria-label="Call SSS Associate at 9385954338"
+                      className="flex items-center gap-1 font-semibold text-slate-600 transition-colors hover:text-emerald-700"
+                    >
+                      <span aria-hidden="true">📞</span>
+                      <span>9385954338</span>
+                    </a>
+
+                    <a
+                      href={`https://wa.me/919385954338?text=${encodeURIComponent(
+                        `Hello SSS Associate, I would like to inquire about ${srv.title}.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Contact SSS Associate on WhatsApp about ${srv.title}`}
+                      className="flex items-center gap-1 font-bold text-emerald-600 transition-colors hover:text-emerald-700"
+                    >
+                      <span aria-hidden="true">💬</span>
+                      <span>WhatsApp</span>
+                    </a>
+
+                  </div>
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
+
+        {/* =========================================================
+            NO RESULTS
+        ========================================================= */}
         {filteredServices.length === 0 && (
-          <div className="bg-white p-12 rounded-3xl text-center space-y-4 max-w-lg mx-auto border border-slate-200">
-            <span className="text-4xl">🔍</span>
-            <h3 className="text-lg font-bold text-slate-900">No Services Matched</h3>
-            <p className="text-xs text-slate-500">
-              Try searching for something else like &quot;auction&quot;, &quot;loans&quot;, &quot;audit&quot;, or &quot;legal&quot;.
+          <section
+            aria-live="polite"
+            className="mx-auto max-w-lg rounded-3xl border border-slate-200 bg-white p-12 text-center"
+          >
+            <span
+              className="text-4xl"
+              aria-hidden="true"
+            >
+              🔍
+            </span>
+
+            <h2 className="mt-4 text-lg font-bold text-slate-900">
+              No Services Matched
+            </h2>
+
+            <p className="mt-2 text-xs leading-5 text-slate-500">
+              Try searching for something else like &quot;auction&quot;,
+              &quot;loans&quot;, &quot;audit&quot;, &quot;legal&quot;,
+              &quot;property&quot;, or &quot;debt settlement&quot;.
             </p>
+
             <button
+              type="button"
               onClick={() => {
                 setSelectedCategory('All');
                 setSearchQuery('');
               }}
-              className="bg-slate-900 text-white text-xs font-bold px-4 py-2 rounded-xl"
+              className="mt-5 cursor-pointer rounded-xl bg-slate-900 px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-slate-800"
             >
               Reset Search Filter
             </button>
-          </div>
+          </section>
         )}
 
-        {/* Global Consultation Trigger Banner */}
-        <div className="mt-16 bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
+        {/* =========================================================
+            GLOBAL CONSULTATION CTA
+        ========================================================= */}
+        <section
+          aria-labelledby="consultation-heading"
+          className="mt-16 flex flex-col items-center justify-between gap-6 rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 p-8 text-white shadow-xl md:flex-row sm:p-10"
+        >
           <div className="space-y-2 text-center md:text-left">
-            <h3 className="text-2xl font-bold">Unsure which service best fits your situation?</h3>
-            <p className="text-slate-300 text-sm max-w-xl">
-              Talk directly with our lead consultant. We evaluate your requirements across legal, financial, and banking facets to tailor the right solution.
+            <h2
+              id="consultation-heading"
+              className="text-2xl font-bold"
+            >
+              Not Sure Which Service You Need?
+            </h2>
+
+            <p className="max-w-xl text-sm leading-relaxed text-slate-300">
+              Talk directly with our lead consultant. We can understand your
+              requirements and guide you toward the relevant legal, financial,
+              property, loan, debt, or banking advisory service.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+
+          <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">
+
             <a
-              href="tel:9385954338"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-colors"
+              href="tel:+919385954338"
+              className="rounded-xl bg-emerald-600 px-5 py-3 text-xs font-bold text-white shadow-md transition-colors hover:bg-emerald-700 sm:text-sm"
             >
-              📞 Instant Call: 9385954338
+              📞 Call 9385954338
             </a>
+
             <button
+              type="button"
               onClick={onOpenConsultationModal}
-              className="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
+              className="cursor-pointer rounded-xl bg-red-600 px-5 py-3 text-xs font-bold text-white shadow-md transition-colors hover:bg-red-700 sm:text-sm"
             >
-              Request Free Consultation
+              Request Consultation
             </button>
+
           </div>
-        </div>
+        </section>
 
       </div>
     </div>
