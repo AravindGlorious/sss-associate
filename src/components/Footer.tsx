@@ -7,13 +7,17 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
-    <footer id="contact-footer" className="bg-indigo-950 text-white pt-16 pb-12 border-t border-slate-800">
+    <footer
+      id="contact-footer"
+      className="bg-indigo-950 text-white pt-16 pb-12 border-t border-slate-800"
+      aria-label="SSS Associate website footer"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Main 4-Column Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-          
-          {/* Brand & MSME Info */}
+
+          {/* Brand & MSME Information */}
           <div className="lg:col-span-4 space-y-4">
             <a
               href="/"
@@ -21,15 +25,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 e.preventDefault();
                 onNavigate('home');
               }}
-              className="flex items-center gap-3 text-left cursor-pointer focus:outline-none"
+              className="flex items-center gap-3 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 rounded-xl"
+              aria-label="SSS Associate home page"
             >
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+              <div
+                className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-lg"
+                aria-hidden="true"
+              >
                 🏛️
               </div>
+
               <div>
                 <span className="text-xl font-extrabold tracking-tight block text-white">
                   SSS ASSOCIATE
                 </span>
+
                 <span className="text-[10px] text-red-400 font-bold uppercase tracking-widest block -mt-1">
                   [ MSME ] REGISTERED
                 </span>
@@ -37,7 +47,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
 
             <p className="text-slate-300 text-sm leading-relaxed">
-              Providing top-tier, MSME certified professional legal advisory, financial audits, accounts management, loan facilitation, debt takeover, settlement solutions, and bank auction support across Tamil Nadu.
+              SSS Associate provides professional legal advisory, financial
+              advisory, accounts management, auditing, loan assistance, debt
+              restructuring, settlement solutions, property-related support,
+              and bank auction advisory services across Tamil Nadu.
             </p>
 
             <div className="pt-1">
@@ -46,16 +59,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
             </div>
 
-            {/* Social Media Icons */}
-            <div className="flex items-center gap-3 pt-2">
+            {/* Social Media Icons - PRESERVED */}
+            <div
+              className="flex items-center gap-3 pt-2"
+              aria-label="SSS Associate social media profiles"
+            >
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-colors shadow-xs"
                 title="Facebook"
+                aria-label="SSS Associate on Facebook"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
@@ -66,9 +87,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-pink-600 text-white flex items-center justify-center transition-colors shadow-xs"
                 title="Instagram"
+                aria-label="SSS Associate on Instagram"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.204-.012-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </a>
 
@@ -78,8 +104,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-sky-600 text-white flex items-center justify-center transition-colors shadow-xs"
                 title="LinkedIn"
+                aria-label="SSS Associate on LinkedIn"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
               </a>
@@ -90,19 +121,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-blue-400 text-white flex items-center justify-center transition-colors shadow-xs"
                 title="Twitter / X"
+                aria-label="SSS Associate on Twitter / X"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg
+                  className="w-5 h-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Navigation */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider">
               Quick Navigation
-            </h4>
+            </h2>
 
             <ul className="space-y-2.5 text-sm text-slate-300">
 
@@ -158,9 +194,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
 
+              {/* Correct Legal URL */}
               <li>
                 <a
-                  href="/privacy"
+                  href="/privacy-policy"
                   onClick={(e) => {
                     e.preventDefault();
                     onNavigate('privacy');
@@ -171,6 +208,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
 
+              {/* Correct Disclaimer URL */}
               <li>
                 <a
                   href="/disclaimer"
@@ -184,9 +222,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
 
+              {/* Correct Terms URL */}
               <li>
                 <a
-                  href="/terms"
+                  href="/terms-and-conditions"
                   onClick={(e) => {
                     e.preventDefault();
                     onNavigate('terms');
@@ -197,9 +236,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
 
+              {/* Correct Refund URL */}
               <li>
                 <a
-                  href="/refund"
+                  href="/refund-cancellation-policy"
                   onClick={(e) => {
                     e.preventDefault();
                     onNavigate('refund');
@@ -215,9 +255,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Individual Services Links */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider">
               Our Specialized Services
-            </h4>
+            </h2>
 
             <ul className="space-y-2 text-xs text-slate-300">
               {SERVICES_DATA.map((srv) => (
@@ -229,8 +269,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                       onNavigate('service-detail', srv.id);
                     }}
                     className="hover:text-red-400 transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                    aria-label={`Learn more about ${srv.title}`}
                   >
-                    <span>{srv.icon}</span>
+                    <span aria-hidden="true">{srv.icon}</span>
                     <span className="truncate">{srv.title}</span>
                   </a>
                 </li>
@@ -240,17 +281,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Contact Details & Helplines */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-bold text-white text-sm uppercase tracking-wider">
+            <h2 className="font-bold text-white text-sm uppercase tracking-wider">
               Helplines & Regional Desk
-            </h4>
+            </h2>
 
             <div className="space-y-3 text-sm text-slate-300">
 
               <a
                 href="tel:9385954338"
                 className="flex items-center gap-3 bg-slate-900/90 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800 transition-all group"
+                aria-label="Call SSS Associate primary helpline 9385954338"
               >
-                <span className="w-9 h-9 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold text-base group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                <span
+                  className="w-9 h-9 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold text-base group-hover:bg-emerald-600 group-hover:text-white transition-colors"
+                  aria-hidden="true"
+                >
                   📞
                 </span>
 
@@ -268,8 +313,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <a
                 href="tel:9087853733"
                 className="flex items-center gap-3 bg-slate-900/90 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800 transition-all group"
+                aria-label="Call SSS Associate secondary helpline 9087853733"
               >
-                <span className="w-9 h-9 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-base group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                <span
+                  className="w-9 h-9 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-base group-hover:bg-indigo-600 group-hover:text-white transition-colors"
+                  aria-hidden="true"
+                >
                   📞
                 </span>
 
@@ -287,16 +336,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="text-xs text-slate-300 pt-1 space-y-1">
 
                 <div className="flex items-start gap-2 text-slate-300">
-                  <span>📍</span>
-
+                  <span aria-hidden="true">📍</span>
                   <span>
                     MSME Registered Professional Consultancy, Tamil Nadu, India.
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2 text-slate-400 text-[11px] pt-1">
-                  <span>⏰</span>
-
+                  <span aria-hidden="true">⏰</span>
                   <span>
                     Office Hours: 9:30 AM – 7:30 PM (Mon – Sat)
                   </span>
@@ -312,13 +359,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
 
           <div>
-            &copy; {new Date().getFullYear()} SSS Associate [ MSME ] Registered. All rights reserved.
+            &copy; {new Date().getFullYear()} SSS Associate [ MSME ] Registered.
+            All rights reserved.
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
+          <nav
+            aria-label="Legal and policy navigation"
+            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs"
+          >
 
+            {/* Correct Privacy URL */}
             <a
-              href="/privacy"
+              href="/privacy-policy"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('privacy');
@@ -328,6 +380,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Privacy Policy
             </a>
 
+            {/* Correct Disclaimer URL */}
             <a
               href="/disclaimer"
               onClick={(e) => {
@@ -339,8 +392,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Bar Council Compliance / Advocate Disclaimer
             </a>
 
+            {/* Correct Terms URL */}
             <a
-              href="/terms"
+              href="/terms-and-conditions"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('terms');
@@ -350,8 +404,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Terms of Use (User Agreement)
             </a>
 
+            {/* Correct Refund URL */}
             <a
-              href="/refund"
+              href="/refund-cancellation-policy"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigate('refund');
@@ -361,8 +416,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Refund & Cancellation Policy
             </a>
 
-          </div>
+          </nav>
         </div>
+
       </div>
     </footer>
   );
