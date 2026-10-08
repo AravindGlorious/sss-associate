@@ -15,8 +15,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           
           {/* Brand & MSME Info */}
           <div className="lg:col-span-4 space-y-4">
-            <button
-              onClick={() => onNavigate('home')}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('home');
+              }}
               className="flex items-center gap-3 text-left cursor-pointer focus:outline-none"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-600 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-lg">
@@ -28,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   [ MSME ] REGISTERED
                 </span>
               </div>
-            </button>
+            </a>
 
             <p className="text-slate-300 text-sm leading-relaxed">
               Providing top-tier, MSME certified professional legal advisory, financial audits, accounts management, loan facilitation, debt takeover, settlement solutions, and bank auction support across Tamil Nadu.
@@ -94,60 +98,100 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h4 className="font-bold text-white text-sm uppercase tracking-wider">Quick Navigation</h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
-                <button
-                  onClick={() => onNavigate('home')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left"
+                <a
+                  href="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('home');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left block"
                 >
                   Home Page
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left"
+                <a
+                  href="/services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('services');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left block"
                 >
                   All 8 Services
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('about')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left"
+                <a
+                  href="/about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('about');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left block"
                 >
                   About SSS Associate
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left"
+                <a
+                  href="/contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('contact');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left block"
                 >
                   Contact & Locations
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('privacy')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400"
+                <a
+                  href="/privacy"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('privacy');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
                 >
                   Privacy Policy
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('disclaimer')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400"
+                <a
+                  href="/disclaimer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('disclaimer');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
                 >
-                  Regulatory Disclaimer
-                </button>
+                  Bar Council Compliance / Advocate Disclaimer
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('terms')}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400"
+                <a
+                  href="/terms"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('terms');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
                 >
-                  Terms & Conditions
-                </button>
+                  Terms of Use (User Agreement)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/refund"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate('refund');
+                  }}
+                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
+                >
+                  Refund & Cancellation Policy
+                </a>
               </li>
             </ul>
           </div>
@@ -158,13 +202,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2 text-xs text-slate-300">
               {SERVICES_DATA.map((srv) => (
                 <li key={srv.id}>
-                  <button
-                    onClick={() => onNavigate('service-detail', srv.id)}
+                  <a
+                    href={`/services/${srv.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate('service-detail', srv.id);
+                    }}
                     className="hover:text-red-400 transition-colors cursor-pointer text-left flex items-center gap-1.5"
                   >
                     <span>{srv.icon}</span>
                     <span className="truncate">{srv.title}</span>
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -221,25 +269,47 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             &copy; {new Date().getFullYear()} SSS Associate [ MSME ] Registered. All rights reserved.
           </div>
-          <div className="flex flex-wrap gap-6 text-xs">
-            <button
-              onClick={() => onNavigate('privacy')}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
+            <a
+              href="/privacy"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('privacy');
+              }}
               className="hover:text-white transition-colors cursor-pointer"
             >
               Privacy Policy
-            </button>
-            <button
-              onClick={() => onNavigate('disclaimer')}
+            </a>
+            <a
+              href="/disclaimer"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('disclaimer');
+              }}
               className="hover:text-white transition-colors cursor-pointer"
             >
-              Disclaimer
-            </button>
-            <button
-              onClick={() => onNavigate('terms')}
+              Bar Council Compliance / Advocate Disclaimer
+            </a>
+            <a
+              href="/terms"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('terms');
+              }}
               className="hover:text-white transition-colors cursor-pointer"
             >
-              Terms of Service
-            </button>
+              Terms of Use (User Agreement)
+            </a>
+            <a
+              href="/refund"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('refund');
+              }}
+              className="hover:text-white transition-colors cursor-pointer text-amber-300 hover:text-white"
+            >
+              Refund & Cancellation Policy
+            </a>
           </div>
         </div>
       </div>

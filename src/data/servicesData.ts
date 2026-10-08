@@ -17,25 +17,25 @@ export interface ServiceItem {
 export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'legal-advisory',
-    title: 'Legal Advisory & Services',
-    shortDesc: 'Expert legal counsel, documentation review, corporate compliance, and dispute resolution.',
+    title: 'Legal Opinion & Advisory Services',
+    shortDesc: 'Expert legal opinion, documentation review, corporate compliance, and dispute resolution.',
     badge: 'Legal & Compliance',
     icon: '⚖️',
     category: 'Legal',
     detailedOverview:
-      'SSS Associate provides comprehensive legal advisory services tailored for MSMEs, commercial enterprises, and private individuals. We guide you through complex regulatory landscapes, commercial contract drafting, title verifications, legal notices, and compliance checks under Indian civil and corporate laws.',
+      'SSS Associate provides comprehensive legal opinion and advisory services tailored for MSMEs, commercial enterprises, and property owners in Papanasam, Thanjavur, and across Tamil Nadu. We guide you through title scrutiny, parent document search reports, commercial contract drafting, legal notices, and compliance checks under Indian civil and revenue laws.',
     problemSolved:
-      'Prevents legal vulnerabilities in business contracts, protects commercial assets, ensures regulatory compliance, and provides strategic legal defense during contractual or financial disputes.',
+      'Prevents legal vulnerabilities in property transactions and business contracts, protects commercial assets, ensures regulatory compliance, and provides strategic legal defense during contractual or financial disputes.',
     scopeOfWork: [
-      'Comprehensive Commercial Contract & Agreement Drafting',
-      'Property Title Scrutiny, Search Reports & Due Diligence',
+      'Comprehensive 30+ Year Title Scrutiny & Legal Opinion Reports',
+      'Commercial Contract & Partnership Deed Drafting',
+      'Property Legal Due Diligence, Search Reports & Patta Verification',
       'Legal Notice Drafting, Rejoinders & Institutional Communication',
       'Corporate & MSME Statutory Regulatory Compliance Review',
-      'Partnership Deeds, MOUs, and Non-Disclosure Agreements (NDAs)',
       'Pre-litigation Mediation, Dispute Settlement & Legal Representation Advisory'
     ],
     keyBenefits: [
-      'Experienced legal counsels with deep MSME sector insight',
+      'Experienced legal counsels with deep Tamil Nadu revenue & civil law insight',
       '100% confidential and compliant with professional legal standards',
       'Proactive risk mitigation before signing binding agreements',
       'Fast turnaround for time-sensitive commercial deals'
@@ -54,12 +54,60 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Does SSS Associate handle property title verification in Tamil Nadu?',
-        answer: 'Yes, we conduct comprehensive 30+ year parent document title verification, encumbrance certificate (EC) scrutiny, patta/chitta check, and revenue record verification across Tamil Nadu.'
+        question: 'Does SSS Associate provide legal opinion for property registration in Papanasam and Thanjavur?',
+        answer: 'Yes, we conduct comprehensive 30+ year parent document title verification, encumbrance certificate (EC) scrutiny, patta/chitta check, and revenue record verification across Papanasam, Thanjavur, Kumbakonam, and all Tamil Nadu sub-registrar offices.'
       },
       {
         question: 'Can you draft custom vendor and commercial contracts for MSMEs?',
         answer: 'Absolutely. We specialize in drafting risk-shielded vendor contracts, partnership agreements, non-compete clauses, and service level agreements (SLAs).'
+      }
+    ]
+  },
+  {
+    id: 'land-survey',
+    title: 'Land Survey & Boundary Verification',
+    shortDesc: 'Digital DGPS/Total Station land survey, FMB sketch verification, patta boundary demarcation.',
+    badge: 'Survey & Revenue',
+    icon: '📐',
+    category: 'Assets',
+    detailedOverview:
+      'Accurate land surveying is vital before purchasing, developing, or selling real estate. SSS Associate offers precision land survey, digital demarcation, FMB sketch matching, revenue record verification, and sub-division advisory across Papanasam, Thanjavur, and Tamil Nadu.',
+    problemSolved:
+      'Resolves boundary disputes, rectifies discrepancies between on-ground physical measurements and registered deed extents, and validates revenue Patta and FMB records before construction or property registration.',
+    scopeOfWork: [
+      'Digital Land Survey with Advanced Measuring Instruments',
+      'Field Measurement Book (FMB) Sketch Verification & Sub-Division Guidance',
+      'Patta, Chitta, Town Survey Land Record (TSLR) Ground Matching',
+      'Boundary Demarcation, Corner Stone Plotting & Layout Mapping',
+      'Topographical Survey for Real Estate Builders & Layout Developers',
+      'Revenue Taluk Office Survey Application Liaising'
+    ],
+    keyBenefits: [
+      'Certified and experienced revenue survey experts',
+      'Eliminates boundary encroachment risks before property purchase',
+      'Exact area calculation conforming to Sub-Registrar registration guidelines',
+      'Detailed digital contour and boundary layout drawing delivery'
+    ],
+    documentsRequired: [
+      'Registered Sale Deed / Title Deed Copy',
+      'Latest Encumbrance Certificate (EC)',
+      'Patta Passbook / Computer Patta & Chitta Copies',
+      'FMB Sketch from Revenue Records (if available)'
+    ],
+    processSteps: [
+      { step: '01', title: 'Record Examination', desc: 'Verifying survey numbers, subdivision marks, and registered deed extents.' },
+      { step: '02', title: 'On-Ground Survey', desc: 'Executing digital boundary measurements and boundary demarcation.' },
+      { step: '03', title: 'FMB Comparison', desc: 'Cross-verifying measured dimensions against official government FMB drawings.' },
+      { step: '04', title: 'Survey Report Delivery', desc: 'Handing over certified measurement drawings and revenue demarcation notes.' }
+    ],
+    faqs: [
+      {
+        question: 'Why is an independent land survey necessary before buying agricultural or residential land?',
+        answer: 'Physical boundaries frequently differ from registered deeds due to encroachments or incorrect past subdivisions. Our survey guarantees you pay only for the exact ground acreage available.'
+      },
+      {
+        question: 'Do you assist with government Taluk survey and patta subdivision in Tamil Nadu?',
+        answer: 'Yes, we assist landowners in preparing application documents, boundary demarcation sketches, and liaising with revenue surveyors for official patta sub-divisions.'
       }
     ]
   },
@@ -259,21 +307,21 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'sales-and-assets',
-    title: 'Sales & Commercial Asset Advisory',
-    shortDesc: 'Professional transaction advisory, commercial asset disposal, and secure sales.',
-    badge: 'Assets & Transactions',
-    icon: '🤝',
+    title: 'Real Estate, Builders & Asset Sales',
+    shortDesc: 'Property transactions, layout promoter liaising, commercial asset disposal, and builder advisory.',
+    badge: 'Real Estate & Builders',
+    icon: '🏢',
     category: 'Assets',
     detailedOverview:
-      'Monetizing commercial properties, industrial land, factories, or distressed assets requires high market credibility, rigorous title clearance, and transparent negotiation. SSS Associate bridges qualified buyers and sellers, safeguarding transactions against frauds and legal encumbrances.',
+      'Monetizing residential plots, agricultural lands, commercial properties, or partnering with trusted builders requires deep market understanding and spotless documentation. SSS Associate acts as your trusted partner across Papanasam, Thanjavur, and Tamil Nadu for genuine real estate advisory, DTCP/RERA layout compliance, and secure asset disposition.',
     problemSolved:
       'Eliminates fraud risks in property transactions, resolves clouded property titles, connects vetted buyers with genuine sellers, and secures fair market valuation.',
     scopeOfWork: [
       'Commercial, Industrial & Prime Residential Asset Valuation Advisory',
+      'Builder Joint Venture (JV) Structuring & Promoter Agreement Drafting',
+      'DTCP / CMDA / Local Body Layout Approval Compliance Verification',
       'Property Legal Due Diligence & 30-year Clear Title Certification',
-      'Buyer & Seller Credibility Vetting to Prevent Frivolous Deals',
-      'Structured Sale Agreement Drafting with Non-Refundable Advance Protection',
-      'Guidance on Capital Gains Tax and TDS on Property Sales (Sec 194-IA)',
+      'Structured Sale Agreement Drafting with Token Advance Protection',
       'Registration Support at Sub-Registrar Offices across Tamil Nadu'
     ],
     keyBenefits: [
@@ -297,12 +345,60 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Do you help verify if a property has pending bank mortgages or litigations?',
-        answer: 'Yes, we conduct comprehensive litigation search in relevant courts and sub-registrar books to guarantee zero hidden encumbrances.'
+        question: 'Do you help verify if a property has pending bank mortgages or litigations in Thanjavur district?',
+        answer: 'Yes, we conduct comprehensive litigation search in relevant courts and sub-registrar books across Papanasam, Kumbakonam, Thanjavur, and all Tamil Nadu districts to guarantee zero hidden encumbrances.'
       },
       {
-        question: 'What regions do you cover for asset sales?',
-        answer: 'We cover prime commercial, residential, and industrial corridors throughout Tamil Nadu.'
+        question: 'What regions do you cover for real estate and builder services?',
+        answer: 'We cover prime commercial, residential, and agricultural corridors throughout Papanasam, Thanjavur, and Tamil Nadu.'
+      }
+    ]
+  },
+  {
+    id: 'private-finance',
+    title: 'Private Finance & Structured Funding',
+    shortDesc: 'Short-term business liquidity, bridging finance, and private funding coordination.',
+    badge: 'Private Finance',
+    icon: '💵',
+    category: 'Banking',
+    detailedOverview:
+      'When conventional banking timelines are too slow for urgent business emergencies, inventory restocking, or auction EMD deposits, private finance can provide vital bridge liquidity. SSS Associate facilitates legitimate, legally documented private funding and structured financial assistance for creditworthy enterprises in Tamil Nadu.',
+    problemSolved:
+      'Solves critical cash-flow emergencies, helps bridge funding gaps while awaiting long-term bank sanction, and secures immediate capital against sound asset collaterals.',
+    scopeOfWork: [
+      'Emergency Working Capital & Bridge Financing Facilitation',
+      'Secured Asset-Backed Short-Term Private Funding Evaluation',
+      'Legal Loan Agreement, Promissory Note & Collateral Deed Execution',
+      'Transparent Interest Structure with No Hidden Usurious Charges',
+      'Repayment Escrow Planning & Bank Takeover Transition Strategy',
+      'Business Financial Feasibility and Security Verification'
+    ],
+    keyBenefits: [
+      'Speedy turnaround for urgent commercial capital needs',
+      'Legally sound documentation safeguarding both borrower and lender',
+      'Structured exit plan to transition into low-cost bank loans',
+      '100% confidential financial discussions'
+    ],
+    documentsRequired: [
+      'Promoter KYC (Aadhaar Card, PAN Card)',
+      'Business Registration & Bank Statements (6 to 12 months)',
+      'Security / Collateral Property Document Copies',
+      'Cash Flow Projections & Repayment Plan Details'
+    ],
+    processSteps: [
+      { step: '01', title: 'Need Evaluation', desc: 'Assessing required capital sum and urgency timeline.' },
+      { step: '02', title: 'Collateral Vetting', desc: 'Evaluating security papers and borrower repayment capability.' },
+      { step: '03', title: 'Legal Agreement Drafting', desc: 'Executing compliant private loan agreement and receipts.' },
+      { step: '04', title: 'Fund Release & Exit Plan', desc: 'Facilitating fund release and establishing bank balance takeover roadmap.' }
+    ],
+    faqs: [
+      {
+        question: 'Is private finance documentation legally binding?',
+        answer: 'Yes. All private financing facilitated through SSS Associate is documented via formal legal agreements, demand promissory notes, and registered security deeds under prevailing Indian contract laws.'
+      },
+      {
+        question: 'Can private finance be converted into a regular bank loan later?',
+        answer: 'Yes. We specialize in loan takeover solutions, allowing you to pay off short-term private funds once regular bank credit or mortgage loans are sanctioned.'
       }
     ]
   },

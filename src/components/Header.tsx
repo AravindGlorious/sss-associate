@@ -56,8 +56,12 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Logo Branding */}
-          <button
-            onClick={() => handleNav('home')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNav('home');
+            }}
             className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
           >
             <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-700 via-indigo-600 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
@@ -67,18 +71,22 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="text-xl font-extrabold text-slate-900 tracking-tight block">SSS ASSOCIATE</span>
               <span className="text-[10px] font-bold text-red-600 tracking-wider uppercase block -mt-1">[ MSME ] REGISTERED</span>
             </div>
-          </button>
+          </a>
 
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-7 font-medium text-slate-600">
-            <button
-              onClick={() => handleNav('home')}
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('home');
+              }}
               className={`transition-colors py-2 cursor-pointer font-semibold ${
                 currentView === 'home' ? 'text-red-600' : 'hover:text-red-600'
               }`}
             >
               Home
-            </button>
+            </a>
 
             {/* Services Dropdown */}
             <div
@@ -86,8 +94,12 @@ export const Header: React.FC<HeaderProps> = ({
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              <button
-                onClick={() => handleNav('services')}
+              <a
+                href="/services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav('services');
+                }}
                 className={`flex items-center gap-1.5 py-2 cursor-pointer transition-colors font-semibold ${
                   currentView === 'services' || currentView === 'service-detail'
                     ? 'text-red-600'
@@ -98,7 +110,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="text-xs transition-transform duration-200">
                   {servicesDropdownOpen ? '▲' : '▼'}
                 </span>
-              </button>
+              </a>
 
               {/* Mega Dropdown Menu */}
               {servicesDropdownOpen && (
@@ -107,18 +119,26 @@ export const Header: React.FC<HeaderProps> = ({
                     <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                       Core Verticals
                     </span>
-                    <button
-                      onClick={() => handleNav('services')}
+                    <a
+                      href="/services"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNav('services');
+                      }}
                       className="text-xs text-red-600 font-bold hover:underline cursor-pointer"
                     >
                       View All 8 Services →
-                    </button>
+                    </a>
                   </div>
                   <div className="max-h-[380px] overflow-y-auto pr-1 space-y-1">
                     {SERVICES_DATA.map((srv) => (
-                      <button
+                      <a
                         key={srv.id}
-                        onClick={() => handleNav('service-detail', srv.id)}
+                        href={`/services/${srv.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleNav('service-detail', srv.id);
+                        }}
                         className={`w-full text-left p-2.5 rounded-xl flex items-center gap-3 transition-colors cursor-pointer ${
                           selectedServiceId === srv.id && currentView === 'service-detail'
                             ? 'bg-red-50 text-red-700'
@@ -130,30 +150,38 @@ export const Header: React.FC<HeaderProps> = ({
                           <p className="text-xs font-bold truncate text-slate-900">{srv.title}</p>
                           <p className="text-[11px] text-slate-500 truncate">{srv.shortDesc}</p>
                         </div>
-                      </button>
+                      </a>
                     ))}
                   </div>
                 </div>
               )}
             </div>
 
-            <button
-              onClick={() => handleNav('about')}
+            <a
+              href="/about"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('about');
+              }}
               className={`transition-colors py-2 cursor-pointer font-semibold ${
                 currentView === 'about' ? 'text-red-600' : 'hover:text-red-600'
               }`}
             >
               About Us
-            </button>
+            </a>
 
-            <button
-              onClick={() => handleNav('contact')}
+            <a
+              href="/contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNav('contact');
+              }}
               className={`transition-colors py-2 cursor-pointer font-semibold ${
                 currentView === 'contact' ? 'text-red-600' : 'hover:text-red-600'
               }`}
             >
               Contact
-            </button>
+            </a>
           </nav>
 
           {/* Professional Call Us & CTA Buttons */}
@@ -195,58 +223,82 @@ export const Header: React.FC<HeaderProps> = ({
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-slate-100 px-6 py-5 space-y-4 shadow-xl max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col space-y-2">
-              <button
-                onClick={() => handleNav('home')}
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav('home');
+                }}
                 className={`text-left font-semibold py-2.5 px-3 rounded-lg ${
                   currentView === 'home' ? 'bg-red-50 text-red-600' : 'text-slate-800'
                 }`}
               >
                 🏠 Home
-              </button>
-              <button
-                onClick={() => handleNav('services')}
+              </a>
+              <a
+                href="/services"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav('services');
+                }}
                 className={`text-left font-semibold py-2.5 px-3 rounded-lg ${
                   currentView === 'services' ? 'bg-red-50 text-red-600' : 'text-slate-800'
                 }`}
               >
                 📑 All Services (8 Specialties)
-              </button>
+              </a>
               
               {/* Quick Individual Service links in mobile */}
               <div className="pl-4 pr-1 py-1 space-y-1 border-l-2 border-slate-100 ml-2">
                 {SERVICES_DATA.slice(0, 4).map((s) => (
-                  <button
+                  <a
                     key={s.id}
-                    onClick={() => handleNav('service-detail', s.id)}
+                    href={`/services/${s.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNav('service-detail', s.id);
+                    }}
                     className="block w-full text-left text-xs text-slate-600 py-1.5 hover:text-red-600 truncate"
                   >
                     {s.icon} {s.title}
-                  </button>
+                  </a>
                 ))}
-                <button
-                  onClick={() => handleNav('services')}
+                <a
+                  href="/services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNav('services');
+                  }}
                   className="block w-full text-left text-xs text-red-600 font-bold pt-1"
                 >
                   + View all 8 services →
-                </button>
+                </a>
               </div>
 
-              <button
-                onClick={() => handleNav('about')}
+              <a
+                href="/about"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav('about');
+                }}
                 className={`text-left font-semibold py-2.5 px-3 rounded-lg ${
                   currentView === 'about' ? 'bg-red-50 text-red-600' : 'text-slate-800'
                 }`}
               >
                 ℹ️ About Us & MSME Credentials
-              </button>
-              <button
-                onClick={() => handleNav('contact')}
+              </a>
+              <a
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNav('contact');
+                }}
                 className={`text-left font-semibold py-2.5 px-3 rounded-lg ${
                   currentView === 'contact' ? 'bg-red-50 text-red-600' : 'text-slate-800'
                 }`}
               >
                 📍 Contact & Offices
-              </button>
+              </a>
             </div>
 
             {/* Direct Helplines in Mobile Menu */}

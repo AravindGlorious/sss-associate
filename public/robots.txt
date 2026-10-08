@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://sss-associate.vercel.app/sitemap.xml
+Host: https://sss-associate.vercel.app
