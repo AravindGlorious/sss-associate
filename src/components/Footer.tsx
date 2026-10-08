@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             >
               {/* Facebook */}
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/sundaramsuresh.sundaramsuresh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-colors shadow-xs"
