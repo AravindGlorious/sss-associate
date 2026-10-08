@@ -14,10 +14,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Main 4-Column Footer Grid */}
+        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
 
-          {/* Brand & MSME Information */}
+          {/* Brand & Business Information */}
           <div className="lg:col-span-4 space-y-4">
             <a
               href="/"
@@ -59,11 +59,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </span>
             </div>
 
-            {/* Social Media Icons - PRESERVED */}
+            {/* Social Media Icons */}
             <div
               className="flex items-center gap-3 pt-2"
               aria-label="SSS Associate social media profiles"
             >
+              {/* Facebook */}
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -81,6 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </svg>
               </a>
 
+              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -98,6 +100,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </svg>
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
                 target="_blank"
@@ -115,6 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </svg>
               </a>
 
+              {/* X / Twitter */}
               <a
                 href="https://twitter.com"
                 target="_blank"
@@ -194,66 +198,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
 
-              {/* Correct Legal URL */}
-              <li>
-                <a
-                  href="/privacy-policy"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('privacy');
-                  }}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-
-              {/* Correct Disclaimer URL */}
-              <li>
-                <a
-                  href="/disclaimer"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('disclaimer');
-                  }}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
-                >
-                  Bar Council Compliance / Advocate Disclaimer
-                </a>
-              </li>
-
-              {/* Correct Terms URL */}
-              <li>
-                <a
-                  href="/terms-and-conditions"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('terms');
-                  }}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
-                >
-                  Terms of Use (User Agreement)
-                </a>
-              </li>
-
-              {/* Correct Refund URL */}
-              <li>
-                <a
-                  href="/refund-cancellation-policy"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onNavigate('refund');
-                  }}
-                  className="hover:text-red-400 transition-colors cursor-pointer text-left text-xs text-slate-400 block"
-                >
-                  Refund & Cancellation Policy
-                </a>
-              </li>
-
             </ul>
           </div>
 
-          {/* Individual Services Links */}
+          {/* Individual Services */}
           <div className="lg:col-span-3 space-y-4">
             <h2 className="font-bold text-white text-sm uppercase tracking-wider">
               Our Specialized Services
@@ -355,20 +303,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         </div>
 
-        {/* Bottom Legal Copyright */}
+        {/* Bottom Legal & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
 
+          {/* Automatic Copyright Year */}
           <div>
             &copy; {new Date().getFullYear()} SSS Associate [ MSME ] Registered.
             All rights reserved.
           </div>
 
+          {/* Legal Links - One Location Only */}
           <nav
             aria-label="Legal and policy navigation"
             className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs"
           >
 
-            {/* Correct Privacy URL */}
             <a
               href="/privacy-policy"
               onClick={(e) => {
@@ -380,7 +329,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Privacy Policy
             </a>
 
-            {/* Correct Disclaimer URL */}
             <a
               href="/disclaimer"
               onClick={(e) => {
@@ -392,7 +340,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Bar Council Compliance / Advocate Disclaimer
             </a>
 
-            {/* Correct Terms URL */}
             <a
               href="/terms-and-conditions"
               onClick={(e) => {
@@ -404,7 +351,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               Terms of Use (User Agreement)
             </a>
 
-            {/* Correct Refund URL */}
             <a
               href="/refund-cancellation-policy"
               onClick={(e) => {
