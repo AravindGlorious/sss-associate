@@ -71,7 +71,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     icon: '📐',
     category: 'Assets',
     detailedOverview:
-      'Accurate land surveying is vital before purchasing, developing, or selling real estate. SSS Associate offers precision land survey, digital demarcation, FMB sketch matching, revenue record verification, and sub-division advisory across Papanasam, Thanjavur, and Tamil Nadu.',
+      'SSS Associate provides professional land survey and boundary verification support for property owners, buyers, sellers, developers, and businesses across Tamil Nadu. We assist with land measurement, boundary identification, FMB sketch and survey record verification, revenue document review, property demarcation, and subdivision-related advisory to help clients understand property boundaries and documentation before purchase, development, or sale.',
     problemSolved:
       'Resolves boundary disputes, rectifies discrepancies between on-ground physical measurements and registered deed extents, and validates revenue Patta and FMB records before construction or property registration.',
     scopeOfWork: [
