@@ -81,7 +81,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onSelectService 
                   onClick={() => onNavigate('services')}
                   className="bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-red-500/25 transition-all flex items-center justify-center gap-3 cursor-pointer"
                 >
-                  <span>Explore Our 8 Services</span>
+                  <span>Explore Our Services</span>
                   <span>→</span>
                 </button>
                 
