@@ -242,12 +242,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'When is a statutory tax audit mandatory for businesses?',
-        answer: 'Under Section 44AB of the Income Tax Act, businesses with turnover exceeding the statutory threshold (₹1 crore to ₹10 crores depending on digital transaction percentage) require mandatory audit.'
-      },
-      {
-        question: 'Can SSS Associate help prepare our company before a bank stock audit?',
-        answer: 'Yes, we perform pre-audit stock checks and ledger reconciliations to ensure smooth passing of bank-mandated audits.'
+         question:
+      'What types of auditing services does SSS Associate provide?',
+    answer:
+      'SSS Associate provides audit and assurance support for businesses, MSMEs and organisations, including internal audits, statutory audit preparation and verification, stock and inventory audits, fixed asset verification, compliance reviews, bank-related audit support, and financial discrepancy analysis, depending on the requirements of the engagement.'
+  },
+  {
+    question:
+      'When does a business need a statutory or tax audit?',
+    answer:
+      'The requirement for a statutory or tax audit depends on the applicable law, business structure, turnover or gross receipts, nature of transactions, and other prescribed conditions. SSS Associate can assist businesses in understanding the applicable audit requirements and preparing the relevant financial and accounting records.'
+  },
+  {
+    question:
+      'Can SSS Associate help prepare a business for a bank stock audit?',
+    answer:
+      'Yes. We can assist with pre-audit review of inventory records, stock statements, purchase and sales records, ledger balances, bank statements, and related documentation to help businesses identify discrepancies and improve audit readiness before a bank-conducted stock or concurrent audit.'
+  },
+  {
+    question:
+      'What documents are generally required for an audit?',
+    answer:
+      'Depending on the type and scope of the audit, documents may include financial statements, trial balance, general ledgers, cash and bank records, purchase and sales records, GST and TDS records, inventory registers, fixed asset registers, statutory payment records, and other supporting documents relevant to the engagement.'
+  },
+  {
+    question:
+      'How can an internal audit help improve business financial controls?',
+    answer:
+      'An internal audit can help identify gaps in accounting processes, transaction controls, inventory management, expense approvals, documentation, and financial reporting. The findings can help management strengthen internal controls, reduce operational risks, improve accountability, and support better financial decision-making.'
       }
     ]
   },
@@ -291,12 +313,34 @@ export const SERVICES_DATA: ServiceItem[] = [
     ],
     faqs: [
       {
-        question: 'Can new MSME startups apply for funding through SSS Associate?',
-        answer: 'Yes, we assist eligible new startups with project reports under government schemes like CGTMSE and PMEGP subject to bank eligibility guidelines.'
-      },
-      {
-        question: 'What is the standard turnaround time for loan processing?',
-        answer: 'With complete and verified documentation, initial sanction approvals typically take 7 to 14 business days.'
+        question:
+      'What types of business and MSME loans does SSS Associate assist with?',
+    answer:
+      'SSS Associate assists eligible businesses and MSMEs with various funding requirements, including business loans, working capital facilities, Cash Credit (CC), Overdraft (OD), Term Loans, Machinery Loans, Loan Against Property (LAP), and other suitable funding options based on the applicant’s financial profile and lender requirements.'
+  },
+  {
+    question:
+      'Can SSS Associate help new businesses and startups apply for business funding?',
+    answer:
+      'Yes. We can assist eligible new businesses and startups with funding documentation, project reports, financial projections, and guidance on applicable government-backed or institutional financing schemes. Final eligibility, sanction and funding decisions are subject to the concerned lender and applicable scheme conditions.'
+  },
+  {
+    question:
+      'What documents are generally required for a business or MSME loan?',
+    answer:
+      'Common documents may include promoter KYC, business registration documents, GST and Udyam registration where applicable, income tax returns, financial statements, bank statements, business or project reports, and property documents for secured funding. The exact requirements vary by lender, loan type and applicant profile.'
+  },
+  {
+    question:
+      'Can SSS Associate prepare CMA data and project reports for loan applications?',
+    answer:
+      'Yes. We assist eligible businesses with the preparation and presentation of CMA data, project reports, financial projections and supporting documentation required for certain business and working capital loan applications. The final format and requirements depend on the concerned lender.'
+  },
+  {
+    question:
+      'Can you assist if my previous loan application was rejected by a bank?',
+    answer:
+      'Yes. We can review the available application information, financial records, credit profile and documentation to identify possible gaps or concerns. Based on the assessment, we can guide you on improving the loan proposal and documentation before approaching a suitable lender. Loan approval remains subject to the lender’s independent credit assessment.'
       }
     ]
   },
