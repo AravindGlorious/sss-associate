@@ -84,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/sssassociateservices/"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-pink-600 text-white flex items-center justify-center transition-colors shadow-xs"
@@ -212,7 +212,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   <div className="text-[10px] text-slate-400 uppercase font-semibold">
                     Primary Helpline
                   </div>
-
                   <div className="text-sm font-bold text-white">
                     9385954338
                   </div>
@@ -235,57 +234,69 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   <div className="text-[10px] text-slate-400 uppercase font-semibold">
                     Secondary Helpline
                   </div>
-
                   <div className="text-sm font-bold text-white">
                     9087853733
                   </div>
                 </div>
               </a>
 
-             {/* Email Address */}
-<a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=sssassociateservices@gmail.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center gap-3 bg-slate-900/90 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800 transition-all group min-w-0"
-  aria-label="Email SSS Associate"
->
-  <span
-    className="w-9 h-9 shrink-0 rounded-lg bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-base group-hover:bg-red-600 group-hover:text-white transition-colors"
-    aria-hidden="true"
-  >
-    ✉️
-  </span>
-
-  <div className="min-w-0 flex-1">
-    <div className="text-[10px] text-slate-400 uppercase font-semibold">
-      Email Address
-    </div>
-
-    <div className="text-sm font-bold text-white whitespace-nowrap">
-      sssassociateservices@gmail.com
-    </div>
-  </div>
-</a>
-
-              <div className="text-xs text-slate-300 pt-1 space-y-1">
-                <div className="flex items-start gap-2 text-slate-300">
-                  <span aria-hidden="true">📍</span>
-                  <span>
-                    MSME Registered Professional Consultancy, Tamil Nadu, India.
+              {/* Office Address & Hours */}
+              <div className="text-xs text-slate-300 pt-1 space-y-3">
+                <a
+                  href="https://www.google.com/maps/place/SSS+Associate+services/data=!4m2!3m1!1s0x3ba857585b7660d3:0x8976a69b1d21bdd3?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-3 transition-colors hover:bg-slate-800 group"
+                  aria-label="View SSS Associate office address on Google Maps"
+                >
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-red-600/20 text-red-400 transition-colors group-hover:bg-red-600 group-hover:text-white"
+                    aria-hidden="true"
+                  >
+                    📍
                   </span>
-                </div>
 
-                <div className="flex items-center gap-2 text-slate-400 text-[11px] pt-1">
+                  <span className="min-w-0 flex-1">
+                    <span className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                      Office Address
+                    </span>
+
+                    <span className="block text-sm font-semibold leading-relaxed text-white">
+                      9, Gandhi Nagar,
+                      <br />
+                      Coimbatore – 641103,
+                      <br />
+                      Tamil Nadu, India.
+                    </span>
+
+                    <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-red-400 group-hover:text-red-300">
+                      View on Google Maps
+                      <span aria-hidden="true">↗</span>
+                    </span>
+                  </span>
+                </a>
+
+                <div className="flex items-start gap-2 px-1 text-slate-400">
                   <span aria-hidden="true">⏰</span>
-                  <span>
+                  <span className="text-[11px] leading-relaxed">
                     Office Hours: 9:30 AM – 7:30 PM (Mon – Sat)
                   </span>
                 </div>
               </div>
+
+              {/* Email */}
+              <a
+                href="mailto:sssassociateservices@gmail.com"
+                className="flex items-center gap-2 text-slate-300 hover:text-red-400 transition-colors pt-1"
+                aria-label="Email SSS Associate"
+              >
+                <span aria-hidden="true">✉️</span>
+                <span className="break-all">
+                  sssassociateservices@gmail.com
+                </span>
+              </a>
             </div>
           </div>
-
         </div>
 
         {/* Bottom Legal & Copyright */}
@@ -341,13 +352,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 e.preventDefault();
                 onNavigate('refund');
               }}
-              className="hover:text-white transition-colors cursor-pointer text-amber-300 hover:text-white"
+              className="hover:text-white transition-colors cursor-pointer text-amber-300"
             >
               Refund & Cancellation Policy
             </a>
           </nav>
         </div>
-
       </div>
     </footer>
   );
