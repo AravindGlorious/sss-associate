@@ -284,20 +284,23 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Email */}
-              <a
-                href="mailto:sssassociateservices@gmail.com"
-                className="flex items-center gap-2 text-slate-300 hover:text-red-400 transition-colors pt-1"
-                aria-label="Email SSS Associate"
-              >
-                <span aria-hidden="true">✉️</span>
-                <span className="break-all">
-                  sssassociateservices@gmail.com
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
+              
+{/* Email */}
+<a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=sssassociateservices@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-slate-300 hover:text-red-400 transition-colors pt-1"
+  aria-label="Send an email to SSS Associate using Gmail"
+>
+  <span aria-hidden="true">✉️</span>
+  <span className="break-all">
+    sssassociateservices@gmail.com
+  </span>
+</a>
+</div>
+</div>
+</div>
 
         {/* Bottom Legal & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
