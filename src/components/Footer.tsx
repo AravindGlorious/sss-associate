@@ -270,9 +270,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     </span>
 
                     <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-red-400 group-hover:text-red-300">
-                      View on Google Maps
-                      <span aria-hidden="true">↗</span>
-                    </span>
+  Open Google Maps
+  <span aria-hidden="true">↗</span>
+</span>
                   </span>
                 </a>
 
