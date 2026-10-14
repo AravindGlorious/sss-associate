@@ -245,7 +245,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <a
                   href="https://www.google.com/maps/place/SSS+Associate+services/data=!4m2!3m1!1s0x3ba857585b7660d3:0x8976a69b1d21bdd3?hl=en"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-3 transition-colors hover:bg-slate-800 group"
                   aria-label="View SSS Associate office address on Google Maps"
                 >
