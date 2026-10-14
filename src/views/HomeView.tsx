@@ -20,6 +20,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const handleInputChange = (
@@ -30,12 +31,48 @@ export const HomeView: React.FC<HomeViewProps> = ({
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: formData.fullName.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          service: formData.service,
+          location: '',
+          message: formData.notes.trim(),
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.error || 'Unable to send your enquiry. Please try again.'
+        );
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Consultation form submission failed:', error);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : 'Unable to send your enquiry. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const toggleFaq = (idx: number) => {
+const toggleFaq = (idx: number) => {
     setActiveFaq(activeFaq === idx ? null : idx);
   };
 
@@ -46,7 +83,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
     },
     {
       q: 'How does SSS Associate assist with SARFAESI Bank Auction properties?',
-      a: 'We perform end-to-end 360° due diligence: 30-year parent document title clearance, verification of physical vs. symbolic possession with bank Authorised Officers, court/DRT stay order searches, e-auction bidding strategy, and post-auction sale certificate conveyance.',
+      a: 'We perform end-to-end 360Â° due diligence: 30-year parent document title clearance, verification of physical vs. symbolic possession with bank Authorised Officers, court/DRT stay order searches, e-auction bidding strategy, and post-auction sale certificate conveyance.',
     },
     {
       q: 'Can you help our business if our loan account is classified as NPA or facing auction?',
@@ -70,7 +107,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-semibold text-xs sm:text-sm tracking-wide uppercase border border-red-100 shadow-2xs">
-                <span aria-hidden="true">🛡️</span>
+                <span aria-hidden="true">ðŸ›¡ï¸</span>
                 <span>
                   Trusted MSME Registered Financial & Legal Experts
                 </span>
@@ -96,7 +133,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   className="bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-red-500/25 transition-all flex items-center justify-center gap-3 cursor-pointer"
                 >
                   <span>Explore Our Services</span>
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">â†’</span>
                 </button>
 
                 <div className="flex items-center gap-4 bg-white p-3.5 px-4 rounded-2xl shadow-md border border-slate-100">
@@ -108,7 +145,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="text-amber-400 text-xs tracking-wider"
                       aria-label="5 stars"
                     >
-                      <span aria-hidden="true">★★★★★</span>
+                      <span aria-hidden="true">â˜…â˜…â˜…â˜…â˜…</span>
                     </div>
                     <div className="text-xs text-slate-600 font-semibold">
                       1,000+ Satisfied Clients
@@ -128,7 +165,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   aria-label="Call SSS Associate at 9385954338"
                   className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl transition-colors shadow-xs text-xs sm:text-sm font-bold"
                 >
-                  <span aria-hidden="true">📞</span> 9385954338
+                  <span aria-hidden="true">ðŸ“ž</span> 9385954338
                 </a>
 
                 <a
@@ -136,22 +173,22 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   aria-label="Call SSS Associate at 9087853733"
                   className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl transition-colors shadow-xs text-xs sm:text-sm font-bold"
                 >
-                  <span aria-hidden="true">📞</span> 9087853733
+                  <span aria-hidden="true">ðŸ“ž</span> 9087853733
                 </a>
               </div>
 
               {/* Trust Micro-Badges */}
               <div className="pt-3 flex flex-wrap items-center gap-4 text-xs text-slate-600 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span className="text-emerald-600 font-bold" aria-hidden="true">âœ“</span>
                   100% Confidential
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span className="text-emerald-600 font-bold" aria-hidden="true">âœ“</span>
                   MSME Certified Standards
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span className="text-emerald-600 font-bold" aria-hidden="true">âœ“</span>
                   Fast Resolution Turnaround
                 </span>
               </div>
@@ -189,7 +226,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl mx-auto shadow-md"
                       aria-hidden="true"
                     >
-                      ✓
+                      âœ“
                     </div>
 
                     <div>
@@ -221,7 +258,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2"
                       >
                         <span>Chat Instantly on WhatsApp</span>
-                        <span aria-hidden="true">➤</span>
+                        <span aria-hidden="true">âž¤</span>
                       </a>
 
                       <button
@@ -363,13 +400,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                     <button
                       type="submit"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-red-600/30 text-sm cursor-pointer mt-1"
+                      disabled={isSubmitting}
+                      className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-red-600/30 text-sm cursor-pointer mt-1"
                     >
-                      Submit Consultation Request →
+                      {isSubmitting ? 'Sending Request...' : 'Submit Consultation Request'}
                     </button>
 
                     <p className="text-[10px] text-slate-400 text-center pt-1">
-                      🔒 Your details are strictly confidential under MSME
+                      ðŸ”’ Your details are strictly confidential under MSME
                       compliance.
                     </p>
                   </form>
@@ -477,7 +515,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     aria-label={`View full details for ${srv.title}`}
                   >
                     <span>Full Details & Documents</span>
-                    <span aria-hidden="true">→</span>
+                    <span aria-hidden="true">â†’</span>
                   </button>
 
                   <span className="text-xs text-slate-400 group-hover:text-slate-600">
@@ -496,7 +534,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
             >
               <span>Explore All 8 Individual Service Pages</span>
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">â†’</span>
             </button>
           </div>
         </div>
@@ -530,7 +568,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     onClick={() => onSelectService('bank-auction')}
                     className="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all cursor-pointer"
                   >
-                    Bank Auction Support →
+                    Bank Auction Support â†’
                   </button>
 
                   <button
@@ -538,13 +576,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     onClick={() => onSelectService('debt-settlement')}
                     className="bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm border border-white/20 transition-all cursor-pointer"
                   >
-                    OTS & Debt Settlement →
+                    OTS & Debt Settlement â†’
                   </button>
                 </div>
               </div>
 
               <div className="lg:col-span-4 bg-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-3">
-                <div className="text-3xl" aria-hidden="true">📞</div>
+                <div className="text-3xl" aria-hidden="true">ðŸ“ž</div>
 
                 <h3 className="text-lg font-bold text-white">
                   Direct Advisory Call
@@ -616,7 +654,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs font-bold shrink-0"
                       aria-hidden="true"
                     >
-                      ✓
+                      âœ“
                     </span>
                     <span className="font-bold text-slate-900 text-xs sm:text-sm">
                       {feat}
@@ -634,7 +672,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <span>
                     Learn more about our credentials & advisory philosophy
                   </span>
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">â†’</span>
                 </button>
               </div>
             </div>
@@ -661,7 +699,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-105 transition-transform"
                       aria-hidden="true"
                     >
-                      📞
+                      ðŸ“ž
                     </div>
                     <div>
                       <div className="text-xs text-slate-400 font-semibold uppercase">
@@ -682,7 +720,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       className="w-12 h-12 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg shadow-md group-hover:scale-105 transition-transform"
                       aria-hidden="true"
                     >
-                      📞
+                      ðŸ“ž
                     </div>
                     <div>
                       <div className="text-xs text-slate-400 font-semibold uppercase">
@@ -695,7 +733,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </a>
 
                   <div className="pt-2 border-t border-slate-800 text-xs text-slate-300 flex items-center gap-2">
-                    <span aria-hidden="true">📍</span>
+                    <span aria-hidden="true">ðŸ“</span>
                     <span>
                       MSME Registered Professional Consultancy, Tamil Nadu,
                       India.
@@ -792,21 +830,21 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 name: 'K. Senthil Kumar',
                 role: 'Managing Director, Textile Processing Unit',
                 text: 'SSS Associate handled our multi-crore working capital loan takeover from an NBFC to a nationalized bank. They saved us 4% in annual interest and secured additional top-up funds within 20 days.',
-                stars: '★★★★★',
+                stars: 'â˜…â˜…â˜…â˜…â˜…',
                 tag: 'Loan Takeover',
               },
               {
                 name: 'V. Muruganandam',
                 role: 'Commercial Real Estate Investor',
                 text: 'Bidding on a SARFAESI bank auction property can be risky. SSS Associate conducted full parent document scrutiny and handled the sub-registrar registration cleanly. Truly unmatched professional diligence.',
-                stars: '★★★★★',
+                stars: 'â˜…â˜…â˜…â˜…â˜…',
                 tag: 'Bank Auction Support',
               },
               {
                 name: 'P. Anandharaj',
                 role: 'Proprietor, Engineering Works',
                 text: 'When our bank issued a 13(2) notice during the pandemic slowdown, SSS Associate represented us before the recovery committee and negotiated an OTS waiver of 45% on compound interest.',
-                stars: '★★★★★',
+                stars: 'â˜…â˜…â˜…â˜…â˜…',
                 tag: 'Debt Settlement (OTS)',
               },
             ].map((t, idx) => (
@@ -882,7 +920,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   >
                     <span>{faq.q}</span>
                     <span className="text-red-600 text-lg shrink-0" aria-hidden="true">
-                      {isExpanded ? '−' : '+'}
+                      {isExpanded ? 'âˆ’' : '+'}
                     </span>
                   </button>
 
@@ -920,7 +958,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               aria-label="Call SSS Associate at 9385954338"
               className="bg-white text-slate-900 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-xl shadow-lg transition-colors text-sm"
             >
-              <span aria-hidden="true">📞</span> Call Helpline: 9385954338
+              <span aria-hidden="true">ðŸ“ž</span> Call Helpline: 9385954338
             </a>
 
             <a
@@ -928,7 +966,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               aria-label="Call SSS Associate at 9087853733"
               className="bg-indigo-950 hover:bg-indigo-900 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition-colors text-sm"
             >
-              <span aria-hidden="true">📞</span> Call Secondary: 9087853733
+              <span aria-hidden="true">ðŸ“ž</span> Call Secondary: 9087853733
             </a>
 
             <a
@@ -938,7 +976,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               aria-label="Contact SSS Associate on WhatsApp"
               className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition-colors text-sm"
             >
-              <span aria-hidden="true">💬</span> WhatsApp Chat
+              <span aria-hidden="true">ðŸ’¬</span> WhatsApp Chat
             </a>
           </div>
         </div>
