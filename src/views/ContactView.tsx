@@ -10,16 +10,66 @@ export const ContactView: React.FC = () => {
     location: '',
     message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.error ||
+            'Unable to send your enquiry. Please try again.'
+        );
+      }
+
+      // Google Ads conversion tracking
+      // Trigger only after the contact API accepts the enquiry.
+      const gtag = (
+        window as Window & {
+          gtag?: (...args: any[]) => void;
+        }
+      ).gtag;
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          send_to: 'AW-18511083261/qQdWCMGv5ZwdEP3t4vpE',
+        });
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'Unable to send your enquiry. Please contact us on WhatsApp.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
-      
+
       {/* Header Banner */}
       <div className="bg-gradient-to-b from-indigo-50/70 via-white to-slate-50 border-b border-slate-100 pt-12 pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl space-y-4">
@@ -36,10 +86,10 @@ export const ContactView: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-        
+
         {/* Top 3 Quick Contact Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          
+
           {/* Primary Call */}
           <div className="bg-white p-7 rounded-3xl border border-slate-100 shadow-sm flex flex-col justify-between space-y-4">
             <div className="flex items-center gap-4">
@@ -121,7 +171,7 @@ export const ContactView: React.FC = () => {
 
         {/* Main Grid: Contact Form + Location / Operating Info */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
+
           {/* Detailed Contact Form */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-100 shadow-sm">
             <div className="mb-6">
@@ -141,11 +191,23 @@ export const ContactView: React.FC = () => {
                 <div className="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl mx-auto shadow-md">
                   ✓
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Message Received Successfully!</h3>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Message Received Successfully!
+                </h3>
                 <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Thank you, <span className="font-bold text-slate-900">{formData.fullName}</span>. A senior consultant has been assigned to your query regarding{' '}
-                  <span className="font-bold text-red-600">{formData.service}</span>. We will call you at{' '}
-                  <span className="font-bold text-slate-900">{formData.phone}</span> shortly.
+                  Thank you,{' '}
+                  <span className="font-bold text-slate-900">
+                    {formData.fullName}
+                  </span>
+                  . Your enquiry regarding{' '}
+                  <span className="font-bold text-red-600">
+                    {formData.service}
+                  </span>{' '}
+                  has been submitted successfully. Our team will contact you at{' '}
+                  <span className="font-bold text-slate-900">
+                    {formData.phone}
+                  </span>
+                  .
                 </p>
 
                 <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
@@ -160,9 +222,12 @@ export const ContactView: React.FC = () => {
                     <span>Instant WhatsApp Connect</span>
                     <span>➤</span>
                   </a>
+
                   <button
+                    type="button"
                     onClick={() => {
                       setSubmitted(false);
+                      setSubmitError('');
                       setFormData({
                         fullName: '',
                         phone: '',
@@ -180,6 +245,7 @@ export const ContactView: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
@@ -188,8 +254,12 @@ export const ContactView: React.FC = () => {
                     <input
                       type="text"
                       required
+                      autoComplete="name"
+                      maxLength={100}
                       value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, fullName: e.target.value })
+                      }
                       placeholder="e.g. Anandha Kumar"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors"
                     />
@@ -202,8 +272,12 @@ export const ContactView: React.FC = () => {
                     <input
                       type="tel"
                       required
+                      autoComplete="tel"
+                      maxLength={20}
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       placeholder="e.g. 9385954338"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors"
                     />
@@ -217,8 +291,12 @@ export const ContactView: React.FC = () => {
                     </label>
                     <input
                       type="email"
+                      autoComplete="email"
+                      maxLength={254}
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       placeholder="name@company.com"
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors"
                     />
@@ -230,8 +308,12 @@ export const ContactView: React.FC = () => {
                     </label>
                     <input
                       type="text"
+                      autoComplete="address-level2"
+                      maxLength={100}
                       value={formData.location}
-                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, location: e.target.value })
+                      }
                       placeholder="e.g. Chennai, Coimbatore, Madurai..."
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors"
                     />
@@ -243,8 +325,11 @@ export const ContactView: React.FC = () => {
                     Service Required <span className="text-red-500">*</span>
                   </label>
                   <select
+                    required
                     value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, service: e.target.value })
+                    }
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-red-500 transition-colors"
                   >
                     {SERVICES_DATA.map((s) => (
@@ -261,22 +346,40 @@ export const ContactView: React.FC = () => {
                   </label>
                   <textarea
                     rows={4}
+                    maxLength={5000}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder="Briefly state your query, relevant notice dates, or property details..."
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors resize-none"
                   ></textarea>
                 </div>
 
+                {submitError && (
+                  <p
+                    role="alert"
+                    aria-live="polite"
+                    className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl p-3"
+                  >
+                    {submitError}
+                    <br />
+                    You can also contact us directly using the call or WhatsApp options above.
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-xl text-sm shadow-md transition-all cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-60 text-white font-bold py-4 rounded-xl text-sm shadow-md transition-all cursor-pointer disabled:cursor-not-allowed"
                 >
-                  Submit Inquiry to SSS Associate →
+                  {isSubmitting
+                    ? 'Sending Enquiry...'
+                    : 'Submit Inquiry to SSS Associate →'}
                 </button>
 
                 <p className="text-[11px] text-slate-400 text-center">
-                  🔒 All client discussions and shared records are protected under strict MSME consultancy confidentiality.
+                  🔒 Please share only the information needed for your enquiry. Avoid submitting passwords, OTPs, or unnecessary sensitive documents.
                 </p>
               </form>
             )}
@@ -284,7 +387,7 @@ export const ContactView: React.FC = () => {
 
           {/* Regional Office & Operational Details */}
           <div className="lg:col-span-5 space-y-6">
-            
+
             {/* Office Info Card */}
             <div className="bg-gradient-to-br from-indigo-950 to-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-xl space-y-6">
               <div className="flex items-center gap-3">
@@ -319,11 +422,15 @@ export const ContactView: React.FC = () => {
                   <div className="space-y-1 text-white">
                     <p className="flex justify-between">
                       <span className="text-slate-300">Monday – Saturday:</span>
-                      <span className="font-bold text-emerald-400">9:30 AM – 7:30 PM</span>
+                      <span className="font-bold text-emerald-400">
+                        9:30 AM – 7:30 PM
+                      </span>
                     </p>
                     <p className="flex justify-between">
                       <span className="text-slate-300">Sunday:</span>
-                      <span className="text-amber-300 font-medium">Emergency Case Calls By Appointment</span>
+                      <span className="text-amber-300 font-medium">
+                        Emergency Case Calls By Appointment
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -355,12 +462,20 @@ export const ContactView: React.FC = () => {
               </h4>
               <div className="space-y-3 text-xs text-slate-600">
                 <div>
-                  <p className="font-bold text-slate-800">Can I discuss documents over WhatsApp?</p>
-                  <p className="mt-0.5">Yes, send scanned PDFs or clear photographs of notices/deeds directly to 9385954338 for initial evaluation.</p>
+                  <p className="font-bold text-slate-800">
+                    Can I discuss documents over WhatsApp?
+                  </p>
+                  <p className="mt-0.5">
+                    Yes, send scanned PDFs or clear photographs of notices/deeds directly to 9385954338 for initial evaluation.
+                  </p>
                 </div>
                 <div>
-                  <p className="font-bold text-slate-800">Do you offer in-person consultations?</p>
-                  <p className="mt-0.5">Yes, in-person advisory sessions are arranged across Tamil Nadu by prior appointment.</p>
+                  <p className="font-bold text-slate-800">
+                    Do you offer in-person consultations?
+                  </p>
+                  <p className="mt-0.5">
+                    Yes, in-person advisory sessions are arranged across Tamil Nadu by prior appointment.
+                  </p>
                 </div>
               </div>
             </div>
