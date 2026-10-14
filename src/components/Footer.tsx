@@ -242,29 +242,31 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </a>
 
-              {/* Email Address */}
-              <a
-                href="mailto:sssassociateservices@gmail.com"
-                className="flex items-center gap-3 bg-slate-900/90 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800 transition-all group"
-                aria-label="Email SSS Associate sssassociateservices@gmail.com"
-              >
-                <span
-                  className="w-9 h-9 rounded-lg bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-base group-hover:bg-red-600 group-hover:text-white transition-colors"
-                  aria-hidden="true"
-                >
-                  ✉️
-                </span>
+             {/* Email Address */}
+<a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=sssassociateservices@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 bg-slate-900/90 hover:bg-slate-800 p-2.5 rounded-xl border border-slate-800 transition-all group min-w-0"
+  aria-label="Email SSS Associate"
+>
+  <span
+    className="w-9 h-9 shrink-0 rounded-lg bg-red-600/20 text-red-400 flex items-center justify-center font-bold text-base group-hover:bg-red-600 group-hover:text-white transition-colors"
+    aria-hidden="true"
+  >
+    ✉️
+  </span>
 
-                <div>
-                  <div className="text-[10px] text-slate-400 uppercase font-semibold">
-                    Email Address
-                  </div>
+  <div className="min-w-0 flex-1">
+    <div className="text-[10px] text-slate-400 uppercase font-semibold">
+      Email Address
+    </div>
 
-                  <div className="text-sm font-bold text-white break-all">
-                    sssassociateservices@gmail.com
-                  </div>
-                </div>
-              </a>
+    <div className="text-sm font-bold text-white whitespace-nowrap">
+      sssassociateservices@gmail.com
+    </div>
+  </div>
+</a>
 
               <div className="text-xs text-slate-300 pt-1 space-y-1">
                 <div className="flex items-start gap-2 text-slate-300">
