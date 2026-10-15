@@ -1,4 +1,4 @@
-
+import { ShieldCheck } from 'lucide-react';
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/servicesData';
 
@@ -107,11 +107,16 @@ const toggleFaq = (idx: number) => {
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-semibold text-xs sm:text-sm tracking-wide uppercase border border-red-100 shadow-2xs">
-                <span aria-hidden="true">ðŸ›¡ï¸</span>
-                <span>
-                  Trusted MSME Registered Financial & Legal Experts
-                </span>
-              </div>
+  <ShieldCheck
+    size={16}
+    strokeWidth={2.2}
+    className="shrink-0"
+    aria-hidden="true"
+  />
+  <span>
+    Trusted MSME Registered Financial &amp; Legal Experts
+  </span>
+</div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
                 Professional Financial & Legal Solutions{' '}
