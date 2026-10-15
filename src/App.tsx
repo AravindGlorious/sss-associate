@@ -14,27 +14,32 @@ import { PrivacyView } from './views/PrivacyView';
 import { DisclaimerView } from './views/DisclaimerView';
 import { TermsView } from './views/TermsView';
 import { RefundPolicyView } from './views/RefundPolicyView';
+
 import { SERVICES_DATA } from './data/servicesData';
+import { SEO } from './components/SEO';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<string>('home');
-  const [selectedServiceId, setSelectedServiceId] = useState<string>('legal-advisory');
-  const [consultationModalOpen, setConsultationModalOpen] = useState<boolean>(false);
+  const [selectedServiceId, setSelectedServiceId] =
+    useState<string>('legal-advisory');
+  const [consultationModalOpen, setConsultationModalOpen] =
+    useState<boolean>(false);
 
-  // Sync with browser URL pathname and hash on mount, popstate & hashchange
+  // Sync the current page with the browser URL.
   useEffect(() => {
     const parseCurrentRoute = () => {
-      const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+      const pathname =
+        window.location.pathname.replace(/\/$/, '') || '/';
       const hash = window.location.hash.replace('#', '');
 
-      // Check pathname first (clean URLs like /about, /services, /services/legal-advisory)
       if (pathname === '/about') {
         setCurrentView('about');
       } else if (pathname === '/services') {
         setCurrentView('services');
       } else if (pathname.startsWith('/services/')) {
         const id = pathname.replace('/services/', '');
-        if (SERVICES_DATA.some((s) => s.id === id)) {
+
+        if (SERVICES_DATA.some((service) => service.id === id)) {
           setSelectedServiceId(id);
           setCurrentView('service-detail');
         } else {
@@ -42,7 +47,10 @@ export default function App() {
         }
       } else if (pathname === '/contact') {
         setCurrentView('contact');
-      } else if (pathname === '/privacy' || pathname === '/privacy-policy') {
+      } else if (
+        pathname === '/privacy' ||
+        pathname === '/privacy-policy'
+      ) {
         setCurrentView('privacy');
       } else if (
         pathname === '/disclaimer' ||
@@ -63,14 +71,14 @@ export default function App() {
       ) {
         setCurrentView('refund');
       } else if (hash) {
-        // Fallback to hash if present
         if (hash === 'home') {
           setCurrentView('home');
         } else if (hash === 'services') {
           setCurrentView('services');
         } else if (hash.startsWith('service-')) {
           const id = hash.replace('service-', '');
-          if (SERVICES_DATA.some((s) => s.id === id)) {
+
+          if (SERVICES_DATA.some((service) => service.id === id)) {
             setSelectedServiceId(id);
             setCurrentView('service-detail');
           } else {
@@ -82,11 +90,20 @@ export default function App() {
           setCurrentView('contact');
         } else if (hash === 'privacy') {
           setCurrentView('privacy');
-        } else if (hash === 'disclaimer' || hash === 'bar-council-compliance') {
+        } else if (
+          hash === 'disclaimer' ||
+          hash === 'bar-council-compliance'
+        ) {
           setCurrentView('disclaimer');
-        } else if (hash === 'terms' || hash === 'terms-of-use') {
+        } else if (
+          hash === 'terms' ||
+          hash === 'terms-of-use'
+        ) {
           setCurrentView('terms');
-        } else if (hash === 'refund' || hash === 'refund-policy') {
+        } else if (
+          hash === 'refund' ||
+          hash === 'refund-policy'
+        ) {
           setCurrentView('refund');
         }
       } else {
@@ -95,8 +112,10 @@ export default function App() {
     };
 
     parseCurrentRoute();
+
     window.addEventListener('popstate', parseCurrentRoute);
     window.addEventListener('hashchange', parseCurrentRoute);
+
     return () => {
       window.removeEventListener('popstate', parseCurrentRoute);
       window.removeEventListener('hashchange', parseCurrentRoute);
@@ -105,6 +124,7 @@ export default function App() {
 
   const handleNavigate = (view: string, serviceId?: string) => {
     let targetPath = '/';
+
     if (view === 'home') {
       targetPath = '/';
       setCurrentView('home');
@@ -138,26 +158,120 @@ export default function App() {
     try {
       window.history.pushState({}, '', targetPath);
     } catch {
-      // Fallback for restricted iframe environments
-      window.location.hash = targetPath === '/' ? 'home' : targetPath.replace('/', '');
+      window.location.hash =
+        targetPath === '/' ? 'home' : targetPath.replace('/', '');
     }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectService = (serviceId: string) => {
     setSelectedServiceId(serviceId);
     setCurrentView('service-detail');
+
     try {
       window.history.pushState({}, '', `/services/${serviceId}`);
     } catch {
       window.location.hash = `service-${serviceId}`;
     }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Find the selected service for its page-specific SEO metadata.
+  const selectedService = SERVICES_DATA.find(
+    (service) => service.id === selectedServiceId
+  );
+
+  // Set page-specific titles, descriptions and canonical paths.
+  const seoConfig = (() => {
+    switch (currentView) {
+      case 'services':
+        return {
+          title: 'Legal, Loan & Financial Services | SSS Associate',
+          description:
+            'Explore legal advisory, loan assistance, auditing, debt settlement and bank auction support services from SSS Associate across Tamil Nadu.',
+          path: '/services',
+        };
+
+      case 'service-detail':
+        return {
+          title:
+            selectedService?.metaTitle ||
+            'Legal & Financial Advisory Services | SSS Associate',
+          description:
+            selectedService?.metaDescription ||
+            'Explore legal and financial advisory services from SSS Associate across Tamil Nadu.',
+          path: `/services/${selectedServiceId}`,
+        };
+
+      case 'about':
+        return {
+          title: 'About SSS Associate | Legal & Financial Advisory',
+          description:
+            'Learn about SSS Associate and its legal, financial, loan assistance and property-related advisory services.',
+          path: '/about',
+        };
+
+      case 'contact':
+        return {
+          title: 'Contact SSS Associate | Consultation & Enquiries',
+          description:
+            'Contact SSS Associate for enquiries about legal advisory, loan assistance, auditing and debt settlement services.',
+          path: '/contact',
+        };
+
+      case 'privacy':
+        return {
+          title: 'Privacy Policy | SSS Associate',
+          description:
+            'Read the privacy policy explaining how SSS Associate handles website visitor information.',
+          path: '/privacy',
+        };
+
+      case 'disclaimer':
+        return {
+          title: 'Disclaimer | SSS Associate',
+          description:
+            'Read the website disclaimer and important information about SSS Associate services.',
+          path: '/disclaimer',
+        };
+
+      case 'terms':
+        return {
+          title: 'Terms of Use | SSS Associate',
+          description:
+            'Read the terms and conditions governing the use of the SSS Associate website.',
+          path: '/terms',
+        };
+
+      case 'refund':
+        return {
+          title: 'Refund Policy | SSS Associate',
+          description:
+            'Read the refund and cancellation policy published by SSS Associate.',
+          path: '/refund',
+        };
+
+      default:
+        return {
+          title:
+            'SSS Associate | Legal, Loan & Financial Services in Coimbatore',
+          description:
+            'SSS Associate provides legal advisory, land survey assistance, auditing, loan assistance and debt settlement services across Tamil Nadu.',
+          path: '/',
+        };
+    }
+  })();
+
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-indigo-600 selection:text-white relative pb-16 sm:pb-0">
-      
+      <SEO
+        title={seoConfig.title}
+        description={seoConfig.description}
+        path={seoConfig.path}
+      />
+
       {/* Header */}
       <Header
         currentView={currentView}
@@ -199,13 +313,21 @@ export default function App() {
 
         {currentView === 'contact' && <ContactView />}
 
-        {currentView === 'privacy' && <PrivacyView onNavigate={handleNavigate} />}
+        {currentView === 'privacy' && (
+          <PrivacyView onNavigate={handleNavigate} />
+        )}
 
-        {currentView === 'disclaimer' && <DisclaimerView onNavigate={handleNavigate} />}
+        {currentView === 'disclaimer' && (
+          <DisclaimerView onNavigate={handleNavigate} />
+        )}
 
-        {currentView === 'terms' && <TermsView onNavigate={handleNavigate} />}
+        {currentView === 'terms' && (
+          <TermsView onNavigate={handleNavigate} />
+        )}
 
-        {currentView === 'refund' && <RefundPolicyView onNavigate={handleNavigate} />}
+        {currentView === 'refund' && (
+          <RefundPolicyView onNavigate={handleNavigate} />
+        )}
       </main>
 
       {/* Universal Footer */}
@@ -214,7 +336,7 @@ export default function App() {
       {/* Floating Interactive WhatsApp Widget */}
       <WhatsAppWidget />
 
-      {/* Mobile Sticky Quick Action Bar (Call 9385954338 & 9087853733 & WhatsApp) */}
+      {/* Mobile Sticky Quick Action Bar */}
       <MobileBottomBar />
 
       {/* Consultation Modal */}
@@ -223,7 +345,6 @@ export default function App() {
         onClose={() => setConsultationModalOpen(false)}
         initialServiceId={selectedServiceId}
       />
-
     </div>
   );
 }
