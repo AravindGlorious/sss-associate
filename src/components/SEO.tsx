@@ -1,10 +1,10 @@
-
 import { useEffect } from 'react';
 
 export interface SEOProps {
   title: string;
   description: string;
   path: string;
+  keywords?: string;
   noindex?: boolean;
 }
 
@@ -46,6 +46,7 @@ export function SEO({
   title,
   description,
   path,
+  keywords = '',
   noindex = false,
 }: SEOProps) {
   useEffect(() => {
@@ -59,6 +60,7 @@ export function SEO({
     document.title = title;
 
     setMeta('name', 'description', description);
+    setMeta('name', 'keywords', keywords);
     setMeta(
       'name',
       'robots',
@@ -78,7 +80,7 @@ export function SEO({
     setMeta('name', 'twitter:description', description);
 
     setLink('canonical', canonicalUrl);
-  }, [title, description, path, noindex]);
+  }, [title, description, path, keywords, noindex]);
 
   return null;
 }

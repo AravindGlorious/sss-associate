@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -25,7 +26,6 @@ export default function App() {
   const [consultationModalOpen, setConsultationModalOpen] =
     useState<boolean>(false);
 
-  // Sync the current page with the browser URL.
   useEffect(() => {
     const parseCurrentRoute = () => {
       const pathname =
@@ -178,19 +178,19 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Find the selected service for its page-specific SEO metadata.
   const selectedService = SERVICES_DATA.find(
     (service) => service.id === selectedServiceId
   );
 
-  // Set page-specific titles, descriptions and canonical paths.
   const seoConfig = (() => {
     switch (currentView) {
       case 'services':
         return {
           title: 'Legal, Loan & Financial Services | SSS Associate',
           description:
-            'Explore legal advisory, loan assistance, auditing, debt settlement and bank auction support services from SSS Associate across Tamil Nadu.',
+            'Explore legal advisory, loan assistance, auditing, debt settlement and bank auction support from SSS Associate, with offices in Coimbatore and Salem.',
+          keywords:
+            'legal services, loan assistance, financial services, auditing services, debt settlement, Coimbatore, Salem, Tiruppur',
           path: '/services',
         };
 
@@ -201,23 +201,35 @@ export default function App() {
             'Legal & Financial Advisory Services | SSS Associate',
           description:
             selectedService?.metaDescription ||
-            'Explore legal and financial advisory services from SSS Associate across Tamil Nadu.',
+            'Explore legal and financial advisory services from SSS Associate. Contact our team in Coimbatore or Salem for service enquiries.',
+          keywords: [
+            selectedService?.title || 'legal and financial services',
+            'Coimbatore',
+            'Salem',
+            'Tiruppur',
+            'Tamil Nadu',
+            'SSS Associate',
+          ].join(', '),
           path: `/services/${selectedServiceId}`,
         };
 
       case 'about':
         return {
-          title: 'About SSS Associate | Legal & Financial Advisory',
+          title: 'About SSS Associate | Coimbatore & Salem',
           description:
-            'Learn about SSS Associate and its legal, financial, loan assistance and property-related advisory services.',
+            'Learn about SSS Associate and its legal, financial, loan assistance and property-related advisory services from its Coimbatore and Salem offices.',
+          keywords:
+            'SSS Associate, legal and financial advisory, Coimbatore, Salem, Tamil Nadu',
           path: '/about',
         };
 
       case 'contact':
         return {
-          title: 'Contact SSS Associate | Consultation & Enquiries',
+          title: 'Contact SSS Associate | Coimbatore & Salem',
           description:
-            'Contact SSS Associate for enquiries about legal advisory, loan assistance, auditing and debt settlement services.',
+            'Contact SSS Associate in Coimbatore or Salem for enquiries about legal advisory, loan assistance, auditing, property services and debt settlement.',
+          keywords:
+            'contact SSS Associate, legal services Coimbatore, financial services Salem, loan assistance, debt settlement, Tiruppur',
           path: '/contact',
         };
 
@@ -226,6 +238,7 @@ export default function App() {
           title: 'Privacy Policy | SSS Associate',
           description:
             'Read the privacy policy explaining how SSS Associate handles website visitor information.',
+          keywords: 'SSS Associate privacy policy',
           path: '/privacy',
         };
 
@@ -234,6 +247,7 @@ export default function App() {
           title: 'Disclaimer | SSS Associate',
           description:
             'Read the website disclaimer and important information about SSS Associate services.',
+          keywords: 'SSS Associate disclaimer',
           path: '/disclaimer',
         };
 
@@ -242,6 +256,7 @@ export default function App() {
           title: 'Terms of Use | SSS Associate',
           description:
             'Read the terms and conditions governing the use of the SSS Associate website.',
+          keywords: 'SSS Associate terms of use',
           path: '/terms',
         };
 
@@ -250,15 +265,18 @@ export default function App() {
           title: 'Refund Policy | SSS Associate',
           description:
             'Read the refund and cancellation policy published by SSS Associate.',
+          keywords: 'SSS Associate refund policy, cancellation policy',
           path: '/refund',
         };
 
       default:
         return {
           title:
-            'SSS Associate | Legal, Loan & Financial Services in Coimbatore',
+            'SSS Associate | Legal & Financial Services in Coimbatore',
           description:
-            'SSS Associate provides legal advisory, land survey assistance, auditing, loan assistance and debt settlement services across Tamil Nadu.',
+            'SSS Associate provides legal advisory, land survey assistance, auditing, loan assistance and debt settlement services, with offices in Coimbatore and Salem and service coverage in Tiruppur.',
+          keywords:
+            'legal services Coimbatore, financial services Coimbatore, legal services Salem, loan assistance, debt settlement, land survey, auditing, Tiruppur, SSS Associate',
           path: '/',
         };
     }
@@ -269,10 +287,10 @@ export default function App() {
       <SEO
         title={seoConfig.title}
         description={seoConfig.description}
+        keywords={seoConfig.keywords}
         path={seoConfig.path}
       />
 
-      {/* Header */}
       <Header
         currentView={currentView}
         selectedServiceId={selectedServiceId}
@@ -280,7 +298,6 @@ export default function App() {
         onOpenConsultationModal={() => setConsultationModalOpen(true)}
       />
 
-      {/* Main View Router */}
       <main id="main-content">
         {currentView === 'home' && (
           <HomeView
@@ -330,16 +347,12 @@ export default function App() {
         )}
       </main>
 
-      {/* Universal Footer */}
       <Footer onNavigate={handleNavigate} />
 
-      {/* Floating Interactive WhatsApp Widget */}
       <WhatsAppWidget />
 
-      {/* Mobile Sticky Quick Action Bar */}
       <MobileBottomBar />
 
-      {/* Consultation Modal */}
       <ConsultationModal
         isOpen={consultationModalOpen}
         onClose={() => setConsultationModalOpen(false)}
