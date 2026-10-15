@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 
 export interface SEOProps {
@@ -49,7 +50,9 @@ export function SEO({
 }: SEOProps) {
   useEffect(() => {
     const normalizedPath =
-      path === '/' ? '/' : `/${path.replace(/^\/+|\/+$/g, '')}`;
+      path === '/'
+        ? '/'
+        : `/${path.replace(/^\/+|\/+$/g, '')}`;
 
     const canonicalUrl = `${SITE_URL}${normalizedPath}`;
 
