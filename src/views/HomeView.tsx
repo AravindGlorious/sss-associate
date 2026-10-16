@@ -2,6 +2,16 @@ import { ShieldCheck } from 'lucide-react';
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/servicesData';
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      eventName: string,
+      params: { send_to: string }
+    ) => void;
+  }
+}
+
 interface HomeViewProps {
   onNavigate: (view: string, serviceId?: string) => void;
   onSelectService: (serviceId: string) => void;
@@ -59,6 +69,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
         );
       }
 
+      // Google Ads conversion: fire only after successful form submission.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-18511083261/qQdWCMGv5ZwdEP3t4vpE',
+        });
+      }
+
       setSubmitted(true);
     } catch (error) {
       console.error('Consultation form submission failed:', error);
@@ -72,7 +89,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
     }
   };
 
-const toggleFaq = (idx: number) => {
+  const toggleFaq = (idx: number) => {
     setActiveFaq(activeFaq === idx ? null : idx);
   };
 
@@ -107,16 +124,16 @@ const toggleFaq = (idx: number) => {
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-semibold text-xs sm:text-sm tracking-wide uppercase border border-red-100 shadow-2xs">
-  <ShieldCheck
-    size={16}
-    strokeWidth={2.2}
-    className="shrink-0"
-    aria-hidden="true"
-  />
-  <span>
-    Trusted MSME Registered Financial &amp; Legal Experts
-  </span>
-</div>
+                <ShieldCheck
+                  size={16}
+                  strokeWidth={2.2}
+                  className="shrink-0"
+                  aria-hidden="true"
+                />
+                <span>
+                  Trusted MSME Registered Financial &amp; Legal Experts
+                </span>
+              </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
                 Professional Financial & Legal Solutions{' '}
@@ -185,15 +202,30 @@ const toggleFaq = (idx: number) => {
               {/* Trust Micro-Badges */}
               <div className="pt-3 flex flex-wrap items-center gap-4 text-xs text-slate-600 font-medium">
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span
+                    className="text-emerald-600 font-bold"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
                   100% Confidential
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span
+                    className="text-emerald-600 font-bold"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
                   MSME Certified Standards
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="text-emerald-600 font-bold" aria-hidden="true">✓</span>
+                  <span
+                    className="text-emerald-600 font-bold"
+                    aria-hidden="true"
+                  >
+                    ✓
+                  </span>
                   Fast Resolution Turnaround
                 </span>
               </div>
@@ -408,7 +440,9 @@ const toggleFaq = (idx: number) => {
                       disabled={isSubmitting}
                       className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-red-600/30 text-sm cursor-pointer mt-1"
                     >
-                      {isSubmitting ? 'Sending Request...' : 'Submit Consultation Request'}
+                      {isSubmitting
+                        ? 'Sending Request...'
+                        : 'Submit Consultation Request'}
                     </button>
 
                     <p className="text-[10px] text-slate-400 text-center pt-1">
@@ -587,7 +621,9 @@ const toggleFaq = (idx: number) => {
               </div>
 
               <div className="lg:col-span-4 bg-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-3">
-                <div className="text-3xl" aria-hidden="true">📞</div>
+                <div className="text-3xl" aria-hidden="true">
+                  📞
+                </div>
 
                 <h3 className="text-lg font-bold text-white">
                   Direct Advisory Call
@@ -634,7 +670,9 @@ const toggleFaq = (idx: number) => {
 
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                 As an{' '}
-                <strong className="text-slate-900">[ MSME ] Registered</strong>{' '}
+                <strong className="text-slate-900">
+                  [ MSME ] Registered
+                </strong>{' '}
                 firm, SSS Associate brings uncompromising professional
                 integrity, deep industry insights, and meticulous execution to
                 every case we handle. We combine legal defense with financial
@@ -796,7 +834,10 @@ const toggleFaq = (idx: number) => {
                 key={i}
                 className="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative space-y-3"
               >
-                <div className="text-3xl font-black text-red-600" aria-hidden="true">
+                <div
+                  className="text-3xl font-black text-red-600"
+                  aria-hidden="true"
+                >
                   {st.step}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">
@@ -924,8 +965,11 @@ const toggleFaq = (idx: number) => {
                     className="w-full text-left p-5 bg-slate-50 hover:bg-slate-100 flex items-center justify-between gap-4 font-bold text-slate-900 text-sm sm:text-base cursor-pointer"
                   >
                     <span>{faq.q}</span>
-                    <span className="text-red-600 text-lg shrink-0" aria-hidden="true">
-                        {isExpanded ? '−' : '+'}
+                    <span
+                      className="text-red-600 text-lg shrink-0"
+                      aria-hidden="true"
+                    >
+                      {isExpanded ? '−' : '+'}
                     </span>
                   </button>
 
