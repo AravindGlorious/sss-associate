@@ -94,23 +94,23 @@ export const HomeView: React.FC<HomeViewProps> = ({
   };
 
   const faqs = [
-    {
-      q: 'What makes SSS Associate distinct from generic consultants?',
-      a: 'SSS Associate is a Government of India MSME Registered consultancy operating across Tamil Nadu. We combine multi-disciplinary expertise covering high-stakes legal scrutiny, statutory accounts, internal auditing, debt restructuring (OTS), and SARFAESI bank auction due diligence under one single trusted roof.',
-    },
-    {
-      q: 'How does SSS Associate assist with SARFAESI Bank Auction properties?',
-      a: 'We perform end-to-end 360° due diligence: 30-year parent document title clearance, verification of physical vs. symbolic possession with bank Authorised Officers, court/DRT stay order searches, e-auction bidding strategy, and post-auction sale certificate conveyance.',
-    },
-    {
-      q: 'Can you help our business if our loan account is classified as NPA or facing auction?',
-      a: 'Yes. We specialize in RBI-compliant One-Time Settlement (OTS) structuring, interest waiver representations, and bank loan takeovers before recovery actions escalate, protecting your valuable mortgaged assets.',
-    },
-    {
-      q: 'What is the consultation fee or procedure to get started?',
-      a: 'You can initiate an immediate consultation by dialing our primary helpline 9385954338 or secondary helpline 9087853733, or sending us a message via WhatsApp. We evaluate your case documentation and provide clear, upfront advisory steps.',
-    },
-  ];
+  {
+    q: 'What services does SSS Associate provide?',
+    a: 'SSS Associate provides legal advisory, land survey assistance, accounts management, auditing, loan assistance, debt settlement, property-related services and bank auction support. Contact our team to discuss your requirements.',
+  },
+  {
+    q: 'Can you help with bank auction properties?',
+    a: 'We assist with property document checks and bank auction-related enquiries. The checks required depend on the property and available documents. Independent legal verification may also be necessary before bidding.',
+  },
+  {
+    q: 'Can you help with loan settlement or loan takeover?',
+    a: 'We provide guidance for eligible loan settlement and loan takeover cases. The available options depend on your lender, outstanding balance, financial position and supporting documents. Any settlement or approval remains subject to the lender’s decision.',
+  },
+  {
+    q: 'How can I request a consultation?',
+    a: 'Submit the consultation form on this website or contact SSS Associate by phone or WhatsApp. Briefly explain your requirement so our team can guide you on the next steps. Any consultation fee can be confirmed directly with the team.',
+  },
+];
 
   return (
     <div className="space-y-0">
@@ -141,10 +141,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
-                Empowering businesses and individuals across Tamil Nadu with
-                top-tier MSME registered expertise in Legal advisory, Accounts,
-                Auditing, Loan facilitation, Takeovers, Sales, Settlements, and
-                Bank Auctions.
+                SSS Associate helps individuals and businesses with legal advisory,
+  accounts, auditing, loan assistance, debt settlement and property-related
+  services. Contact our team in Coimbatore to discuss your requirements.
               </p>
 
               {/* CTAs and Rating */}
@@ -572,7 +571,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
               onClick={() => onNavigate('services')}
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
             >
-              <span>Explore All 8 Individual Service Pages</span>
+              <span>
+  Explore All {SERVICES_DATA.length} Service Pages
+</span>
               <span aria-hidden="true">→</span>
             </button>
           </div>
