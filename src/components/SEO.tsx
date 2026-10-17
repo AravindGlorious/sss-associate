@@ -66,7 +66,7 @@ export function SEO({
       'robots',
       noindex
         ? 'noindex, follow'
-        : 'index, follow, max-image-preview:large'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     );
 
     setMeta('property', 'og:type', 'website');
