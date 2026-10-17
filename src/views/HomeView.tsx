@@ -117,7 +117,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* Hero Section */}
       <section
         id="home"
-        className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-28 bg-gradient-to-b from-indigo-50/50 via-white to-white"
+        className="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-28 bg-linear-to-b from-indigo-50/50 via-white to-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -147,7 +147,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 your requirements.
               </p>
 
-              {/* CTAs and Rating */}
+              {/* CTAs and Consultancy Information */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pt-2">
                 <button
                   type="button"
@@ -159,18 +159,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 </button>
 
                 <div className="flex items-center gap-4 bg-white p-3.5 px-4 rounded-2xl shadow-md border border-slate-100">
-                  <div className="text-2xl font-black text-slate-900">
-                    4.9
+                  <div className="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                    <ShieldCheck size={26} aria-hidden="true" />
                   </div>
                   <div>
-                    <div
-                      className="text-amber-400 text-xs tracking-wider"
-                      aria-label="5 stars"
-                    >
-                      <span aria-hidden="true">★★★★★</span>
+                    <div className="text-sm font-bold text-slate-900">
+                      MSME Registered Consultancy
                     </div>
-                    <div className="text-xs text-slate-600 font-semibold">
-                      1,000+ Satisfied Clients
+                    <div className="text-xs text-slate-600 font-semibold mt-1">
+                      Multiple Service Solutions
                     </div>
                   </div>
                 </div>
@@ -233,7 +230,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             {/* Right Hero Card - Consultation Form */}
             <div className="lg:col-span-5" id="consultation">
-              <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative border border-slate-800">
+              <div className="bg-linear-to-br from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative border border-slate-800">
                 <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
                   Priority Callback
                 </div>
@@ -456,43 +453,64 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Trust & Credentials Strip */}
+      {/* Trust & Service Information */}
       <section className="bg-indigo-950 text-white py-10 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-3xl sm:text-4xl font-extrabold text-amber-400">
-                1,000+
+              <div className="flex justify-center mb-3">
+                <ShieldCheck
+                  size={32}
+                  className="text-amber-400"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="text-xs text-slate-300 mt-1 uppercase font-semibold tracking-wider">
-                Satisfied Clients
+              <p className="text-sm sm:text-base font-bold">
+                MSME Registered
+              </p>
+              <p className="text-xs text-slate-300 mt-1">
+                Business Registration
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-3xl sm:text-4xl font-extrabold text-emerald-400">
-                10+
+              <div className="flex justify-center mb-3">
+                <ShieldCheck
+                  size={32}
+                  className="text-emerald-400"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="text-xs text-slate-300 mt-1 uppercase font-semibold tracking-wider">
-                Years Collective Experience
+              <p className="text-sm sm:text-base font-bold">
+                Personalised Support
+              </p>
+              <p className="text-xs text-slate-300 mt-1">
+                Guidance for Your Requirements
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-3xl sm:text-4xl font-extrabold text-white">
-                8
+              <div className="text-3xl font-extrabold text-white mb-1">
+                {SERVICES_DATA.length}
               </div>
               <p className="text-xs text-slate-300 mt-1 uppercase font-semibold tracking-wider">
-                Core Practice Verticals
+                Service Categories
               </p>
             </div>
 
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="text-3xl sm:text-4xl font-extrabold text-red-400">
-                100%
+              <div className="flex justify-center mb-3">
+                <ShieldCheck
+                  size={32}
+                  className="text-red-400"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="text-xs text-slate-300 mt-1 uppercase font-semibold tracking-wider">
-                MSME Certified Compliance
+              <p className="text-sm sm:text-base font-bold">
+                Clear Next Steps
+              </p>
+              <p className="text-xs text-slate-300 mt-1">
+                Understand the Process
               </p>
             </div>
           </div>
@@ -581,7 +599,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* SARFAESI Bank Auction & Loan Support */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden border border-slate-800">
+          <div className="bg-linear-to-r from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden border border-slate-800">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="inline-block bg-red-600/30 text-red-400 border border-red-500/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -713,7 +731,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             {/* Contact Cards */}
             <div className="lg:col-span-6">
-              <div className="bg-gradient-to-br from-indigo-950 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-2xl relative border border-slate-800">
+              <div className="bg-linear-to-br from-indigo-950 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-2xl relative border border-slate-800">
                 <h3 className="text-2xl font-bold mb-2">
                   Contact Our Team
                 </h3>
@@ -842,77 +860,55 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Testimonials: Client-provided wording retained */}
+      {/* Client Support Approach */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
-              Client Feedback
+              Our Approach
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Trusted by 1,000+ Entrepreneurs &amp; Property Buyers
+              Support Built Around Your Requirements
             </h2>
 
-            <p className="text-slate-600 text-sm">
-              Stories shared by business promoters and individuals who relied
-              on SSS Associate.
+            <p className="text-slate-600 text-sm sm:text-base">
+              Every enquiry is different. We help you understand the relevant
+              process, documents and possible next steps based on your needs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: 'K. Senthil Kumar',
-                role: 'Managing Director, Textile Processing Unit',
-                text: 'SSS Associate handled our multi-crore working capital loan takeover from an NBFC to a nationalized bank. They saved us 4% in annual interest and secured additional top-up funds within 20 days.',
-                stars: '★★★★★',
-                tag: 'Loan Takeover',
+                title: 'Understand Your Requirement',
+                text: 'Discuss your property, loan, accounting or legal advisory enquiry with our team.',
+                tag: 'Step 1',
               },
               {
-                name: 'V. Muruganandam',
-                role: 'Commercial Real Estate Investor',
-                text: 'Bidding on a SARFAESI bank auction property can be risky. SSS Associate conducted full parent document scrutiny and handled the sub-registrar registration cleanly. Truly unmatched professional diligence.',
-                stars: '★★★★★',
-                tag: 'Bank Auction Support',
+                title: 'Review Relevant Documents',
+                text: 'Identify the documents and details needed to understand your specific case.',
+                tag: 'Step 2',
               },
               {
-                name: 'P. Anandharaj',
-                role: 'Proprietor, Engineering Works',
-                text: 'When our bank issued a 13(2) notice during the pandemic slowdown, SSS Associate represented us before the recovery committee and negotiated an OTS waiver of 45% on compound interest.',
-                stars: '★★★★★',
-                tag: 'Debt Settlement (OTS)',
+                title: 'Discuss the Next Steps',
+                text: 'Understand the available process, further requirements and decisions that may depend on third parties.',
+                tag: 'Step 3',
               },
-            ].map((t, idx) => (
+            ].map((item) => (
               <div
-                key={idx}
-                className="bg-white p-7 rounded-3xl shadow-sm border border-slate-100 flex flex-col justify-between"
+                key={item.tag}
+                className="bg-white p-7 rounded-3xl shadow-sm border border-slate-100"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      className="text-amber-400 text-sm"
-                      aria-label="5 stars"
-                    >
-                      <span aria-hidden="true">{t.stars}</span>
-                    </span>
-
-                    <span className="text-[10px] bg-red-50 text-red-600 font-bold px-2.5 py-1 rounded-full">
-                      {t.tag}
-                    </span>
-                  </div>
-
-                  <p className="text-slate-600 text-sm italic leading-relaxed mb-6">
-                    "{t.text}"
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100">
-                  <h3 className="font-bold text-slate-900 text-sm">
-                    {t.name}
-                  </h3>
-                  <p className="text-xs text-slate-500">{t.role}</p>
-                </div>
+                <span className="inline-block text-[10px] bg-red-50 text-red-600 font-bold px-2.5 py-1 rounded-full mb-5">
+                  {item.tag}
+                </span>
+                <h3 className="font-bold text-slate-900 text-lg mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
