@@ -69,7 +69,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         );
       }
 
-      // Google Ads conversion: fire only after successful form submission.
+      // Track the conversion only after successful form submission.
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'conversion', {
           send_to: 'AW-18511083261/qQdWCMGv5ZwdEP3t4vpE',
@@ -94,23 +94,23 @@ export const HomeView: React.FC<HomeViewProps> = ({
   };
 
   const faqs = [
-  {
-    q: 'What services does SSS Associate provide?',
-    a: 'SSS Associate provides legal advisory, land survey assistance, accounts management, auditing, loan assistance, debt settlement, property-related services and bank auction support. Contact our team to discuss your requirements.',
-  },
-  {
-    q: 'Can you help with bank auction properties?',
-    a: 'We assist with property document checks and bank auction-related enquiries. The checks required depend on the property and available documents. Independent legal verification may also be necessary before bidding.',
-  },
-  {
-    q: 'Can you help with loan settlement or loan takeover?',
-    a: 'We provide guidance for eligible loan settlement and loan takeover cases. The available options depend on your lender, outstanding balance, financial position and supporting documents. Any settlement or approval remains subject to the lender’s decision.',
-  },
-  {
-    q: 'How can I request a consultation?',
-    a: 'Submit the consultation form on this website or contact SSS Associate by phone or WhatsApp. Briefly explain your requirement so our team can guide you on the next steps. Any consultation fee can be confirmed directly with the team.',
-  },
-];
+    {
+      q: 'What services does SSS Associate provide?',
+      a: 'SSS Associate provides legal advisory, land survey assistance, accounts management, auditing, loan assistance, debt settlement, property-related services and bank auction support. Contact our team to discuss your requirements.',
+    },
+    {
+      q: 'Can you help with bank auction properties?',
+      a: 'We assist with property document checks and bank auction-related enquiries. The checks required depend on the property and available documents. Independent legal verification may also be necessary before bidding.',
+    },
+    {
+      q: 'Can you help with loan settlement or loan takeover?',
+      a: 'We provide guidance for eligible loan settlement and loan takeover cases. The available options depend on your lender, outstanding balance, financial position and supporting documents. Any settlement or approval remains subject to the lender’s decision.',
+    },
+    {
+      q: 'How can I request a consultation?',
+      a: 'Submit the consultation form on this website or contact SSS Associate by phone or WhatsApp. Briefly explain your requirement so our team can guide you on the next steps. Any consultation fee can be confirmed directly with the team.',
+    },
+  ];
 
   return (
     <div className="space-y-0">
@@ -136,14 +136,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
-                Professional Financial & Legal Solutions{' '}
+                Professional Financial &amp; Legal Solutions{' '}
                 <span className="text-red-600">That Make Sense</span> For You.
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
-                SSS Associate helps individuals and businesses with legal advisory,
-  accounts, auditing, loan assistance, debt settlement and property-related
-  services. Contact our team in Coimbatore to discuss your requirements.
+                SSS Associate supports individuals and businesses with
+                property documents, accounts, audits, loan assistance and
+                debt-related matters. Contact our Coimbatore team to discuss
+                your requirements.
               </p>
 
               {/* CTAs and Rating */}
@@ -207,7 +208,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   >
                     ✓
                   </span>
-                  100% Confidential
+                  Confidential Enquiries
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span
@@ -216,7 +217,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   >
                     ✓
                   </span>
-                  MSME Certified Standards
+                  MSME Registration
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span
@@ -225,12 +226,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   >
                     ✓
                   </span>
-                  Fast Resolution Turnaround
+                  Clear Next Steps
                 </span>
               </div>
             </div>
 
-            {/* Right Hero Card - Quick Callback Consultation Form */}
+            {/* Right Hero Card - Consultation Form */}
             <div className="lg:col-span-5" id="consultation">
               <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative border border-slate-800">
                 <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
@@ -239,7 +240,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 <div className="mb-5">
                   <span className="text-[11px] font-bold text-red-400 uppercase tracking-widest block">
-                    Fast Response Desk
+                    Contact Our Team
                   </span>
 
                   <h2 className="text-2xl font-bold text-white">
@@ -247,8 +248,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </h2>
 
                   <p className="text-slate-300 text-xs sm:text-sm mt-1">
-                    Fill out the form & our senior consultant will reach out
-                    shortly.
+                    Share your requirements and our team can guide you on the
+                    next steps.
                   </p>
                 </div>
 
@@ -275,11 +276,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         <span className="text-white font-bold">
                           {formData.fullName}
                         </span>
-                        . Our senior consultant will call you at{' '}
+                        . Our team can contact you at{' '}
                         <span className="text-emerald-400 font-bold">
                           {formData.phone}
-                        </span>
-                        .
+                        </span>{' '}
+                        regarding your enquiry.
                       </p>
                     </div>
 
@@ -429,7 +430,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         rows={2}
                         value={formData.notes}
                         onChange={handleInputChange}
-                        placeholder="Tell us briefly about your requirement or timeline..."
+                        placeholder="Briefly describe your requirement..."
                         className="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-red-500 transition-colors resize-none"
                       />
                     </div>
@@ -445,8 +446,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     </button>
 
                     <p className="text-[10px] text-slate-400 text-center pt-1">
-                      🔒 Your details are strictly confidential under MSME
-                      compliance.
+                      🔒 We handle your enquiry details with care.
                     </p>
                   </form>
                 )}
@@ -508,13 +508,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Comprehensive Financial & Legal Services
+              Comprehensive Financial &amp; Legal Services
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base">
-              Tailored, MSME-certified solutions designed to protect, grow, and
-              streamline your business operations with end-to-end documentation
-              and legal safety.
+              Get practical support for business records, property documents,
+              loans and debt-related matters. Our team explains the process
+              and helps you understand the next steps.
             </p>
           </div>
 
@@ -552,7 +552,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     className="text-xs font-bold text-red-600 group-hover:text-red-700 hover:underline flex items-center gap-1 cursor-pointer"
                     aria-label={`View full details for ${srv.title}`}
                   >
-                    <span>Full Details & Documents</span>
+                    <span>Full Details &amp; Documents</span>
                     <span aria-hidden="true">→</span>
                   </button>
 
@@ -564,42 +564,39 @@ export const HomeView: React.FC<HomeViewProps> = ({
             ))}
           </div>
 
-          {/* Quick View All Services CTA */}
+          {/* View All Services */}
           <div className="mt-12 text-center">
             <button
               type="button"
               onClick={() => onNavigate('services')}
               className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-8 py-3.5 rounded-xl shadow-md transition-all text-sm cursor-pointer"
             >
-              <span>
-  Explore All {SERVICES_DATA.length} Service Pages
-</span>
+              <span>Explore All {SERVICES_DATA.length} Service Pages</span>
               <span aria-hidden="true">→</span>
             </button>
           </div>
         </div>
       </section>
 
-      {/* High-Impact Spotlight: SARFAESI Bank Auction & Loan Restructuring */}
+      {/* SARFAESI Bank Auction & Loan Support */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden border border-slate-800">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="inline-block bg-red-600/30 text-red-400 border border-red-500/40 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Specialized High-Value Desk
+                  Specialized Services
                 </span>
 
                 <h2 className="text-2xl sm:text-4xl font-extrabold leading-tight">
-                  Facing SARFAESI Bank Notices or Seeking Below-Market Auction
-                  Properties?
+                  Need Help With SARFAESI Notices or Bank Auction Properties?
                 </h2>
 
                 <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                  Our dedicated Banking & SARFAESI wing guides you through
-                  One-Time Settlements (OTS), NPA regularizations, title
-                  scrutiny of distressed assets, and e-auction bidding with
-                  100% legal clearance across Tamil Nadu.
+                  Our team assists with One-Time Settlement (OTS) enquiries,
+                  loan repayment concerns, property document reviews and bank
+                  auction processes. The checks required depend on the property,
+                  lender and documents available.
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-2">
@@ -616,7 +613,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     onClick={() => onSelectService('debt-settlement')}
                     className="bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm border border-white/20 transition-all cursor-pointer"
                   >
-                    OTS & Debt Settlement →
+                    OTS &amp; Debt Settlement →
                   </button>
                 </div>
               </div>
@@ -627,11 +624,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 </div>
 
                 <h3 className="text-lg font-bold text-white">
-                  Direct Advisory Call
+                  Speak With Our Team
                 </h3>
 
                 <p className="text-xs text-slate-300">
-                  Speak directly with our senior consultant:
+                  Contact us to discuss your requirements:
                 </p>
 
                 <a
@@ -659,36 +656,31 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section id="about" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
             <div className="lg:col-span-6 space-y-6">
               <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
                 Why Choose SSS Associate
               </span>
 
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
-                Your Reliable Partner in Financial Success & Legal Safety
+                Practical Guidance for Property, Loans and Business Matters
               </h2>
 
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                As an{' '}
-                <strong className="text-slate-900">
-                  [ MSME ] Registered
-                </strong>{' '}
-                firm, SSS Associate brings uncompromising professional
-                integrity, deep industry insights, and meticulous execution to
-                every case we handle. We combine legal defense with financial
-                foresight to shield your capital and advance your commercial
-                goals.
+                SSS Associate is an MSME-registered consultancy. We help
+                individuals and businesses understand their options for
+                property documents, business accounts, loans and debt-related
+                matters. Our team explains the process and the documents
+                needed for each case.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 {[
-                  'MSME Certified Standards',
-                  'Expert Legal & Financial Advisors',
-                  '100% Transparent Process',
-                  'Fast Loan & Settlement Turnaround',
-                  'Complete Data Confidentiality',
-                  'Tamil Nadu Wide Representation',
+                  'MSME Registration',
+                  'Legal and Financial Guidance',
+                  'Transparent Communication',
+                  'Loan and Settlement Assistance',
+                  'Careful Handling of Enquiries',
+                  'Tamil Nadu Service Coverage',
                 ].map((feat, i) => (
                   <div
                     key={i}
@@ -713,24 +705,21 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   onClick={() => onNavigate('about')}
                   className="text-red-600 font-bold hover:underline flex items-center gap-1.5 text-sm cursor-pointer"
                 >
-                  <span>
-                    Learn more about our credentials & advisory philosophy
-                  </span>
+                  <span>Learn more about SSS Associate</span>
                   <span aria-hidden="true">→</span>
                 </button>
               </div>
             </div>
 
-            {/* Right Contact Cards */}
+            {/* Contact Cards */}
             <div className="lg:col-span-6">
               <div className="bg-gradient-to-br from-indigo-950 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-2xl relative border border-slate-800">
                 <h3 className="text-2xl font-bold mb-2">
-                  Direct Contact Helplines
+                  Contact Our Team
                 </h3>
 
                 <p className="text-slate-300 text-sm mb-6">
-                  Speak directly with our senior financial and legal consultants
-                  today.
+                  Call us to discuss your requirements and available next steps.
                 </p>
 
                 <div className="space-y-4">
@@ -779,8 +768,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   <div className="pt-2 border-t border-slate-800 text-xs text-slate-300 flex items-center gap-2">
                     <span aria-hidden="true">📍</span>
                     <span>
-                      MSME Registered Professional Consultancy, Tamil Nadu,
-                      India.
+                      MSME-registered consultancy serving Tamil Nadu, India.
                     </span>
                   </div>
                 </div>
@@ -790,7 +778,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Working Methodology Steps */}
+      {/* Working Methodology */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -799,12 +787,13 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              How We Deliver Measurable Results
+              How We Work With You
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base">
-              A transparent 4-stage advisory workflow ensuring zero guesswork,
-              strict timelines, and full regulatory conformity.
+              We review your requirements, check the available documents,
+              explain the options and guide you through the next steps.
+              The process depends on your case and the relevant approvals.
             </p>
           </div>
 
@@ -812,27 +801,27 @@ export const HomeView: React.FC<HomeViewProps> = ({
             {[
               {
                 step: '01',
-                title: 'Confidential Briefing',
-                desc: 'Initial evaluation of your legal challenge, loan requirement, or financial audit scope.',
+                title: 'Understand Your Needs',
+                desc: 'Discuss your property documents, loan requirements or business accounting needs.',
               },
               {
                 step: '02',
-                title: 'Meticulous Document Audit',
-                desc: 'Reviewing title deeds, accounting ledgers, loan sanction clauses, or court notices.',
+                title: 'Review Documents',
+                desc: 'Review the available records, property documents, loan details or notices relevant to your enquiry.',
               },
               {
                 step: '03',
-                title: 'Strategic Representation',
-                desc: 'Formulating legal opinion, drafting settlement proposals, or filing bank dossiers.',
+                title: 'Explain Your Options',
+                desc: 'Discuss possible next steps, documentation requirements and relevant processes.',
               },
               {
                 step: '04',
-                title: 'Closure & Handover',
-                desc: 'Achieving sanction disbursement, OTS No Dues Certificate, or registered sale deeds.',
+                title: 'Guide the Next Steps',
+                desc: 'Help you understand the follow-up process, required documents and any decisions that depend on third parties.',
               },
-            ].map((st, i) => (
+            ].map((st) => (
               <div
-                key={i}
+                key={st.step}
                 className="bg-slate-50 p-6 rounded-2xl border border-slate-100 relative space-y-3"
               >
                 <div
@@ -853,7 +842,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials: Client-provided wording retained */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -862,12 +851,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Trusted by 1,000+ Entrepreneurs & Property Buyers
+              Trusted by 1,000+ Entrepreneurs &amp; Property Buyers
             </h2>
 
             <p className="text-slate-600 text-sm">
-              Real stories from business promoters and individuals across Tamil
-              Nadu who relied on SSS Associate.
+              Stories shared by business promoters and individuals who relied
+              on SSS Associate.
             </p>
           </div>
 
@@ -930,7 +919,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* AEO-Optimized FAQ Section */}
+      {/* FAQ Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14 space-y-3">
@@ -939,12 +928,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </span>
 
             <h2 className="text-3xl font-extrabold text-slate-900">
-              Everything You Need to Know
+              Common Questions About Our Services
             </h2>
 
             <p className="text-slate-600 text-sm">
-              Clear, transparent answers to questions frequently asked by
-              clients across Tamil Nadu.
+              Find answers about our services, document checks and consultation
+              process.
             </p>
           </div>
 
@@ -989,17 +978,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Ready To Speak Banner */}
+      {/* Contact CTA */}
       <section className="py-14 bg-red-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="text-2xl sm:text-4xl font-extrabold">
-            Ready to Safeguard Your Financial & Legal Interests?
+            Need Help With Property, Loans or Business Matters?
           </h2>
 
           <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Connect with SSS Associate today for dependable MSME registered
-            guidance. Fast turnaround, transparent consultation, and zero false
-            promises.
+            Contact SSS Associate to discuss your requirements. Our team can
+            explain the process, documents needed and possible next steps.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
