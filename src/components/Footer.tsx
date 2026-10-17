@@ -13,10 +13,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
       aria-label="SSS Associate website footer"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
-
           {/* Brand & Business Information */}
           <div className="lg:col-span-4 space-y-4">
             <a
@@ -39,7 +37,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span className="text-xl font-extrabold tracking-tight block text-white">
                   SSS ASSOCIATE
                 </span>
-
                 <span className="text-[10px] text-red-400 font-bold uppercase tracking-widest block -mt-1">
                   [ MSME ] REGISTERED
                 </span>
@@ -47,8 +44,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
 
             <p className="text-slate-300 text-sm leading-relaxed">
-              SSS Associate provides professional legal advisory, financial
-              advisory, accounts management, auditing, loan assistance, debt
+              SSS Associate provides legal advisory, financial advisory,
+              accounts management, auditing, loan assistance, debt
               restructuring, settlement solutions, property-related support,
               and bank auction advisory services across Tamil Nadu.
             </p>
@@ -64,7 +61,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               className="flex items-center gap-3 pt-2"
               aria-label="SSS Associate social media profiles"
             >
-              {/* Facebook */}
               <a
                 href="https://www.facebook.com/sundaramsuresh.sundaramsuresh"
                 target="_blank"
@@ -82,7 +78,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </svg>
               </a>
 
-              {/* Instagram */}
               <a
                 href="https://www.instagram.com/sssassociateservices/"
                 target="_blank"
@@ -121,7 +116,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Home Page
                 </a>
               </li>
-
               <li>
                 <a
                   href="/services"
@@ -134,7 +128,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   All Services
                 </a>
               </li>
-
               <li>
                 <a
                   href="/about"
@@ -147,7 +140,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   About SSS Associate
                 </a>
               </li>
-
               <li>
                 <a
                   href="/contact"
@@ -207,7 +199,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 >
                   📞
                 </span>
-
                 <div>
                   <div className="text-[10px] text-slate-400 uppercase font-semibold">
                     Primary Helpline
@@ -229,7 +220,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 >
                   📞
                 </span>
-
                 <div>
                   <div className="text-[10px] text-slate-400 uppercase font-semibold">
                     Secondary Helpline
@@ -245,7 +235,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <a
                   href="https://www.google.com/maps/place/SSS+Associate+services/data=!4m2!3m1!1s0x3ba857585b7660d3:0x8976a69b1d21bdd3?hl=en"
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900/70 p-3 transition-colors hover:bg-slate-800 group"
                   aria-label="View SSS Associate office address on Google Maps"
                 >
@@ -264,15 +254,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     <span className="block text-sm font-semibold leading-relaxed text-white">
                       9, Gandhi Nagar,
                       <br />
-                      Coimbatore – 641103,
+                      Coimbatore, Irugur,
                       <br />
-                      Tamil Nadu, India.
+                      Tamil Nadu 641103, India.
                     </span>
 
                     <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-red-400 group-hover:text-red-300">
-  Open Google Maps
-  <span aria-hidden="true">↗</span>
-</span>
+                      Open Google Maps
+                      <span aria-hidden="true">↗</span>
+                    </span>
                   </span>
                 </a>
 
@@ -284,34 +274,30 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              
-{/* Email */}
-<a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=sssassociateservices@gmail.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-center gap-2 text-slate-300 hover:text-red-400 transition-colors pt-1"
-  aria-label="Send an email to SSS Associate using Gmail"
->
-  <span aria-hidden="true">✉️</span>
-  <span className="break-all">
-    sssassociateservices@gmail.com
-  </span>
-</a>
-</div>
-</div>
-</div>
+              {/* Email */}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=sssassociateservices@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 text-slate-300 hover:text-red-400 transition-colors pt-1"
+                aria-label="Send an email to SSS Associate using Gmail"
+              >
+                <span aria-hidden="true">✉️</span>
+                <span className="break-all min-w-0">
+                  sssassociateservices@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
 
         {/* Bottom Legal & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-
-          {/* Automatic Copyright Year */}
           <div>
             &copy; {new Date().getFullYear()} SSS Associate [ MSME ] Registered.
             All rights reserved.
           </div>
 
-          {/* Legal Links - One Location Only */}
           <nav
             aria-label="Legal and policy navigation"
             className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs"
