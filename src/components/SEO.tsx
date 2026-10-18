@@ -50,17 +50,20 @@ export function SEO({
   noindex = false,
 }: SEOProps) {
   useEffect(() => {
-    const normalizedPath =
-      path === '/'
-        ? '/'
-        : `/${path.replace(/^\/+|\/+$/g, '')}`;
+    const cleanPath = path.replace(/^\/+|\/+$/g, '');
+
+    const normalizedPath = cleanPath ? `/${cleanPath}` : '/';
 
     const canonicalUrl = `${SITE_URL}${normalizedPath}`;
 
     document.title = title;
 
     setMeta('name', 'description', description);
+
+    // Google does not use the meta keywords tag for ranking.
+    // Kept for compatibility with existing project code.
     setMeta('name', 'keywords', keywords);
+
     setMeta(
       'name',
       'robots',
@@ -69,16 +72,20 @@ export function SEO({
         : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
     );
 
+    // Open Graph metadata
     setMeta('property', 'og:type', 'website');
     setMeta('property', 'og:site_name', 'SSS Associate');
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonicalUrl);
+    setMeta('property', 'og:locale', 'en_IN');
 
-    setMeta('name', 'twitter:card', 'summary_large_image');
+    // Twitter/X metadata
+    setMeta('name', 'twitter:card', 'summary');
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
 
+    // Canonical URL
     setLink('canonical', canonicalUrl);
   }, [title, description, path, keywords, noindex]);
 
