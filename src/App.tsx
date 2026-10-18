@@ -1,10 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
+
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { MobileBottomBar } from './components/MobileBottomBar';
 import { ConsultationModal } from './components/ConsultationModal';
+import { SEO } from './components/SEO';
+import { HomeTrustNotice } from './components/HomeTrustNotice';
 
 import { HomeView } from './views/HomeView';
 import { ServicesView } from './views/ServicesView';
@@ -15,14 +17,16 @@ import { PrivacyView } from './views/PrivacyView';
 import { DisclaimerView } from './views/DisclaimerView';
 import { TermsView } from './views/TermsView';
 import { RefundPolicyView } from './views/RefundPolicyView';
+import { EditorialPolicyView } from './views/EditorialPolicyView';
 
 import { SERVICES_DATA } from './data/servicesData';
-import { SEO } from './components/SEO';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<string>('home');
+
   const [selectedServiceId, setSelectedServiceId] =
     useState<string>('legal-advisory');
+
   const [consultationModalOpen, setConsultationModalOpen] =
     useState<boolean>(false);
 
@@ -30,6 +34,7 @@ export default function App() {
     const parseCurrentRoute = () => {
       const pathname =
         window.location.pathname.replace(/\/$/, '') || '/';
+
       const hash = window.location.hash.replace('#', '');
 
       if (pathname === '/about') {
@@ -47,6 +52,8 @@ export default function App() {
         }
       } else if (pathname === '/contact') {
         setCurrentView('contact');
+      } else if (pathname === '/editorial-policy') {
+        setCurrentView('editorial-policy');
       } else if (
         pathname === '/privacy' ||
         pathname === '/privacy-policy'
@@ -88,6 +95,8 @@ export default function App() {
           setCurrentView('about');
         } else if (hash === 'contact') {
           setCurrentView('contact');
+        } else if (hash === 'editorial-policy') {
+          setCurrentView('editorial-policy');
         } else if (hash === 'privacy') {
           setCurrentView('privacy');
         } else if (
@@ -141,6 +150,9 @@ export default function App() {
     } else if (view === 'contact') {
       targetPath = '/contact';
       setCurrentView('contact');
+    } else if (view === 'editorial-policy') {
+      targetPath = '/editorial-policy';
+      setCurrentView('editorial-policy');
     } else if (view === 'privacy') {
       targetPath = '/privacy';
       setCurrentView('privacy');
@@ -233,6 +245,16 @@ export default function App() {
           path: '/contact',
         };
 
+      case 'editorial-policy':
+        return {
+          title: 'Editorial Policy | SSS Associate',
+          description:
+            'Read the editorial policy explaining how SSS Associate reviews, updates and maintains website information.',
+          keywords:
+            'SSS Associate editorial policy, content accuracy, website information',
+          path: '/editorial-policy',
+        };
+
       case 'privacy':
         return {
           title: 'Privacy Policy | SSS Associate',
@@ -300,10 +322,14 @@ export default function App() {
 
       <main id="main-content">
         {currentView === 'home' && (
-          <HomeView
-            onNavigate={handleNavigate}
-            onSelectService={handleSelectService}
-          />
+          <>
+            <HomeView
+              onNavigate={handleNavigate}
+              onSelectService={handleSelectService}
+            />
+
+            <HomeTrustNotice onNavigate={handleNavigate} />
+          </>
         )}
 
         {currentView === 'services' && (
@@ -329,6 +355,10 @@ export default function App() {
         )}
 
         {currentView === 'contact' && <ContactView />}
+
+        {currentView === 'editorial-policy' && (
+          <EditorialPolicyView onNavigate={handleNavigate} />
+        )}
 
         {currentView === 'privacy' && (
           <PrivacyView onNavigate={handleNavigate} />
