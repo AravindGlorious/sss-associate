@@ -294,7 +294,7 @@ export default function App() {
           title:
             'SSS Associate | Legal & Financial Services in Coimbatore',
           description:
-            'Contact SSS Associate in Coimbatore, Tamil Nadu, for enquiries about legal advisory, property document verification, land survey assistance and financial consultancy services.',
+            'Contact SSS Associate in Coimbatore for legal advisory, property documents, land survey, loan assistance, accounts, auditing and debt settlement.',
           keywords:
             'SSS Associate, legal advisory Coimbatore, financial consultancy Coimbatore, property document verification, loan assistance, debt settlement, land survey, auditing, Tamil Nadu',
           path: '/',
