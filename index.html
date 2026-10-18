@@ -39,7 +39,7 @@
       href="https://sss-associate.vercel.app/"
     />
 
-    <!-- AI discoverability: ensure /llms.txt exists -->
+    <!-- AI discoverability -->
     <link
       rel="alternate"
       type="text/plain"
@@ -79,7 +79,7 @@
     />
     <meta property="og:locale" content="en_IN" />
 
-    <!-- Social sharing image: verify public/og-image.jpg exists -->
+    <!-- Social sharing image -->
     <meta
       property="og:image"
       content="https://sss-associate.vercel.app/og-image.jpg"
@@ -107,6 +107,15 @@
     />
 
     <!-- Performance hints -->
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+    />
+    <link
+      rel="dns-prefetch"
+      href="//www.googletagmanager.com"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
@@ -114,95 +123,103 @@
       crossorigin
     />
 
+    <!-- Preload the existing header logo -->
+    <link
+      rel="preload"
+      as="image"
+      href="/logo.png"
+      fetchpriority="high"
+    />
+
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://sss-associate.vercel.app/#organization",
-          "name": "SSS Associate",
-          "url": "https://sss-associate.vercel.app/",
-          "image": "https://sss-associate.vercel.app/og-image.jpg",
-          "description": "SSS Associate provides enquiries and assistance relating to legal advisory, property documentation, land survey, accounts, auditing, loans and debt settlement, subject to service availability and applicable professional requirements.",
-          "telephone": [
-            "+91-9385954338",
-            "+91-9087853733"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "9, Gandhi Nagar",
-            "addressLocality": "Irugur",
-            "addressRegion": "Tamil Nadu",
-            "postalCode": "641103",
-            "addressCountry": "IN"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sss-associate.vercel.app/#organization",
+            "name": "SSS Associate",
+            "url": "https://sss-associate.vercel.app/",
+            "image": "https://sss-associate.vercel.app/og-image.jpg",
+            "description": "SSS Associate provides enquiries and assistance relating to legal advisory, property documentation, land survey, accounts, auditing, loans and debt settlement, subject to service availability and applicable professional requirements.",
+            "telephone": [
+              "+91-9385954338",
+              "+91-9087853733"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "9, Gandhi Nagar",
+              "addressLocality": "Irugur",
+              "addressRegion": "Tamil Nadu",
+              "postalCode": "641103",
+              "addressCountry": "IN"
+            },
+            "areaServed": {
+              "@type": "State",
+              "name": "Tamil Nadu"
+            }
           },
-          "areaServed": {
-            "@type": "State",
-            "name": "Tamil Nadu"
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://sss-associate.vercel.app/#coimbatore-office",
+            "name": "SSS Associate",
+            "url": "https://sss-associate.vercel.app/",
+            "telephone": [
+              "+91-9385954338",
+              "+91-9087853733"
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "9, Gandhi Nagar",
+              "addressLocality": "Irugur",
+              "addressRegion": "Tamil Nadu",
+              "postalCode": "641103",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 11.0126729,
+              "longitude": 77.056734
+            },
+            "hasMap": "https://www.google.com/maps/place/SSS+Associate+Services/@11.0126729,77.056734,17z/",
+            "parentOrganization": {
+              "@id": "https://sss-associate.vercel.app/#organization"
+            },
+            "areaServed": {
+              "@type": "State",
+              "name": "Tamil Nadu"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sss-associate.vercel.app/#website",
+            "url": "https://sss-associate.vercel.app/",
+            "name": "SSS Associate",
+            "inLanguage": "en-IN",
+            "publisher": {
+              "@id": "https://sss-associate.vercel.app/#organization"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sss-associate.vercel.app/#webpage",
+            "url": "https://sss-associate.vercel.app/",
+            "name": "SSS Associate | Legal & Financial Services in Coimbatore",
+            "description": "Contact SSS Associate in Irugur, Coimbatore, for enquiries about legal advisory, property documentation, land survey, loan assistance, accounts, auditing and debt settlement.",
+            "inLanguage": "en-IN",
+            "isPartOf": {
+              "@id": "https://sss-associate.vercel.app/#website"
+            },
+            "about": {
+              "@id": "https://sss-associate.vercel.app/#organization"
+            },
+            "mainEntity": {
+              "@id": "https://sss-associate.vercel.app/#coimbatore-office"
+            }
           }
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://sss-associate.vercel.app/#coimbatore-office",
-          "name": "SSS Associate",
-          "url": "https://sss-associate.vercel.app/",
-          "telephone": [
-            "+91-9385954338",
-            "+91-9087853733"
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "9, Gandhi Nagar",
-            "addressLocality": "Irugur",
-            "addressRegion": "Tamil Nadu",
-            "postalCode": "641103",
-            "addressCountry": "IN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 11.0126729,
-            "longitude": 77.056734
-          },
-          "hasMap": "https://www.google.com/maps/place/SSS+Associate+Services/@11.0126729,77.056734,17z/",
-          "parentOrganization": {
-            "@id": "https://sss-associate.vercel.app/#organization"
-          },
-          "areaServed": {
-            "@type": "State",
-            "name": "Tamil Nadu"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://sss-associate.vercel.app/#website",
-          "url": "https://sss-associate.vercel.app/",
-          "name": "SSS Associate",
-          "inLanguage": "en-IN",
-          "publisher": {
-            "@id": "https://sss-associate.vercel.app/#organization"
-          }
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://sss-associate.vercel.app/#webpage",
-          "url": "https://sss-associate.vercel.app/",
-          "name": "SSS Associate | Legal & Financial Services in Coimbatore",
-          "description": "Contact SSS Associate in Irugur, Coimbatore, for enquiries about legal advisory, property documentation, land survey, loan assistance, accounts, auditing and debt settlement.",
-          "inLanguage": "en-IN",
-          "isPartOf": {
-            "@id": "https://sss-associate.vercel.app/#website"
-          },
-          "about": {
-            "@id": "https://sss-associate.vercel.app/#organization"
-          },
-          "mainEntity": {
-            "@id": "https://sss-associate.vercel.app/#coimbatore-office"
-          }
-        }
-      ]
-    }
+        ]
+      }
     </script>
   </head>
 
