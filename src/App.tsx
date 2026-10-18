@@ -198,11 +198,11 @@ export default function App() {
     switch (currentView) {
       case 'services':
         return {
-          title: 'Legal, Loan & Financial Services | SSS Associate',
+          title: 'Legal & Financial Services | SSS Associate',
           description:
-            'Explore legal advisory, loan assistance, auditing, debt settlement and bank auction support from SSS Associate, with offices in Coimbatore and Salem.',
+            'Explore legal advisory, property document verification, loan assistance, auditing and debt settlement services from SSS Associate, Coimbatore, Tamil Nadu.',
           keywords:
-            'legal services, loan assistance, financial services, auditing services, debt settlement, Coimbatore, Salem, Tiruppur',
+            'legal advisory, property document verification, loan assistance, auditing, debt settlement, Coimbatore, Tamil Nadu',
           path: '/services',
         };
 
@@ -213,12 +213,10 @@ export default function App() {
             'Legal & Financial Advisory Services | SSS Associate',
           description:
             selectedService?.metaDescription ||
-            'Explore legal and financial advisory services from SSS Associate. Contact our team in Coimbatore or Salem for service enquiries.',
+            'Explore legal and financial consultancy services from SSS Associate, Coimbatore, Tamil Nadu.',
           keywords: [
             selectedService?.title || 'legal and financial services',
             'Coimbatore',
-            'Salem',
-            'Tiruppur',
             'Tamil Nadu',
             'SSS Associate',
           ].join(', '),
@@ -227,21 +225,21 @@ export default function App() {
 
       case 'about':
         return {
-          title: 'About SSS Associate | Coimbatore & Salem',
+          title: 'About SSS Associate | Coimbatore',
           description:
-            'Learn about SSS Associate and its legal, financial, loan assistance and property-related advisory services from its Coimbatore and Salem offices.',
+            'Learn about SSS Associate, its business information and approach to legal, financial and property-related enquiries in Coimbatore, Tamil Nadu.',
           keywords:
-            'SSS Associate, legal and financial advisory, Coimbatore, Salem, Tamil Nadu',
+            'SSS Associate, legal advisory, financial consultancy, Coimbatore, Tamil Nadu',
           path: '/about',
         };
 
       case 'contact':
         return {
-          title: 'Contact SSS Associate | Coimbatore & Salem',
+          title: 'Contact SSS Associate | Coimbatore',
           description:
-            'Contact SSS Associate in Coimbatore or Salem for enquiries about legal advisory, loan assistance, auditing, property services and debt settlement.',
+            'Contact SSS Associate in Coimbatore for enquiries about legal advisory, property services, loan assistance, auditing and debt settlement.',
           keywords:
-            'contact SSS Associate, legal services Coimbatore, financial services Salem, loan assistance, debt settlement, Tiruppur',
+            'contact SSS Associate, legal advisory Coimbatore, loan assistance, property services, debt settlement',
           path: '/contact',
         };
 
@@ -296,9 +294,9 @@ export default function App() {
           title:
             'SSS Associate | Legal & Financial Services in Coimbatore',
           description:
-            'SSS Associate provides legal guidance, property document verification, land survey assistance and financial consultancy services in Coimbatore, Tamil Nadu.',
+            'Contact SSS Associate in Coimbatore, Tamil Nadu, for enquiries about legal advisory, property document verification, land survey assistance and financial consultancy services.',
           keywords:
-            'legal services Coimbatore, financial services Coimbatore, legal services Salem, loan assistance, debt settlement, land survey, auditing, Tiruppur, SSS Associate',
+            'SSS Associate, legal advisory Coimbatore, financial consultancy Coimbatore, property document verification, loan assistance, debt settlement, land survey, auditing, Tamil Nadu',
           path: '/',
         };
     }
