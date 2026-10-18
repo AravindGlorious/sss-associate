@@ -326,6 +326,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                       <input
                         id="home-consultation-fullName"
+                        aria-label="Full Name"
                         type="text"
                         name="fullName"
                         autoComplete="name"
@@ -349,6 +350,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                         <input
                           id="home-consultation-phone"
+                          aria-label="Phone Number"
                           type="tel"
                           name="phone"
                           autoComplete="tel"
@@ -371,6 +373,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                         <input
                           id="home-consultation-email"
+                          aria-label="Email Address"
                           type="email"
                           name="email"
                           autoComplete="email"
@@ -423,6 +426,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                       <textarea
                         id="home-consultation-notes"
+                        aria-label="Brief Note / Problem Description (Optional)"
                         name="notes"
                         rows={2}
                         value={formData.notes}
