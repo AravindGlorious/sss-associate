@@ -64,9 +64,15 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
           >
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-indigo-700 via-indigo-600 to-red-500 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
-              🏛️
-            </div>
+          <div className="w-11 h-11 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
+  <img
+    src="/logo.png"
+    alt="SSS Associate logo"
+    className="w-full h-full object-contain"
+    width={44}
+    height={44}
+  />
+</div>
             <div>
               <span className="text-xl font-extrabold text-slate-900 tracking-tight block">SSS ASSOCIATE</span>
               <span className="text-[10px] font-bold text-red-600 tracking-wider uppercase block -mt-1">[ MSME ] REGISTERED</span>
