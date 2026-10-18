@@ -46,6 +46,9 @@ export const DisclaimerView: React.FC<DisclaimerViewProps> = ({ onNavigate }) =>
               published on this website or contacting SSS Associate.
             </p>
           </header>
+          <p className="text-xs text-slate-500">
+  Last reviewed: October 18, 2026
+</p>
 
           {/* General Information */}
           <section className="space-y-4 bg-amber-50/80 p-6 rounded-2xl border border-amber-200">
