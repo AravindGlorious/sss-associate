@@ -131,7 +131,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   aria-hidden="true"
                 />
                 <span>
-                  Trusted MSME Registered Financial &amp; Legal Experts
+                  MSME-Registered Financial &amp; Legal Consultancy
                 </span>
               </div>
 
@@ -205,7 +205,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   >
                     ✓
                   </span>
-                  Confidential Enquiries
+                  Enquiry Support
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span
@@ -232,7 +232,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-5" id="consultation">
               <div className="bg-linear-to-br from-indigo-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative border border-slate-800">
                 <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  Priority Callback
+                  Consultation Enquiry
                 </div>
 
                 <div className="mb-5">
@@ -522,7 +522,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
-              Our Core Expertise
+              Our Services
             </span>
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
