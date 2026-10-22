@@ -273,7 +273,7 @@ export default function App() {
 
       case 'blog':
         return {
-          title: 'Property & Legal Guides | SSS Associate',
+          title: 'Property Document Verification Guide | SSS Associate',
           description:
             'Read practical guides about property document verification, land records and property due diligence in Tamil Nadu.',
           keywords:
