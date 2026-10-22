@@ -91,7 +91,9 @@ export const BlogView: React.FC<BlogViewProps> = ({ onNavigate }) => {
               Home
             </button>
             <ChevronRight size={14} aria-hidden="true" />
-            <span className="font-semibold text-slate-900">Insights & Guides</span>
+            <span className="font-semibold text-slate-900">
+              Insights & Guides
+            </span>
           </nav>
 
           <div className="max-w-3xl">
@@ -133,6 +135,23 @@ export const BlogView: React.FC<BlogViewProps> = ({ onNavigate }) => {
           <div className="min-w-0">
             {/* Featured article card */}
             <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+              {/* Featured image */}
+              <figure className="overflow-hidden bg-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85"
+                  alt="Open land and countryside relevant to property purchase and land document checks"
+                  className="h-56 w-full object-cover sm:h-72 lg:h-80"
+                  width={1600}
+                  height={800}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+                <figcaption className="px-5 py-2 text-xs text-slate-500 sm:px-8">
+                  Property due diligence starts with reviewing the relevant land
+                  and ownership records.
+                </figcaption>
+              </figure>
+
               <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-indigo-800 px-6 py-9 sm:px-10 sm:py-12">
                 <div
                   aria-hidden="true"
@@ -269,6 +288,23 @@ export const BlogView: React.FC<BlogViewProps> = ({ onNavigate }) => {
                       where applicable:
                     </p>
 
+                    {/* Document verification image */}
+                    <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                      <img
+                        src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
+                        alt="Paperwork being reviewed and organised as part of property document verification"
+                        className="h-48 w-full object-cover sm:h-60"
+                        width={1200}
+                        height={600}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption className="px-4 py-3 text-xs leading-5 text-slate-500 sm:px-5">
+                        Compare the documents supplied with relevant official
+                        records and seek clarification on inconsistencies.
+                      </figcaption>
+                    </figure>
+
                     <div className="overflow-hidden rounded-2xl border border-slate-200">
                       {[
                         {
@@ -399,6 +435,25 @@ export const BlogView: React.FC<BlogViewProps> = ({ onNavigate }) => {
                       measurements, access, boundary descriptions and the
                       physical extent of the property.
                     </p>
+
+                    {/* Land and survey image */}
+                    <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+                      <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+                        alt="Landscape and open land illustrating the importance of checking property boundaries and survey details"
+                        className="h-48 w-full object-cover sm:h-60"
+                        width={1200}
+                        height={600}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption className="px-4 py-3 text-xs leading-5 text-slate-500 sm:px-5">
+                        Compare survey particulars and boundaries with the site
+                        and relevant records; a visual inspection alone does
+                        not prove ownership.
+                      </figcaption>
+                    </figure>
+
                     <p>
                       Where necessary, obtain assistance from an appropriately
                       qualified survey professional and check the relevant
