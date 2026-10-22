@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ArrowLeft,
   ArrowRight,
   ArrowUpRight,
   BookOpen,
@@ -10,12 +9,9 @@ import {
   Clock3,
   FileCheck2,
   FileSearch,
-  HelpCircle,
   Home,
   ShieldCheck,
   Scale,
-  MessageCircle,
-  MapPin,
 } from 'lucide-react';
 
 interface BlogViewProps {
@@ -65,13 +61,12 @@ const faqs = [
   },
 ];
 
-// Helper components for clean formatting
 const SectionHeading: React.FC<{ number: string; children: React.ReactNode }> = ({
   number,
   children,
 }) => (
   <h2 className="flex items-center gap-3 text-xl font-bold text-slate-900 sm:text-2xl">
-    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-100 text-sm font-bold text-indigo-800">
+    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-red-50 text-sm font-bold text-red-600">
       {number}
     </span>
     {children}
@@ -82,7 +77,7 @@ const Checklist: React.FC<{ items: string[] }> = ({ items }) => (
   <ul className="my-4 space-y-2.5">
     {items.map((item, i) => (
       <li key={i} className="flex items-start gap-3 text-sm text-slate-700 sm:text-base">
-        <CheckCircle2 size={18} className="mt-1 shrink-0 text-indigo-600" />
+        <CheckCircle2 size={18} className="mt-1 shrink-0 text-emerald-600" />
         <span>{item}</span>
       </li>
     ))}
@@ -99,17 +94,8 @@ export const BlogView: React.FC<BlogViewProps> = ({
     <main className="min-h-screen bg-slate-50 text-slate-700">
       {/* Hero — listing page only */}
       {!isArticlePage && (
-        <section className="relative isolate overflow-hidden border-b border-slate-200 bg-white">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-          >
-            <div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-indigo-100/60 blur-3xl" />
-            <div className="absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-red-100/40 blur-3xl" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#64748b08_1px,transparent_1px),linear-gradient(to_bottom,#64748b08_1px,transparent_1px)] bg-[size:36px_36px]" />
-          </div>
-
-          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+        <section className="relative overflow-hidden border-b border-slate-200 bg-white py-12 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav
               aria-label="Breadcrumb"
               className="mb-8 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500 sm:text-sm"
@@ -117,7 +103,7 @@ export const BlogView: React.FC<BlogViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('home')}
-                className="inline-flex items-center gap-1.5 transition-colors hover:text-indigo-700"
+                className="inline-flex items-center gap-1.5 transition-colors hover:text-slate-900 cursor-pointer"
               >
                 <Home size={14} aria-hidden="true" />
                 Home
@@ -129,30 +115,30 @@ export const BlogView: React.FC<BlogViewProps> = ({
             </nav>
 
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-indigo-800">
+              <span className="inline-flex items-center gap-2 rounded-full border border-red-100 bg-red-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-red-600">
                 <BookOpen size={14} aria-hidden="true" />
                 SSS Associate Insights
               </span>
 
               <h1 className="mt-6 text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
-                Practical insights for
-                <span className="block text-indigo-700">
+                Practical insights for{' '}
+                <span className="text-red-600">
                   property & financial decisions.
                 </span>
               </h1>
 
-              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                 Explore practical guides on property documentation, land records,
                 financial matters and due diligence to help you make more informed
                 decisions.
               </p>
 
               <div className="mt-7 flex flex-wrap items-center gap-3 text-sm text-slate-600">
-                <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
-                  <FileSearch size={16} className="text-indigo-700" />
+                <span className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 shadow-xs">
+                  <FileSearch size={16} className="text-red-600" />
                   Property documentation
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2">
+                <span className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 shadow-xs">
                   <Scale size={16} className="text-red-600" />
                   Legal awareness
                 </span>
@@ -164,8 +150,8 @@ export const BlogView: React.FC<BlogViewProps> = ({
 
       {/* Article page heading */}
       {isArticlePage && (
-        <section className="border-b border-slate-200 bg-white">
-          <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        <section className="border-b border-slate-200 bg-white py-10 sm:py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav
               aria-label="Breadcrumb"
               className="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500"
@@ -173,7 +159,7 @@ export const BlogView: React.FC<BlogViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('home')}
-                className="hover:text-indigo-700"
+                className="hover:text-slate-900 cursor-pointer"
               >
                 Home
               </button>
@@ -181,22 +167,22 @@ export const BlogView: React.FC<BlogViewProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('blog')}
-                className="hover:text-indigo-700"
+                className="hover:text-slate-900 cursor-pointer"
               >
                 Insights & Guides
               </button>
               <ChevronRight size={14} aria-hidden="true" />
-              <span className="text-slate-700">Property Document Verification</span>
+              <span className="font-medium text-slate-800">Property Document Verification</span>
             </nav>
 
             <div className="max-w-3xl">
-              <span className="inline-flex rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-indigo-800">
+              <span className="inline-flex rounded-full border border-red-100 bg-red-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-red-600">
                 Property Due Diligence
               </span>
               <h1 className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
                 How to Verify Land Documents Before Buying Property
               </h1>
-              <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+              <p className="mt-5 text-base leading-7 text-slate-600 sm:text-lg">
                 A practical guide to reviewing ownership history, land records,
                 encumbrances and property details before making a purchase.
               </p>
@@ -221,8 +207,7 @@ export const BlogView: React.FC<BlogViewProps> = ({
           <div className="min-w-0">
             {/* Featured article card — listing page only */}
             {!isArticlePage && (
-              <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                {/* Featured image */}
+              <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
                 <figure className="overflow-hidden bg-slate-100">
                   <img
                     src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85"
@@ -239,41 +224,27 @@ export const BlogView: React.FC<BlogViewProps> = ({
                   </figcaption>
                 </figure>
 
-                <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-indigo-800 px-6 py-9 sm:px-10 sm:py-12">
-                  <div
-                    aria-hidden="true"
-                    className="absolute -right-12 -top-16 h-64 w-64 rounded-full border border-white/10"
-                  />
-                  <div
-                    aria-hidden="true"
-                    className="absolute -right-2 -top-6 h-44 w-44 rounded-full border border-white/10"
-                  />
+                <div className="relative overflow-hidden bg-linear-to-br from-indigo-950 via-slate-900 to-indigo-950 p-6 sm:p-10 text-white">
+                  <span className="inline-flex rounded-full bg-red-600/30 border border-red-500/40 px-3 py-1 text-xs font-bold uppercase tracking-wider text-red-400">
+                    Featured guide
+                  </span>
 
-                  <div className="relative max-w-2xl">
-                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-indigo-100">
-                      Featured guide
-                    </span>
+                  <h2 className="mt-4 text-2xl font-extrabold leading-tight sm:text-3xl">
+                    Property Document Verification in Coimbatore: A Practical Guide for Buyers
+                  </h2>
 
-                    <h2 className="mt-5 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
-                      Property Document Verification in Coimbatore: A Practical
-                      Guide for Buyers
-                    </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                    Understand the key records to review, ownership questions to ask and common issues to investigate before purchasing land or a property.
+                  </p>
 
-                    <p className="mt-4 max-w-xl text-sm leading-7 text-indigo-100 sm:text-base">
-                      Understand the key records to review, ownership questions
-                      to ask and common issues to investigate before purchasing
-                      land or a property.
-                    </p>
-
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('blog-post')}
-                      className="mt-7 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold text-indigo-900 transition-colors hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-900"
-                    >
-                      Read the full guide
-                      <ArrowRight size={17} aria-hidden="true" />
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('blog-post')}
+                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 px-5 py-3 text-sm font-bold text-white transition-colors shadow-lg shadow-red-500/25 cursor-pointer"
+                  >
+                    Read the full guide
+                    <ArrowRight size={17} />
+                  </button>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-slate-100 px-6 py-5 text-xs text-slate-500 sm:px-8 sm:text-sm">
@@ -380,7 +351,6 @@ export const BlogView: React.FC<BlogViewProps> = ({
                         where applicable:
                       </p>
 
-                      {/* Document verification image */}
                       <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
                         <img
                           src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80"
@@ -528,7 +498,6 @@ export const BlogView: React.FC<BlogViewProps> = ({
                         physical extent of the property.
                       </p>
 
-                      {/* Land and survey image */}
                       <figure className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
                         <img
                           src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
@@ -606,7 +575,7 @@ export const BlogView: React.FC<BlogViewProps> = ({
                           <details key={faq.question} className="group p-5">
                             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 text-sm font-bold leading-6 text-slate-900 marker:hidden">
                               <span>{faq.question}</span>
-                              <span className="mt-0.5 shrink-0 text-indigo-700 transition-transform group-open:rotate-45">
+                              <span className="mt-0.5 shrink-0 text-red-600 transition-transform group-open:rotate-45">
                                 <ArrowRight size={17} aria-hidden="true" />
                               </span>
                             </summary>
@@ -638,7 +607,6 @@ export const BlogView: React.FC<BlogViewProps> = ({
                     </section>
                   </div>
 
-                  {/* Article disclaimer */}
                   <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50/70 p-5">
                     <div className="flex items-start gap-3">
                       <ShieldCheck
@@ -661,7 +629,7 @@ export const BlogView: React.FC<BlogViewProps> = ({
                         <button
                           type="button"
                           onClick={() => onNavigate('disclaimer')}
-                          className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-indigo-800 hover:text-indigo-950"
+                          className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-red-600 hover:text-red-700 cursor-pointer"
                         >
                           Read our full disclaimer
                           <ArrowUpRight size={15} aria-hidden="true" />
@@ -676,42 +644,41 @@ export const BlogView: React.FC<BlogViewProps> = ({
 
           {/* Sidebar */}
           <aside className="space-y-6 lg:sticky lg:top-8">
-            <div className="rounded-3xl border border-indigo-100 bg-indigo-900 p-6 text-white shadow-sm">
+            <div className="rounded-3xl border border-slate-800 bg-linear-to-br from-indigo-950 via-slate-900 to-indigo-950 p-6 text-white shadow-xl">
               <h3 className="text-lg font-bold">Need Help with Verification?</h3>
-              <p className="mt-2 text-sm leading-relaxed text-indigo-200">
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
                 Get guidance on document checks and property due diligence from our experts.
               </p>
+              
+              {/* Professional WhatsApp Button */}
               <a
-  href={WHATSAPP_URL}
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="WhatsApp Consultation"
-  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#1DA851]"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="h-5 w-5 shrink-0"
-    aria-hidden="true"
-  >
-    <path d="M20.52 3.48A11.87 11.87 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.93c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 0 0 5.78 1.47h.01c6.58 0 11.93-5.35 11.94-11.93a11.86 11.86 0 0 0-3.48-8.42ZM12.06 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.98.99-3.63-.24-.37a9.87 9.87 0 0 1-1.52-5.26c0-5.46 4.45-9.91 9.92-9.91a9.85 9.85 0 0 1 7.01 2.91 9.85 9.85 0 0 1 2.9 7.02c-.01 5.46-4.46 9.91-9.93 9.91Zm5.44-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.27.5 1.7.64.72.23 1.37.2 1.89.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.08-.12-.27-.2-.57-.35Z" />
-  </svg>
-  WhatsApp Consultation
-</a>
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] px-4 py-3 text-sm font-bold text-white transition-colors shadow-lg shadow-emerald-900/20"
+              >
+                <svg
+                  className="h-5 w-5 fill-current"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.762.459 3.48 1.332 5.001L2 22l5.12-1.334c1.463.797 3.111 1.218 4.887 1.218h.005c5.507 0 9.991-4.479 9.992-9.986 0-2.667-1.038-5.175-2.925-7.063A9.923 9.923 0 0012.012 2zM12.01 20.314h-.004c-1.5 0-2.972-.403-4.257-1.165l-.305-.181-3.163.824.842-3.08-.201-.318a8.318 8.318 0 01-1.272-4.41c.001-4.582 3.731-8.31 8.317-8.31 2.22 0 4.306.865 5.875 2.435a8.262 8.262 0 012.43 5.877c-.002 4.583-3.732 8.312-8.262 8.312zm4.557-6.223c-.25-.125-1.477-.728-1.706-.812-.228-.083-.395-.125-.561.125-.167.25-.645.812-.79.978-.146.167-.292.188-.542.063-.25-.125-1.056-.389-2.012-1.242-.743-.663-1.245-1.482-1.391-1.732-.146-.25-.015-.385.11-.509.112-.112.25-.292.375-.438.125-.145.166-.25.25-.416.083-.167.042-.313-.021-.438-.063-.125-.562-1.353-.77-1.85-.203-.485-.41-.419-.562-.427l-.48-.009c-.166 0-.437.063-.666.313-.229.25-.875.855-.875 2.084 0 1.23.896 2.417 1.021 2.584.125.167 1.763 2.693 4.272 3.778.597.258 1.063.412 1.427.527.6.19 1.146.163 1.577.099.48-.072 1.477-.604 1.686-1.188.208-.584.208-1.084.146-1.188-.063-.104-.229-.167-.479-.292z" />
+                </svg>
+                <span>WhatsApp Consultation</span>
+              </a>
             </div>
 
             {isArticlePage && (
               <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   On this page
                 </h3>
-                <nav className="mt-4 flex flex-col space-y-2">
+                <nav className="mt-4 flex flex-col space-y-2.5">
                   {articleSections.map((section) => (
                     <a
                       key={section.id}
                       href={`#${section.id}`}
-                      className="text-sm text-slate-600 hover:text-indigo-600"
+                      className="text-sm text-slate-600 hover:text-red-600 transition-colors"
                     >
                       {section.label}
                     </a>
