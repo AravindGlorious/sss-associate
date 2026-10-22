@@ -141,6 +141,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
+  <a
+    href="/blog"
+    onClick={(e) => {
+      e.preventDefault();
+      onNavigate('blog');
+    }}
+    className="hover:text-red-400 transition-colors cursor-pointer text-left block"
+  >
+    Blog
+  </a>
+</li>
+              <li>
                 <a
                   href="/contact"
                   onClick={(e) => {
