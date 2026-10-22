@@ -18,6 +18,7 @@ import { DisclaimerView } from './views/DisclaimerView';
 import { TermsView } from './views/TermsView';
 import { RefundPolicyView } from './views/RefundPolicyView';
 import { EditorialPolicyView } from './views/EditorialPolicyView';
+import { BlogView } from './views/BlogView';
 
 import { SERVICES_DATA } from './data/servicesData';
 
@@ -52,6 +53,13 @@ export default function App() {
         }
       } else if (pathname === '/contact') {
         setCurrentView('contact');
+      } else if (pathname === '/blog') {
+        setCurrentView('blog');
+      } else if (
+        pathname ===
+        '/blog/how-to-verify-land-documents-before-buying-property'
+      ) {
+        setCurrentView('blog-post');
       } else if (pathname === '/editorial-policy') {
         setCurrentView('editorial-policy');
       } else if (
@@ -95,6 +103,13 @@ export default function App() {
           setCurrentView('about');
         } else if (hash === 'contact') {
           setCurrentView('contact');
+        } else if (hash === 'blog') {
+          setCurrentView('blog');
+        } else if (
+          hash ===
+          'blog-how-to-verify-land-documents-before-buying-property'
+        ) {
+          setCurrentView('blog-post');
         } else if (hash === 'editorial-policy') {
           setCurrentView('editorial-policy');
         } else if (hash === 'privacy') {
@@ -150,6 +165,13 @@ export default function App() {
     } else if (view === 'contact') {
       targetPath = '/contact';
       setCurrentView('contact');
+    } else if (view === 'blog') {
+      targetPath = '/blog';
+      setCurrentView('blog');
+    } else if (view === 'blog-post') {
+      targetPath =
+        '/blog/how-to-verify-land-documents-before-buying-property';
+      setCurrentView('blog-post');
     } else if (view === 'editorial-policy') {
       targetPath = '/editorial-policy';
       setCurrentView('editorial-policy');
@@ -170,8 +192,14 @@ export default function App() {
     try {
       window.history.pushState({}, '', targetPath);
     } catch {
-      window.location.hash =
-        targetPath === '/' ? 'home' : targetPath.replace('/', '');
+      const fallbackHash =
+        view === 'blog-post'
+          ? 'blog-how-to-verify-land-documents-before-buying-property'
+          : targetPath === '/'
+            ? 'home'
+            : targetPath.replace('/', '');
+
+      window.location.hash = fallbackHash;
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -241,6 +269,28 @@ export default function App() {
           keywords:
             'contact SSS Associate, legal advisory Coimbatore, loan assistance, property services, debt settlement',
           path: '/contact',
+        };
+
+      case 'blog':
+        return {
+          title: 'Property & Legal Guides | SSS Associate',
+          description:
+            'Read practical guides about property document verification, land records and property due diligence in Tamil Nadu.',
+          keywords:
+            'property document verification, land records, property due diligence, Coimbatore, Tamil Nadu',
+          path: '/blog',
+        };
+
+      case 'blog-post':
+        return {
+          title:
+            'How to Verify Land Documents Before Buying Property | SSS Associate',
+          description:
+            'Learn which property documents to review before buying land in Tamil Nadu, including title deeds, EC, Patta and survey records.',
+          keywords:
+            'verify land documents, property document verification, Patta, Encumbrance Certificate, Tamil Nadu',
+          path:
+            '/blog/how-to-verify-land-documents-before-buying-property',
         };
 
       case 'editorial-policy':
@@ -361,6 +411,14 @@ export default function App() {
         )}
 
         {currentView === 'contact' && <ContactView />}
+
+        {(currentView === 'blog' || currentView === 'blog-post') && (
+          <BlogView
+            currentView={currentView}
+            onNavigate={handleNavigate}
+            onOpenConsultationModal={() => setConsultationModalOpen(true)}
+          />
+        )}
 
         {currentView === 'editorial-policy' && (
           <EditorialPolicyView onNavigate={handleNavigate} />
