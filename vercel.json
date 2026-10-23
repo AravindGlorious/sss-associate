@@ -1,3 +1,4 @@
+
 {
   "headers": [
     {
@@ -31,6 +32,10 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/.well-known/ai-catalog.json",
+      "destination": "/.well-known/ai-catalog.json"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
