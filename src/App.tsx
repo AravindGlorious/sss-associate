@@ -4,11 +4,11 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
 import { MobileBottomBar } from './components/MobileBottomBar';
-import { ConsultationModal } from './components/ConsultationModal';
 import { SEO } from './components/SEO';
 import { HomeTrustNotice } from './components/HomeTrustNotice';
 
 import { HomeView } from './views/HomeView';
+import { SERVICES_DATA } from './data/servicesData';
 const ServicesView = lazy(() =>
   import('./views/ServicesView').then((m) => ({ default: m.ServicesView }))
 );
@@ -49,7 +49,12 @@ const BlogView = lazy(() =>
   import('./views/BlogView').then((m) => ({ default: m.BlogView }))
 );
 
-import { SERVICES_DATA } from './data/servicesData';
+const ConsultationModal = lazy(() =>
+  import('./components/ConsultationModal').then((m) => ({
+    default: m.ConsultationModal,
+  }))
+);
+
 
 export default function App() {
   const [currentView, setCurrentView] = useState<string>('home');
@@ -406,6 +411,14 @@ export default function App() {
       />
 
       <main id="main-content" tabIndex={-1}>
+        <Suspense
+  fallback={
+    <div
+      className="min-h-[40vh]"
+      aria-label="Loading content"
+    />
+  }
+>
         {currentView === 'home' && (
           <>
             <HomeView
@@ -468,6 +481,7 @@ export default function App() {
         {currentView === 'refund' && (
           <RefundPolicyView onNavigate={handleNavigate} />
         )}
+        </Suspense>
       </main>
 
       <Footer onNavigate={handleNavigate} />
@@ -476,11 +490,15 @@ export default function App() {
 
       <MobileBottomBar />
 
-      <ConsultationModal
-        isOpen={consultationModalOpen}
-        onClose={() => setConsultationModalOpen(false)}
-        initialServiceId={selectedServiceId}
-      />
+      {consultationModalOpen && (
+  <Suspense fallback={null}>
+    <ConsultationModal
+      isOpen={consultationModalOpen}
+      onClose={() => setConsultationModalOpen(false)}
+      initialServiceId={selectedServiceId}
+    />
+  </Suspense>
+)}
     </div>
   );
 }
