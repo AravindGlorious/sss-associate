@@ -106,7 +106,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Hero Content */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 font-semibold text-xs sm:text-sm tracking-wide uppercase border border-red-100 shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-red-700 font-semibold text-xs sm:text-sm tracking-wide uppercase border border-red-100 shadow-2xs">
                 <ShieldCheck
                   size={16}
                   strokeWidth={2.2}
@@ -429,7 +429,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                         : 'Submit Consultation Request'}
                     </button>
 
-                    <p className="text-[10px] text-slate-400 text-center pt-1">
+                    <p className="text-[10px] text-slate-300 text-center pt-1">
                       🔒 We handle your enquiry details with care.
                     </p>
                   </form>
@@ -508,7 +508,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section id="services" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
+            <span className="text-red-700 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
               Our Services
             </span>
 
@@ -537,7 +537,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     {srv.icon}
                   </div>
 
-                  <span className="text-[10px] font-bold text-red-600 uppercase tracking-wider block mb-1">
+                  <span className="text-[10px] font-bold text-red-700 uppercase tracking-wider block mb-1">
                     {srv.badge}
                   </span>
 
@@ -561,7 +561,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <span aria-hidden="true">→</span>
                   </button>
 
-                  <span className="text-xs text-slate-400 group-hover:text-slate-600">
+                  <span className="text-xs text-slate-600 group-hover:text-slate-700">
                     Learn More
                   </span>
                 </div>
@@ -662,7 +662,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
+              <span className="text-red-700 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
                 Why Choose SSS Associate
               </span>
 
@@ -740,7 +740,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       📞
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 font-semibold uppercase">
+                      <div className="text-xs text-slate-300 font-semibold uppercase">
                         Primary Helpline
                       </div>
                       <div className="text-xl font-bold text-white">
@@ -761,7 +761,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                       📞
                     </div>
                     <div>
-                      <div className="text-xs text-slate-400 font-semibold uppercase">
+                      <div className="text-xs text-slate-300 font-semibold uppercase">
                         Secondary Helpline
                       </div>
                       <div className="text-xl font-bold text-white">
@@ -787,7 +787,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
+            <span className="text-red-700 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
               Our Process
             </span>
 
@@ -851,7 +851,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
+            <span className="text-red-700 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
               Our Approach
             </span>
 
@@ -887,7 +887,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 key={item.tag}
                 className="bg-white p-7 rounded-3xl shadow-sm border border-slate-100"
               >
-                <span className="inline-block text-[10px] bg-red-50 text-red-600 font-bold px-2.5 py-1 rounded-full mb-5">
+                <span className="inline-block text-[10px] bg-red-50 text-red-700 font-bold px-2.5 py-1 rounded-full mb-5">
                   {item.tag}
                 </span>
                 <h3 className="font-bold text-slate-900 text-lg mb-3">
@@ -906,7 +906,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14 space-y-3">
-            <span className="text-red-600 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
+            <span className="text-red-700 font-bold text-xs sm:text-sm tracking-widest uppercase bg-red-100 px-3.5 py-1 rounded-full">
               Frequently Asked Questions
             </span>
 
@@ -968,7 +968,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             Need Help With Property, Loans or Business Matters?
           </h2>
 
-          <p className="text-white/90 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Contact SSS Associate to discuss your requirements. Our team can
             explain the process, documents needed and possible next steps.
           </p>
