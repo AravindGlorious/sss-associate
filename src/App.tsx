@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -9,16 +9,45 @@ import { SEO } from './components/SEO';
 import { HomeTrustNotice } from './components/HomeTrustNotice';
 
 import { HomeView } from './views/HomeView';
-import { ServicesView } from './views/ServicesView';
-import { ServiceDetailView } from './views/ServiceDetailView';
-import { AboutView } from './views/AboutView';
-import { ContactView } from './views/ContactView';
-import { PrivacyView } from './views/PrivacyView';
-import { DisclaimerView } from './views/DisclaimerView';
-import { TermsView } from './views/TermsView';
-import { RefundPolicyView } from './views/RefundPolicyView';
-import { EditorialPolicyView } from './views/EditorialPolicyView';
-import { BlogView } from './views/BlogView';
+const ServicesView = lazy(() =>
+  import('./views/ServicesView').then((m) => ({ default: m.ServicesView }))
+);
+
+const ServiceDetailView = lazy(() =>
+  import('./views/ServiceDetailView').then((m) => ({ default: m.ServiceDetailView }))
+);
+
+const AboutView = lazy(() =>
+  import('./views/AboutView').then((m) => ({ default: m.AboutView }))
+);
+
+const ContactView = lazy(() =>
+  import('./views/ContactView').then((m) => ({ default: m.ContactView }))
+);
+
+const PrivacyView = lazy(() =>
+  import('./views/PrivacyView').then((m) => ({ default: m.PrivacyView }))
+);
+
+const DisclaimerView = lazy(() =>
+  import('./views/DisclaimerView').then((m) => ({ default: m.DisclaimerView }))
+);
+
+const TermsView = lazy(() =>
+  import('./views/TermsView').then((m) => ({ default: m.TermsView }))
+);
+
+const RefundPolicyView = lazy(() =>
+  import('./views/RefundPolicyView').then((m) => ({ default: m.RefundPolicyView }))
+);
+
+const EditorialPolicyView = lazy(() =>
+  import('./views/EditorialPolicyView').then((m) => ({ default: m.EditorialPolicyView }))
+);
+
+const BlogView = lazy(() =>
+  import('./views/BlogView').then((m) => ({ default: m.BlogView }))
+);
 
 import { SERVICES_DATA } from './data/servicesData';
 
