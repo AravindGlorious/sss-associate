@@ -1,0 +1,17 @@
+
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:sss-associate:website",
+      "displayName": "SSS Associate Website",
+      "type": "text/html",
+      "url": "https://sss-associate.vercel.app/",
+      "description": "SSS Associate provides legal advisory enquiries, property document assistance, land survey assistance, accounts, auditing, loan assistance, debt settlement and bank auction support in Coimbatore, Tamil Nadu.",
+      "representativeQueries": [
+        "What services does SSS Associate provide?",
+        "How can I contact SSS Associate for property document assistance?"
+      ]
+    }
+  ]
+}
