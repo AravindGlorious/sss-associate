@@ -2,16 +2,6 @@ import { ShieldCheck } from 'lucide-react';
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/servicesData';
 
-declare global {
-  interface Window {
-    gtag?: (
-      command: string,
-      eventName: string,
-      params: { send_to: string }
-    ) => void;
-  }
-}
-
 interface HomeViewProps {
   onNavigate: (view: string, serviceId?: string) => void;
   onSelectService: (serviceId: string) => void;
@@ -67,13 +57,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
         throw new Error(
           result.error || 'Unable to send your enquiry. Please try again.'
         );
-      }
-
-      // Track the conversion only after successful form submission.
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', {
-          send_to: 'AW-18511083261/qQdWCMGv5ZwdEP3t4vpE',
-        });
       }
 
       setSubmitted(true);
