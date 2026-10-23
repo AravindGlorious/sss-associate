@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <div className="w-11 h-11 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform">
               <img
-  src="/logo.webp"
+  src="/logo-192.webp"
   fetchPriority="high"
   alt="SSS Associate logo"
   className="w-full h-full object-contain"
