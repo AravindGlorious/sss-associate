@@ -24,7 +24,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     title: 'Legal Opinion & Advisory Services',
     metaTitle: 'Legal Opinion & Advisory Services in Tamil Nadu | SSS Associate',
     metaDescription:
-      'Legal opinion, property document review, title verification, contract drafting and compliance advisory services for individuals, businesses and MSMEs across Tamil Nadu.',
+      'SSS Associate offers property document verification, title checks and legal consultancy in Coimbatore, Tamil Nadu.',
     shortDesc:
       'Legal opinion, property document review, contract drafting, compliance support, and dispute-related advisory.',
     badge: 'Legal & Compliance',
@@ -113,7 +113,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaTitle:
       'Land Survey & Boundary Verification Services in Tamil Nadu | SSS Associate',
     metaDescription:
-      'Professional land measurement, FMB sketch verification, boundary demarcation, survey record review and subdivision support for properties across Tamil Nadu.',
+      'Land measurement, FMB sketch verification, boundary demarcation and subdivision support across Tamil Nadu.',
     shortDesc:
       'Professional land measurement, FMB sketch verification, boundary demarcation, and survey record review across Tamil Nadu.',
     badge: 'Survey & Revenue',
@@ -209,7 +209,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaTitle:
       'Accounts Management & Bookkeeping Services in Tamil Nadu | SSS Associate',
     metaDescription:
-      'Professional bookkeeping, GST and TDS compliance support, financial statement preparation and account reconciliation for businesses and MSMEs across Tamil Nadu.',
+      'Bookkeeping, GST and TDS compliance, financial statements and account reconciliation for Tamil Nadu businesses.',
     shortDesc:
       'Bookkeeping, account reconciliation, financial statements, GST and TDS compliance support for businesses.',
     badge: 'Accounting & Tax',
