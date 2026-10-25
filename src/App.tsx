@@ -287,7 +287,7 @@ export default function App() {
 
       case 'about':
         return {
-          title: 'About SSS Associate | Coimbatore',
+          title: 'About SSS Associate | Legal & Property Services in Coimbatore',
           description:
             'Learn about SSS Associate, its business information and approach to legal, financial and property-related enquiries in Coimbatore, Tamil Nadu.',
           keywords:
@@ -297,7 +297,7 @@ export default function App() {
 
       case 'contact':
         return {
-          title: 'Contact SSS Associate | Coimbatore',
+          title: 'Contact SSS Associate | Legal & Property Consultancy in Coimbatore',
           description:
             'Contact SSS Associate in Coimbatore for enquiries about legal advisory, property services, loan assistance, auditing and debt settlement.',
           keywords:
